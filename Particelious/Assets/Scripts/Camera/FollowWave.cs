@@ -15,7 +15,7 @@ public class FollowWave : MonoBehaviour {
         FollowerTransform = this.GetComponent<Transform>();
     }
 
-	void FixedUpdate () {
+	void Update () {
         FollowerTransform.position = m_FollowTarget.OscillationOrigin + m_CameraDistance;
     }
 }
