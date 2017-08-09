@@ -23,7 +23,6 @@ public class WaveMovement : MonoBehaviour {
 
     private const float TWO_PI = Mathf.PI * 2;
     private const float EPSILON = 1e-5f;
-    private Transform ObjectTransform;
 
     private float AccumulatedTime = 0.0f;
     private float LastFrequencyCoefficient = 0.0f;
@@ -32,8 +31,7 @@ public class WaveMovement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        ObjectTransform = GetComponent<Transform>();
-        m_OscillationOrigin = ObjectTransform.position;
+        m_OscillationOrigin = this.transform.position;
         FrequencyMultiplier = 1.0f;
         AmplitudeMultiplier = 1.0f;
         SpeedMultiplier = 1.0f;
@@ -51,7 +49,7 @@ public class WaveMovement : MonoBehaviour {
 
         // Apply position changes
         m_OscillationOrigin += PositionIncrement;
-        ObjectTransform.position = m_OscillationOrigin + OscillationDisplacement;  
+        this.transform.position = m_OscillationOrigin + OscillationDisplacement;  
     }
 
     private float UpdateFrequency()

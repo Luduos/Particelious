@@ -13,7 +13,6 @@ public class PlayerControl : MonoBehaviour {
         SPEED
     }
 
-    [SerializeField] private Text DebugText = null;
     [SerializeField] private AttributeType LeftSliderAttribute = AttributeType.FREQUENCY;
     [SerializeField] private AttributeType RightSliderAttribute = AttributeType.AMPLITUDE;
     [SerializeField] private AttributeType BottomSliderAttribute = AttributeType.SPEED;
@@ -50,28 +49,17 @@ public class PlayerControl : MonoBehaviour {
     {
         float CurrentSliderValue = ChangedSlider.value;
         ChangeAttribute(LeftSliderAttribute, CurrentSliderValue);
-        LogToDebugText("Left Slider-Value: " + CurrentSliderValue);
     }
 
     public void OnRightSliderChanged(Slider ChangedSlider)
     {
         float CurrentSliderValue = ChangedSlider.value;
         ChangeAttribute(RightSliderAttribute, CurrentSliderValue);
-        LogToDebugText("Right Slider-Value: " + CurrentSliderValue);
     }
 
     public void OnBottomSliderChanged(Slider ChangedSlider)
     {
         float CurrentSliderValue = ChangedSlider.value;
         ChangeAttribute(BottomSliderAttribute, CurrentSliderValue);
-        LogToDebugText("Bottom Slider-Value: " + CurrentSliderValue);
-    }
-
-    private void LogToDebugText(string message)
-    {
-        if (null != DebugText)
-        {
-            DebugText.text = message;
-        }
     }
 }
