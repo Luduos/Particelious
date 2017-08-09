@@ -5,8 +5,10 @@ using UnityEngine;
 public class WaveMovement : MonoBehaviour {
 
     [SerializeField] [Tooltip("Frequency in Hertz")] private float m_Frequency = 0.5f;
-    public float Frequency { get { return m_Frequency; } set { m_Frequency = value; } }
-    public float FrequencyMultiplier { get; set; }
+    public float Frequency { get { return m_Frequency; } set { m_Frequency = value; HasFrequencyChanged = true; } }
+
+    private float m_FrequencyMultiplier = 1.0f;
+    public float FrequencyMultiplier { get { return m_FrequencyMultiplier; } set { m_FrequencyMultiplier = value; HasFrequencyChanged = true; } }
 
     [SerializeField] private float m_Amplitude = 2.0f;
     public float Amplitude { get { return m_Amplitude; } set { m_Amplitude = value; } }
@@ -20,10 +22,13 @@ public class WaveMovement : MonoBehaviour {
     public Vector3 OscillationOrigin { get { return m_OscillationOrigin; } set { m_OscillationOrigin = value; } }
 
     private const float TWO_PI = Mathf.PI * 2;
+    private const float EPSILON = 1e-5f;
     private Transform ObjectTransform;
 
     private float AccumulatedTime = 0.0f;
-    private float YDisplacementByFrequency = 0.0f;
+    private float LastFrequencyCoefficient = 0.0f;
+    private float PhaseShift = 0.0f;
+    private bool HasFrequencyChanged = true;
 
 	// Use this for initialization
 	void Start () {
@@ -36,35 +41,38 @@ public class WaveMovement : MonoBehaviour {
 
     void Update()
     {
-
-        UpdateFrequency();
+        // Y-Movement
+        float YDisplacementByFrequency = UpdateFrequency();
         float AmplitudeCoefficient = m_Amplitude * AmplitudeMultiplier;
         Vector3 OscillationDisplacement = new Vector3(0.0f, AmplitudeCoefficient * YDisplacementByFrequency, 0.0f);
-        Debug.Log(YDisplacementByFrequency);
         //X-Movement
         float SpeedCoefficient = Time.deltaTime * SpeedMultiplier * CurrentSpeed;
         Vector3 PositionIncrement = new Vector3(SpeedCoefficient, 0.0f, 0.0f);
 
         // Apply position changes
         m_OscillationOrigin += PositionIncrement;
-        ObjectTransform.position = m_OscillationOrigin + OscillationDisplacement;
-
-        
+        ObjectTransform.position = m_OscillationOrigin + OscillationDisplacement;  
     }
 
-    private void UpdateFrequency()
+    private float UpdateFrequency()
     {
-        // TODO: Idee: Alle 0.05 Sekunden den nächsten Punkt (+ 0.05 Sekunden) auf der Sinus-Kurve berechnen und während AccumulatedTime < 0.05 ist, dorthin interpolieren.
-        // Nach den 0.05 Sekunden wird mit dem neuesten FrequencyMultiplier der nächste Punkt berechnet.
         AccumulatedTime += Time.deltaTime;
-        // Y-Movement increment
-        float frequencyComponent = TWO_PI *  m_Frequency * AccumulatedTime;
-        YDisplacementByFrequency = FrequencyMultiplier * Mathf.Cos(frequencyComponent);
 
-        // keep AccumulatedTime from overspilling
-        if ((m_Frequency * AccumulatedTime) > 1)
+        if (HasFrequencyChanged)
         {
-            AccumulatedTime = 0;
+            float CurrentFrequencyCoefficient = m_Frequency * FrequencyMultiplier;
+            float CurrentPhase = (AccumulatedTime * LastFrequencyCoefficient + PhaseShift) % TWO_PI;
+            float NextPhase = (AccumulatedTime * CurrentFrequencyCoefficient) % TWO_PI;
+            PhaseShift = CurrentPhase - NextPhase;
+
+            LastFrequencyCoefficient = CurrentFrequencyCoefficient;
+            HasFrequencyChanged = false;
         }
+        // Y-Movement increment
+        float SineValue = AccumulatedTime * LastFrequencyCoefficient + PhaseShift;
+        float YDisplacement = Mathf.Sin(SineValue);
+
+       // TODO: Keep AccumulatedTime from Overspilling?
+        return YDisplacement;
     }
 }
