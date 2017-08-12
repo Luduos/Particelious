@@ -52,6 +52,16 @@ public class WaveMovement : MonoBehaviour {
         this.transform.position = m_OscillationOrigin + OscillationDisplacement;  
     }
 
+    public void UpdateWaveAttributes(WaveChangeInfo UpdatedAttributes)
+    {
+        if(null != UpdatedAttributes)
+        {
+            Frequency = UpdatedAttributes.NewFrequency;
+            Amplitude = UpdatedAttributes.NewAmplitude;
+            OscillationOrigin += UpdatedAttributes.AddedOscillationOffset;
+        }
+    }
+
     private float UpdateFrequency()
     {
         AccumulatedTime += Time.deltaTime;
