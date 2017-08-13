@@ -20,14 +20,19 @@ public class WallSpawner : PathFollower {
     [SerializeField]
     public float WallWidth = 2.0f;
     [SerializeField]
+    public float WallDistanceMultiplier = 4.0f;
+    [SerializeField]
     public Wall WallPrefab = null;
     [SerializeField]
-    public int PoolSize = 128;
+    public int PoolSize = 32;
 
     [SerializeField]
     private WaveMovement PlayerWaveMovement;
 
     private Vector2 LastSpawnPosition;
+    private float CurrentWallWidth;
+    private Quaternion FlippedQuaternion = Quaternion.Euler(new Vector3(0.0f, 0.0f, 180.0f));
+    private const float PI_QUARTER = Mathf.PI * 0.25f;
 
 	protected override void Start () {
         base.Start();
@@ -43,21 +48,26 @@ public class WallSpawner : PathFollower {
         LastSpawnPosition = this.transform.position;
 
         Wall.s_WallPool = new Pooler(WallPrefab.gameObject, PoolSize);
+        CurrentWallWidth = WallWidth / Movement.Frequency;
         UpdateSpawn();
     }
 
     protected override void FixedUpdate () {
         // Update Speed
         base.FixedUpdate();
-        Movement.CurrentSpeed = PlayerWaveMovement.CurrentSpeed;
+        if(Movement.CurrentSpeed != PlayerWaveMovement.CurrentSpeed)
+        {
+            Movement.CurrentSpeed = PlayerWaveMovement.CurrentSpeed;
+        }
         UpdateSpawn();
     }
 
     // Used to check, if we have to spawn the next wall
     private void UpdateSpawn()
     {
-        if(this.transform.position.x > LastSpawnPosition.x + WallWidth)
-        {
+        CurrentWallWidth = WallWidth / Movement.Frequency;
+        if (this.transform.position.x > LastSpawnPosition.x + (CurrentWallWidth * WallDistanceMultiplier))
+        {   
             switch (CurrentSpawnMode)
             {
                 case SpawnMode.BOTH:
@@ -78,7 +88,7 @@ public class WallSpawner : PathFollower {
                     }
                 case SpawnMode.NONE:
                     {
-                        LastSpawnPosition = this.transform.position - new Vector3(0.0f, -WallWidth, 0.0f);
+                        LastSpawnPosition = this.transform.position - new Vector3(0.0f, -CurrentWallWidth, 0.0f);
                         break;
                     }
             }
@@ -87,39 +97,42 @@ public class WallSpawner : PathFollower {
 
     private Vector3 SpawnTopWall()
     {
-        Vector2 LowestWallPoint = new Vector2(LastSpawnPosition.x + WallWidth, this.transform.position.y + PathHalfSize);
+        Vector2 LowestWallPoint = new Vector2(this.transform.position.x, this.transform.position.y + PathHalfSize);
         Vector2 HighestViewPoint = Camera.main.ViewportToWorldPoint(Vector3.one);
         float DistanceToTop = HighestViewPoint.y - LowestWallPoint.y;
 
         Vector3 SpawnPosition = LowestWallPoint + new Vector2(0.0f, DistanceToTop * 0.5f);
         if(DistanceToTop > 0)
         {
-            SpawnWall(SpawnPosition, DistanceToTop);
+            SpawnWall(SpawnPosition, DistanceToTop, true);
         }
         return SpawnPosition;
     }
 
     private Vector3 SpawnBottomWall()
     {
-        Vector2 HighestWallPoint = new Vector2(LastSpawnPosition.x + WallWidth, this.transform.position.y - PathHalfSize);
+        Vector2 HighestWallPoint = new Vector2(this.transform.position.x, this.transform.position.y - PathHalfSize);
         Vector2 LowestViewPoint = Camera.main.ViewportToWorldPoint(Vector3.zero);
         float DistanceToBottom = HighestWallPoint.y - LowestViewPoint.y;
 
         Vector3 SpawnPosition = HighestWallPoint - new Vector2(0.0f, DistanceToBottom * 0.5f);
         if (DistanceToBottom > 0)
         {
-            SpawnWall(SpawnPosition, DistanceToBottom);
+            SpawnWall(SpawnPosition, DistanceToBottom, false);
         }
         return SpawnPosition;
     }
 
-    private void SpawnWall(Vector3 SpawnPosition, float Height)
+    private void SpawnWall(Vector3 SpawnPosition, float Height, bool flipped)
     {
-        GameObject createdWall = Wall.s_WallPool.Get(SpawnPosition, this.transform.rotation);
-        createdWall.transform.localScale = new Vector3(WallWidth, Height, createdWall.transform.localScale.z);
-        if (!createdWall.activeSelf)
+        Quaternion rotation = flipped ? FlippedQuaternion : Quaternion.identity;
+
+        GameObject createdWall = Wall.s_WallPool.Get(SpawnPosition, rotation);
+        Vector2 NewSize = new Vector2(CurrentWallWidth, Height);
+        Wall wall = createdWall.GetComponent<Wall>();
+        if (wall)
         {
-            Debug.Log("Inactive created Wall.", this);
+            wall.SetSize(NewSize);
         }
     }
 

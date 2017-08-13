@@ -21,12 +21,15 @@ public class WaveMovement : MonoBehaviour {
     private Vector3 m_OscillationOrigin;
     public Vector3 OscillationOrigin { get { return m_OscillationOrigin; } set { m_OscillationOrigin = value; } }
 
+    private float m_PhaseShift = 0.0f;
+    public float PhaseShift { get { return m_PhaseShift; } }
+
     private const float TWO_PI = Mathf.PI * 2;
     private const float EPSILON = 1e-5f;
 
     private float AccumulatedTime = 0.0f;
     private float LastFrequencyCoefficient = 0.0f;
-    private float PhaseShift = 0.0f;
+   
     private bool HasFrequencyChanged = true;
 
 	// Use this for initialization
@@ -69,15 +72,15 @@ public class WaveMovement : MonoBehaviour {
         if (HasFrequencyChanged)
         {
             float CurrentFrequencyCoefficient = m_Frequency * FrequencyMultiplier;
-            float CurrentPhase = (AccumulatedTime * LastFrequencyCoefficient + PhaseShift) % TWO_PI;
+            float CurrentPhase = (AccumulatedTime * LastFrequencyCoefficient + m_PhaseShift) % TWO_PI;
             float NextPhase = (AccumulatedTime * CurrentFrequencyCoefficient) % TWO_PI;
-            PhaseShift = CurrentPhase - NextPhase;
+            m_PhaseShift = CurrentPhase - NextPhase;
 
             LastFrequencyCoefficient = CurrentFrequencyCoefficient;
             HasFrequencyChanged = false;
         }
         // Y-Movement increment
-        float SineValue = AccumulatedTime * LastFrequencyCoefficient + PhaseShift;
+        float SineValue = AccumulatedTime * LastFrequencyCoefficient + m_PhaseShift;
         float YDisplacement = Mathf.Sin(SineValue);
 
        // TODO: Keep AccumulatedTime from Overspilling?
