@@ -6,7 +6,10 @@ using UnityEngine;
 [RequireComponent(typeof(ParticleSystem))]
 public class Wall : MonoBehaviour {
     public static Pooler s_WallPool;
+    [SerializeField]
     public static float s_LiveTime = 15.0f;
+
+    private float m_ParticleCountMultiplier = 10.0f;
 
     private float m_CurrentLiveTime = 0.0f;
 
@@ -51,7 +54,7 @@ public class Wall : MonoBehaviour {
         var shape = m_ParticleSystem.shape;
         shape.box = NewSize;
         var emission = m_ParticleSystem.emission;
-        emission.rateOverTime = NewSize.x * NewSize.y * 100.0f;
+        emission.rateOverTime = NewSize.x * NewSize.y * m_ParticleCountMultiplier;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
