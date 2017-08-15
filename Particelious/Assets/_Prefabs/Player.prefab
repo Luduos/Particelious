@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4407532526700330}
   - component: {fileID: 114920965228393330}
   - component: {fileID: 114634630324545526}
+  - component: {fileID: 114002979731287498}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -109,7 +110,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.7
 --- !u!96 &96982605004355872
 TrailRenderer:
   serializedVersion: 2
@@ -124,7 +125,7 @@ TrailRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: 30b639051ff50d940a3878a42946b94c, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -146,7 +147,7 @@ TrailRenderer:
   m_Time: 0.5
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 0.8
+    widthMultiplier: 1
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -173,8 +174,8 @@ TrailRenderer:
       m_RotationOrder: 0
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.25490198, g: 0.69803923, b: 0.09019608, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0, g: 1, b: 0.07058824, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 0.5019608}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -201,11 +202,29 @@ TrailRenderer:
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
-    numCapVertices: 1
+    numCapVertices: 5
     alignment: 0
     textureMode: 0
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
+--- !u!114 &114002979731287498
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1130398434649012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51c10ea561dbc2247986ce7ff1277d6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerFigure: {fileID: 1348932739228412}
+  m_NumberOfStadiums: 3
+  m_MinSizeMultiplicator: 0.7
+  m_MaxSizeMultiplicator: 1.1
+  m_BlinkTint: {r: 1, g: 1, b: 1, a: 0.5019608}
+  m_BlinkingTime: 3
+  m_BlinkingSpeed: 12
 --- !u!114 &114181680982333696
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -220,12 +239,12 @@ MonoBehaviour:
   OnHit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1130398434649012}
-        m_MethodName: 
+      - m_Target: {fileID: 114002979731287498}
+        m_MethodName: OnHitEnemy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -294,7 +313,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 42fe866c358477d43a38c5c43165f803, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.1254902, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

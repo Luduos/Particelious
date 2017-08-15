@@ -55,10 +55,7 @@ public class WallSpawner : PathFollower {
     protected override void FixedUpdate () {
         // Update Speed
         base.FixedUpdate();
-        if(Movement.CurrentSpeed != PlayerWaveMovement.CurrentSpeed)
-        {
-            Movement.CurrentSpeed = PlayerWaveMovement.CurrentSpeed;
-        }
+        Movement.CurrentSpeed = PlayerWaveMovement.CurrentSpeed;
         UpdateSpawn();
     }
 
@@ -98,7 +95,7 @@ public class WallSpawner : PathFollower {
     private Vector3 SpawnTopWall()
     {
         Vector2 LowestWallPoint = new Vector2(this.transform.position.x, this.transform.position.y + PathHalfSize);
-        Vector2 HighestViewPoint = Camera.main.ViewportToWorldPoint(Vector3.one);
+        Vector2 HighestViewPoint = Camera.main.ViewportToWorldPoint(new Vector3(1.0f, 1.1f, 0.0f));
         float DistanceToTop = HighestViewPoint.y - LowestWallPoint.y;
 
         Vector3 SpawnPosition = LowestWallPoint + new Vector2(0.0f, DistanceToTop * 0.5f);
@@ -112,7 +109,7 @@ public class WallSpawner : PathFollower {
     private Vector3 SpawnBottomWall()
     {
         Vector2 HighestWallPoint = new Vector2(this.transform.position.x, this.transform.position.y - PathHalfSize);
-        Vector2 LowestViewPoint = Camera.main.ViewportToWorldPoint(Vector3.zero);
+        Vector2 LowestViewPoint = Camera.main.ViewportToWorldPoint(new Vector3(0.0f, -0.1f, 0.0f));
         float DistanceToBottom = HighestWallPoint.y - LowestViewPoint.y;
 
         Vector3 SpawnPosition = HighestWallPoint - new Vector2(0.0f, DistanceToBottom * 0.5f);
