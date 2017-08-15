@@ -9,23 +9,20 @@ public class BlinkReaction : MonoBehaviour {
 
     public UnityEvent OnBlinkEnded;
 
-    
     [SerializeField]
     private Color m_BlinkTint = new Color(1.0f, 1.0f, 1.0f, 0.7f);
     [SerializeField]
-    private float m_BlinkingTime = 2.0f;
+    private float m_BlinkingAnimationDuration = 2.0f;
     [SerializeField]
     private float m_BlinkingSpeed = 12.0f;
     [SerializeField]
-    [Range(0.0f, 1.0f)]
+    [Range(0.1f, 0.9f)]
     private float m_BlinkAnimationThreshold = 0.7f;
 
     [SerializeField]
     private bool m_ShouldPerformCameraShake = true;
     [SerializeField]
-    private float m_CameraShakeIntensity = 1.0f;
-    [SerializeField]
-    private float m_CameraShakeDuration = 1.0f;
+    private CameraShakeInformation m_CameraShakeInfo = new CameraShakeInformation(1.0f, 1.0f);
 
     private TrailRenderer m_Trail = null;
     private SpriteRenderer m_Renderer = null;
@@ -50,9 +47,9 @@ public class BlinkReaction : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         m_AccumulatedBlinkTime += Time.deltaTime;
-        if (m_AccumulatedBlinkTime > m_BlinkingTime)
+        if (m_AccumulatedBlinkTime > m_BlinkingAnimationDuration)
         {
-            OnLeaveBlinking();
+            OnEndBlinkAnimation();
         }
         else
         {
@@ -68,7 +65,7 @@ public class BlinkReaction : MonoBehaviour {
         }
     }
 
-    public void StartBlinking(float OldScale, float NewScale)
+    public void OnStartBlinkAnimation(float OldScale, float NewScale)
     {
         m_OldScale = OldScale;
         m_NewScale = NewScale;
@@ -84,13 +81,13 @@ public class BlinkReaction : MonoBehaviour {
         }
         if(m_ShouldPerformCameraShake && m_CameraController)
         {
-            m_CameraController.StartCameraShake(m_CameraShakeDuration, m_CameraShakeIntensity);
+            m_CameraController.StartCameraShake(m_CameraShakeInfo);
         }
 
         this.enabled = true;
     }
 
-    private void OnLeaveBlinking()
+    private void OnEndBlinkAnimation()
     {
         m_Renderer.color = m_OriginalRendererColor;
         if (m_Trail)

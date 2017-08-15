@@ -10,6 +10,9 @@ public class HelperFunctions {
         if (null != playerControl)
         {
             player = playerControl.gameObject;
+        }else
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
         }
         return player;
     }

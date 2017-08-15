@@ -79,6 +79,7 @@ GameObject:
   - component: {fileID: 96521260686770090}
   - component: {fileID: 114467780929350062}
   - component: {fileID: 114561616979153664}
+  - component: {fileID: 114701138664476742}
   m_Layer: 0
   m_Name: PlayerMesh
   m_TagString: Player
@@ -302,10 +303,10 @@ TrailRenderer:
         outSlope: 0
         tangentMode: 0
       - serializedVersion: 2
-        time: 0.41236287
-        value: 0.48102754
-        inSlope: -1.5002489
-        outSlope: -1.5002489
+        time: 0.5001314
+        value: 0.29879183
+        inSlope: -1.0961294
+        outSlope: -1.0961294
         tangentMode: 0
       - serializedVersion: 2
         time: 1
@@ -349,7 +350,7 @@ TrailRenderer:
     numCapVertices: 5
     alignment: 0
     textureMode: 0
-  m_MinVertexDistance: 0.1
+  m_MinVertexDistance: 0.05
   m_Autodestruct: 0
 --- !u!108 &108973663683776110
 Light:
@@ -445,9 +446,36 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   m_BlinkTint: {r: 1, g: 1, b: 1, a: 0.497}
-  m_BlinkingTime: 3
+  m_BlinkingAnimationDuration: 2
   m_BlinkingSpeed: 12
   m_BlinkAnimationThreshold: 0.7
+  m_ShouldPerformCameraShake: 1
+  m_CameraShakeInfo:
+    Duration: 1
+    Intensity: 1
+--- !u!114 &114701138664476742
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1753659455836524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eb49166ab3f33543979797f6307239f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnDeathEnded:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  m_PlayerControl: {fileID: 0}
+  m_TotalDeathAnimationDuration: 4
+  m_ExplosionAfter: 3
+  m_ShouldPerformCameraShake: 1
+  m_CameraShakeInfo:
+    Duration: 2
+    Intensity: 2
 --- !u!114 &114860160365863172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -461,7 +489,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_FollowTarget: {fileID: 114996069385125798}
   m_CameraDistance: {x: 6, y: 0, z: -15}
-  m_FollowSpeed: 0.3
+  m_FollowSpeed: 0.1
 --- !u!114 &114959491190396290
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -475,6 +503,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PlayerMesh: {fileID: 1753659455836524}
   m_PlayerBlinkReaction: {fileID: 114561616979153664}
+  m_PlayerDeathReaction: {fileID: 114701138664476742}
   m_NumberOfStadiums: 3
   m_MinSizeMultiplicator: 0.8
   m_MaxSizeMultiplicator: 1.2
@@ -512,7 +541,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 30b639051ff50d940a3878a42946b94c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

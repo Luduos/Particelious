@@ -18,6 +18,8 @@ public class PlayerLife : MonoBehaviour {
     [SerializeField]
     private BlinkReaction m_PlayerBlinkReaction;
     [SerializeField]
+    private PlayerDeathReaction m_PlayerDeathReaction;
+    [SerializeField]
     private uint m_NumberOfStadiums = 3;
     [SerializeField]
     private float m_MinSizeMultiplicator = 0.8f;
@@ -37,10 +39,15 @@ public class PlayerLife : MonoBehaviour {
         m_CurrentStadium = m_NumberOfStadiums;
         UpdateCurrentScale();
         InitBlinkReaction();
+        InitDeathReaction();
     }
 
     private void InitBlinkReaction()
     {
+        TrailRenderer PlayerTrail = m_PlayerMesh.GetComponent<TrailRenderer>();
+        if (PlayerTrail)
+            PlayerTrail.startWidth = m_CurrentScale;
+
         if (null == m_PlayerBlinkReaction)
         {
             if (null != m_PlayerMesh)
@@ -54,16 +61,28 @@ public class PlayerLife : MonoBehaviour {
             }
         }
         m_PlayerBlinkReaction.OnBlinkEnded.AddListener(OnBlinkingEnded);
-        m_PlayerMesh.transform.localScale = new Vector3(m_CurrentScale, m_CurrentScale, 1.0f);
-        TrailRenderer PlayerTrail = m_PlayerMesh.GetComponent<TrailRenderer>();
-        if (PlayerTrail)
-            PlayerTrail.startWidth = m_CurrentScale;
+        m_PlayerMesh.transform.localScale = new Vector3(m_CurrentScale, m_CurrentScale, 1.0f);   
+    }
+
+    private void InitDeathReaction()
+    {
+        if (null == m_PlayerDeathReaction)
+        {
+            m_PlayerDeathReaction = m_PlayerMesh.GetComponent<PlayerDeathReaction>();
+            if (!m_PlayerDeathReaction)
+            {
+                Debug.LogError("No PlayerDeathReaction in PlayerLife.", this);
+                return;
+            }
+        }
+        m_PlayerDeathReaction.OnDeathEnded.AddListener(OnDeathEnded);
     }
 
     public void OnHitEnemy()
     {
         if(m_CurrentPlayerState == PlayerState.ALIVE)
         {
+            m_CurrentStadium--;
             CheckIfBlinkingOrDying();
         }
     }
@@ -71,6 +90,12 @@ public class PlayerLife : MonoBehaviour {
     private void OnBlinkingEnded()
     {
         m_CurrentPlayerState = PlayerState.ALIVE;
+    }
+
+    private void OnDeathEnded()
+    {
+        this.gameObject.SetActive(false);
+        // TODO: Notify somebody!
     }
 
     private void UpdateCurrentScale()
@@ -87,15 +112,15 @@ public class PlayerLife : MonoBehaviour {
     private void CheckIfBlinkingOrDying()
     {
         m_CurrentPlayerState = (m_CurrentStadium > 0) ? PlayerState.BLINKING : PlayerState.DYING;
-        if(m_CurrentPlayerState == PlayerState.BLINKING)
+        UpdateCurrentScale();
+        if (m_CurrentPlayerState == PlayerState.BLINKING)
         {
-            m_CurrentStadium--;
-            UpdateCurrentScale();
             if(m_PlayerBlinkReaction)
-                m_PlayerBlinkReaction.StartBlinking(m_OldScale, m_CurrentScale);
-        }else
+                m_PlayerBlinkReaction.OnStartBlinkAnimation(m_OldScale, m_CurrentScale);
+        }else if(m_CurrentPlayerState == PlayerState.DYING)
         {
-            // TODO: Dying
+            if (m_PlayerDeathReaction)
+                m_PlayerDeathReaction.OnStartDeathAnimation(m_CurrentScale);
         }
     }
 }

@@ -17,26 +17,28 @@ public class PlayerControl : MonoBehaviour {
     [SerializeField] private AttributeType RightSliderAttribute = AttributeType.AMPLITUDE;
     [SerializeField] private AttributeType BottomSliderAttribute = AttributeType.SPEED;
 
-    private WaveMovement playerMovement;
+    private WaveMovement m_PlayerMovement;
+    private bool m_PlayerControlEnabled = true;
 
 	void Start () {
-        playerMovement = this.GetComponent<WaveMovement>();
+        this.enabled = false; // no need to update
+        m_PlayerMovement = this.GetComponent<WaveMovement>();
     }
 
     private void ChangeAttribute(AttributeType type, float value)
     {
-        if(null != playerMovement)
+        if(m_PlayerControlEnabled)
         {
             switch (type)
             {
                 case AttributeType.FREQUENCY:
-                    playerMovement.FrequencyMultiplier = value;
+                    m_PlayerMovement.FrequencyMultiplier = value;
                     break;
                 case AttributeType.AMPLITUDE:
-                    playerMovement.AmplitudeMultiplier = value;
+                    m_PlayerMovement.AmplitudeMultiplier = value;
                     break;
                 case AttributeType.SPEED:
-                    playerMovement.SpeedMultiplier = value;
+                    m_PlayerMovement.SpeedMultiplier = value;
                     break;
                 default:
                     Debug.LogError("Invalid AttributeType", this);
@@ -61,5 +63,20 @@ public class PlayerControl : MonoBehaviour {
     {
         float CurrentSliderValue = ChangedSlider.value;
         ChangeAttribute(BottomSliderAttribute, CurrentSliderValue);
+    }
+
+    public void SetPlayerCurrentSpeed(float NewPlayerSpeed)
+    {
+        m_PlayerMovement.CurrentSpeed = NewPlayerSpeed;
+    }
+
+    public void SetPlayerFrequency(float NewPlayerFrequency)
+    {
+        m_PlayerMovement.Frequency = NewPlayerFrequency;
+    }
+
+    public void SetPlayerControlEnabled(bool enabled)
+    {
+        m_PlayerControlEnabled = enabled;
     }
 }
