@@ -34,8 +34,9 @@ public class PlayerLife : MonoBehaviour {
     private PlayerState m_CurrentPlayerState = PlayerState.ALIVE;
 
     void Start()
-    {   
-        m_SizeDiffPerStadium = Mathf.Abs(m_MaxSizeMultiplicator - m_MinSizeMultiplicator) / (m_NumberOfStadiums - 1);
+    {
+        float denominator = Mathf.Max(m_NumberOfStadiums - 1, 1); 
+        m_SizeDiffPerStadium = Mathf.Abs(m_MaxSizeMultiplicator - m_MinSizeMultiplicator) / denominator;
         m_CurrentStadium = m_NumberOfStadiums;
         UpdateCurrentScale();
         InitBlinkReaction();

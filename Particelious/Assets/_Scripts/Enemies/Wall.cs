@@ -21,6 +21,7 @@ public class Wall : MonoBehaviour {
     {
         m_Renderer = this.gameObject.GetComponent<SpriteRenderer>();
         m_Collider = this.gameObject.GetComponent<BoxCollider2D>();
+        m_ParticleSystem = this.gameObject.GetComponent<ParticleSystem>();
     }
 
     void Awake()

@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114945571999504570}
   - component: {fileID: 114934095067052632}
   m_Layer: 10
-  m_Name: PathNode
+  m_Name: PathNode (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 114312223548269530}
   - component: {fileID: 114270786230090234}
   m_Layer: 10
-  m_Name: PathNode
+  m_Name: PathNode (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 114626778607262326}
   - component: {fileID: 114402153099056474}
   m_Layer: 10
-  m_Name: PathNode
+  m_Name: PathNode (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 114468591622100318}
   - component: {fileID: 114761308153085986}
   m_Layer: 10
-  m_Name: PathNode
+  m_Name: PathNode (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 114785154938779136}
   - component: {fileID: 114392993633864288}
   m_Layer: 10
-  m_Name: EnemyNode (6)
+  m_Name: PathNode (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 114342001023901114}
   - component: {fileID: 114371313307718352}
   m_Layer: 10
-  m_Name: PathNode
+  m_Name: PathNode (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -158,7 +158,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1419578596616030}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20, y: 0, z: 0}
+  m_LocalPosition: {x: -4.8, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 4350231634849486}
@@ -171,7 +171,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1267060624367348}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 60, y: 0, z: 0}
+  m_LocalPosition: {x: 38.8, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 4350231634849486}
@@ -184,7 +184,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1176293351040832}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1000, y: 0, z: 0}
+  m_LocalPosition: {x: -990.1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4416335359423628}
@@ -204,7 +204,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1546295604840748}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 140, y: 0, z: 0}
+  m_LocalPosition: {x: 787, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 4350231634849486}
@@ -275,10 +275,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartingNode: {fileID: 114626778607262326}
   CurrentSpawnMode: 2
-  PathHalfSize: 2.5
+  PathHalfSize: 5
   WallWidth: 2
-  WallPrefab: {fileID: 0}
-  PoolSize: 256
+  WallDistanceMultiplier: 2
+  WallPrefab: {fileID: 114935777490121118, guid: fe3913885f965f543acff1e7410cd39e,
+    type: 2}
+  PoolSize: 32
   PlayerWaveMovement: {fileID: 0}
 --- !u!114 &114267539556755044
 MonoBehaviour:
@@ -291,7 +293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6de56f830bf429445b23fca3c1aa412f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Frequency: 1
+  m_Frequency: 2
   m_Amplitude: 5
   m_CurrentSpeed: 0
 --- !u!114 &114270786230090234
@@ -305,7 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6046e5037c575c34e9f1907a7d08a61e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NewFrequency: 1.5
+  NewFrequency: 1
   NewAmplitude: 5
   AddedOscillationOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &114312223548269530
@@ -343,7 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6046e5037c575c34e9f1907a7d08a61e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NewFrequency: 1.5
+  NewFrequency: 1
   NewAmplitude: 5
   AddedOscillationOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &114392993633864288
@@ -357,7 +359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6046e5037c575c34e9f1907a7d08a61e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NewFrequency: 1
+  NewFrequency: 2
   NewAmplitude: 5
   AddedOscillationOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &114402153099056474
@@ -371,9 +373,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6046e5037c575c34e9f1907a7d08a61e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NewFrequency: 1
+  NewFrequency: 3
   NewAmplitude: 5
-  AddedOscillationOffset: {x: 5, y: 5, z: 0}
+  AddedOscillationOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &114468591622100318
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -409,7 +411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6046e5037c575c34e9f1907a7d08a61e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NewFrequency: 1
+  NewFrequency: 2
   NewAmplitude: 5
   AddedOscillationOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &114785154938779136
@@ -435,7 +437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6046e5037c575c34e9f1907a7d08a61e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NewFrequency: 2
+  NewFrequency: 3
   NewAmplitude: 5
   AddedOscillationOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &114945571999504570

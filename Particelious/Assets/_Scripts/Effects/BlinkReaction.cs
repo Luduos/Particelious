@@ -104,7 +104,7 @@ public class BlinkReaction : MonoBehaviour {
     {
         if (Factor > 0.0f)
         {
-            this.transform.localScale = new Vector3(Factor, Factor, 1.0f);
+            this.transform.localScale = new Vector3(Factor, Factor, Factor);
             if (m_Trail)
             {
                 m_Trail.startWidth = Factor;
