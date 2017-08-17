@@ -4,14 +4,10 @@ using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer), typeof(BoxCollider2D), typeof(Rigidbody2D))]
 [RequireComponent(typeof(ParticleSystem))]
-public class Wall : MonoBehaviour {
-    public static Pooler s_WallPool;
-    [SerializeField]
-    public static float s_LiveTime = 15.0f;
+public class Wall : Cullable {
+    public static CullingPooler s_WallPool;
 
     private float m_ParticleCountMultiplier = 10.0f;
-
-    private float m_CurrentLiveTime = 0.0f;
 
     private SpriteRenderer m_Renderer = null;
     private BoxCollider2D m_Collider = null;
@@ -19,26 +15,18 @@ public class Wall : MonoBehaviour {
 
     void Start()
     {
-        m_Renderer = this.gameObject.GetComponent<SpriteRenderer>();
-        m_Collider = this.gameObject.GetComponent<BoxCollider2D>();
-        m_ParticleSystem = this.gameObject.GetComponent<ParticleSystem>();
+        m_Renderer = GetComponent<SpriteRenderer>();
+        m_Collider = GetComponent<BoxCollider2D>();
+        m_ParticleSystem = GetComponent<ParticleSystem>();
+        Reset();
     }
 
     void Awake()
     {
-        m_Renderer = this.gameObject.GetComponent<SpriteRenderer>();
-        m_Collider = this.gameObject.GetComponent<BoxCollider2D>();
-        m_ParticleSystem = this.gameObject.GetComponent<ParticleSystem>();
-    }
-
-    void FixedUpdate()
-    {
-        m_CurrentLiveTime += Time.deltaTime;
-        if (m_CurrentLiveTime > s_LiveTime)
-        {
-            Reset();
-            s_WallPool.Free(this.gameObject);
-        }
+        m_Renderer = GetComponent<SpriteRenderer>();
+        m_Collider = GetComponent<BoxCollider2D>();
+        m_ParticleSystem = GetComponent<ParticleSystem>();
+        Reset();
     }
 
     // This doesn't work for some reason.
@@ -60,16 +48,18 @@ public class Wall : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        m_ParticleSystem.Play();
-        m_Renderer.enabled = false;
-        m_Collider.enabled = false;
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            m_ParticleSystem.Play();
+            m_Renderer.enabled = false;
+            m_Collider.enabled = false;
+        }
     }
 
-    private void Reset()
+    public override void Reset()
     {
-        m_CurrentLiveTime = 0.0f;
+        this.enabled = false;
         m_Renderer.enabled = true;
         m_Collider.enabled = true;
     }
-
 }

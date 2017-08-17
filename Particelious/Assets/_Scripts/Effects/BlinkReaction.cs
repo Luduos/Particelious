@@ -39,7 +39,9 @@ public class BlinkReaction : MonoBehaviour {
     void Start () {
         m_Trail = gameObject.GetComponent<TrailRenderer>();
         m_Renderer = gameObject.GetComponent<SpriteRenderer>();
-        m_CameraController = FindObjectOfType<CameraController>();
+
+        if (null == m_CameraController)
+            m_CameraController = FindObjectOfType<CameraController>();
 
         this.enabled = false;
     }

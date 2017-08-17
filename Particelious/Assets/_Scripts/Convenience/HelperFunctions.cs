@@ -6,7 +6,7 @@ public class HelperFunctions {
     public static GameObject TryToFindPlayer()
     {
         GameObject player = null;
-        PlayerControl playerControl = GameObject.FindObjectOfType<PlayerControl>();
+        PlayerController playerControl = GameObject.FindObjectOfType<PlayerController>();
         if (null != playerControl)
         {
             player = playerControl.gameObject;

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
+    static protected GameManager s_Instance;
     static public GameManager instance
     {
         get
@@ -14,49 +15,22 @@ public class GameManager : MonoBehaviour {
                 DontDestroyOnLoad(o);
                 s_Instance = o.AddComponent<GameManager>();
             }
-
             return s_Instance;
         }
     }
 
-    static protected GameManager s_Instance;
+    private GameInfo m_GameInfo = new GameInfo(0);
+    public GameInfo gameInfo { get { return m_GameInfo; } }
 
-    [SerializeField] private GameObject Player;
-
-    void OnEnable()
+    public GameManager()
     {
-        s_Instance = this;   
+        s_Instance = this;
     }
 
-    void OnDisable()
+    void OnDestroy()
     {
-        if (s_Instance)
-            Destroy(s_Instance.gameObject);
+        s_Instance = null;
     }
 
-    // Use this for initialization
-    void Start () {
-	    if(null == Player)
-        {
-            FindPlayer();
-        }
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-    private void FindPlayer()
-    {
-        PlayerControl playerControl = FindObjectOfType<PlayerControl>();
-        if (null != playerControl)
-        {
-            Player = playerControl.gameObject;
-        }
-        else
-        {
-            Debug.LogWarning("Could not find Gameobject with PlayerControl in Scene", this);
-        }
-    }
+ 
 }

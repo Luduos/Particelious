@@ -16,7 +16,7 @@ public class PlayerDeathReaction : MonoBehaviour {
     }
 
     [SerializeField]
-    private PlayerControl m_PlayerControl;
+    private PlayerController m_PlayerControl;
 
     [SerializeField]
     private float m_ExplosionAfterSeconds = 3.0f;
@@ -40,10 +40,9 @@ public class PlayerDeathReaction : MonoBehaviour {
     // Use this for initialization
     void Start () {
 		if(null == m_PlayerControl)
-        {
-            m_PlayerControl = FindObjectOfType<PlayerControl>() as PlayerControl;
-        }
-        m_CameraController = FindObjectOfType<CameraController>();
+            m_PlayerControl = FindObjectOfType<PlayerController>();
+        if(null == m_CameraController)
+            m_CameraController = FindObjectOfType<CameraController>();
         m_Trail = GetComponent<TrailRenderer>();
         m_DeathEffect = GetComponent<ParticleSystem>();
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
@@ -53,7 +52,6 @@ public class PlayerDeathReaction : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         m_AccumulatedDeathTime += Time.deltaTime;
-
         if(m_AccumulatedDeathTime < m_ExplosionAfterSeconds)
         {
             UpdateDeathReaction();
@@ -83,8 +81,8 @@ public class PlayerDeathReaction : MonoBehaviour {
     private void UpdateDeathReaction()
     {
         m_CurrentScale = ((m_ExplosionAfterSeconds - m_AccumulatedDeathTime) / m_ExplosionAfterSeconds) * m_OriginalScale;
-        m_CurrentScale = Mathf.Max(m_CurrentScale, 0.1f);
-        this.transform.localScale = new Vector3(m_CurrentScale, m_CurrentScale, m_CurrentScale);
+        m_CurrentScale = m_CurrentScale > 0.1f ? m_CurrentScale : 0.1f;
+        transform.localScale = new Vector3(m_CurrentScale, m_CurrentScale, m_CurrentScale);
     }
 
     private void UpdateExplosion()
@@ -93,7 +91,7 @@ public class PlayerDeathReaction : MonoBehaviour {
         {
             m_CurrentState = PlayerDeathState.EXPLODING;
             m_SpriteRenderer.enabled = false;
-            if (m_ShouldPerformCameraShake)
+            if (m_ShouldPerformCameraShake &&  (null != m_CameraController))
             {
                 m_CameraController.StartCameraShake(m_CameraShakeInfo);
             }

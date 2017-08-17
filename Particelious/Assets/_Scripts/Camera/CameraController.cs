@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Camera))]
 public class CameraController : MonoBehaviour {
-
-   
-
     [SerializeField] private WaveMovement m_FollowTarget = null;
     [SerializeField] private Vector3 m_CameraDistance = new Vector3(0.0f, 0.0f, -10.0f);
     public Vector3 CameraDistance { get { return m_CameraDistance; } set { m_CameraDistance = value; } }

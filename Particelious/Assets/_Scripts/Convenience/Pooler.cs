@@ -13,8 +13,7 @@ public class Pooler
     public Pooler(GameObject original, int initialSize)
     {
         m_Original = original;
-        m_FreeInstances = new Stack<GameObject>(initialSize);
-
+        m_FreeInstances = new Stack<GameObject>(initialSize);  
         for (int i = 0; i < initialSize; ++i)
         {
             GameObject obj = Object.Instantiate(original);
@@ -23,12 +22,12 @@ public class Pooler
         }
     }
 
-    public GameObject Get()
+    public virtual GameObject Get()
     {
-        return Get(Vector3.zero, Quaternion.identity);
+        return Get(new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
     }
 
-    public GameObject Get(Vector3 pos, Quaternion quat)
+    public virtual GameObject Get(Vector3 pos, Quaternion quat)
     {
         GameObject ret = m_FreeInstances.Count > 0 ? m_FreeInstances.Pop() : Object.Instantiate(m_Original);
 
@@ -39,7 +38,7 @@ public class Pooler
         return ret;
     }
 
-    public void Free(GameObject obj)
+    public virtual void Free(GameObject obj)
     {
         obj.transform.SetParent(null);
         obj.SetActive(false);

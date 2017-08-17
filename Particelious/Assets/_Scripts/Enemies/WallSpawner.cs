@@ -14,6 +14,10 @@ public class WallSpawner : PathFollower {
 
     /* public variables, used by procedural level generator */
     [SerializeField]
+    public CameraController MainCamera = null;
+    [SerializeField]
+    private WaveMovement m_PlayerWaveMovement;
+    [SerializeField]
     public SpawnMode CurrentSpawnMode = SpawnMode.BOTH;
     [SerializeField]
     public float PathHalfSize = 2.5f;
@@ -24,14 +28,18 @@ public class WallSpawner : PathFollower {
     [SerializeField]
     public Wall WallPrefab = null;
     [SerializeField]
-    public int PoolSize = 32;
-
+    public int InitialPoolSize = 32;
     [SerializeField]
-    private WaveMovement PlayerWaveMovement;
+    public int MaxPoolSize = 256;
+
+    
+    public WaveMovement PlayerWaveMovement { get { return m_PlayerWaveMovement; } set { m_PlayerWaveMovement = value; } }
 
     private Vector2 LastSpawnPosition;
+    private static readonly Quaternion s_FlippedQuaternion = Quaternion.Euler(new Vector3(0.0f, 0.0f, 180.0f));
+    private static readonly Quaternion s_Identity = Quaternion.identity;
+
     private float CurrentWallWidth;
-    private Quaternion FlippedQuaternion = Quaternion.Euler(new Vector3(0.0f, 0.0f, 180.0f));
     private const float PI_QUARTER = Mathf.PI * 0.25f;
 
 	protected override void Start () {
@@ -41,13 +49,21 @@ public class WallSpawner : PathFollower {
 
         if (null != StartingNode)
         {
-            this.transform.position = StartingNode.transform.position;
-            Movement.CurrentSpeed = PlayerWaveMovement.CurrentSpeed;
+            transform.position = StartingNode.transform.position;
+            Movement.CurrentSpeed = m_PlayerWaveMovement.CurrentSpeed;
             Movement.UpdateWaveAttributes(StartingNode.GetComponent<WaveChangeInfo>());
         }
         LastSpawnPosition = this.transform.position;
 
-        Wall.s_WallPool = new Pooler(WallPrefab.gameObject, PoolSize);
+        Camera cullingCamera = null;
+        if(MainCamera == null)
+        {
+            MainCamera = FindObjectOfType<CameraController>();
+        }
+        cullingCamera = MainCamera.GetComponent<Camera>();
+        
+        Wall.s_WallPool = new CullingPooler(WallPrefab, cullingCamera, InitialPoolSize, MaxPoolSize);
+        
         CurrentWallWidth = WallWidth / Movement.Frequency;
         UpdateSpawn();
     }
@@ -55,15 +71,20 @@ public class WallSpawner : PathFollower {
     protected override void FixedUpdate () {
         // Update Speed
         base.FixedUpdate();
-        Movement.CurrentSpeed = PlayerWaveMovement.CurrentSpeed;
+        Movement.CurrentSpeed = m_PlayerWaveMovement.CurrentSpeed;
         UpdateSpawn();
+    }
+
+    void OnDestroy()
+    {
+        Wall.s_WallPool.Dispose();
     }
 
     // Used to check, if we have to spawn the next wall
     private void UpdateSpawn()
     {
         CurrentWallWidth = WallWidth / Movement.Frequency;
-        if (this.transform.position.x > LastSpawnPosition.x + (CurrentWallWidth * WallDistanceMultiplier))
+        if (transform.position.x > LastSpawnPosition.x + (CurrentWallWidth * WallDistanceMultiplier))
         {   
             switch (CurrentSpawnMode)
             {
@@ -122,25 +143,29 @@ public class WallSpawner : PathFollower {
 
     private void SpawnWall(Vector3 SpawnPosition, float Height, bool flipped)
     {
-        Quaternion rotation = flipped ? FlippedQuaternion : Quaternion.identity;
+        Quaternion rotation = flipped ? s_FlippedQuaternion : s_Identity;
 
-        GameObject createdWall = Wall.s_WallPool.Get(SpawnPosition, rotation);
-        Vector2 NewSize = new Vector2(CurrentWallWidth, Height);
+        GameObject createdWall = Wall.s_WallPool.Get(SpawnPosition, rotation, Height);
+       
         Wall wall = createdWall.GetComponent<Wall>();
         if (wall)
         {
+            Vector2 NewSize = new Vector2(CurrentWallWidth, Height);
             wall.SetSize(NewSize);
+        }else
+        {
+            Debug.LogError("Didn't get wall.");
         }
     }
 
     private void GetPlayerMovement()
     {
-        if (null == PlayerWaveMovement)
+        if (null == m_PlayerWaveMovement)
         {
-            GameObject Player = HelperFunctions.TryToFindPlayer();
+            PlayerController Player = FindObjectOfType<PlayerController>();
             if (null != Player)
             {
-                PlayerWaveMovement = Player.GetComponent<WaveMovement>();
+                m_PlayerWaveMovement = Player.GetComponent<WaveMovement>();
             }
         }
     } 

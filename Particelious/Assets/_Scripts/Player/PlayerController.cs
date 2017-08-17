@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnityEngine;
 
 [RequireComponent(typeof(WaveMovement))]
-public class PlayerControl : MonoBehaviour {
+public class PlayerController : MonoBehaviour {
 
     public enum AttributeType
     {
