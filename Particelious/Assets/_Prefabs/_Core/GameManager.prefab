@@ -20,6 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4392428504258736}
   - component: {fileID: 114023578518241452}
+  - component: {fileID: 114056291804681172}
+  - component: {fileID: 114150375841704308}
+  - component: {fileID: 114071698882931508}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -51,5 +54,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ebd7085d6fd6254b961fff775439ea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Player: {fileID: 0}
-  m_Camera: {fileID: 0}
+  m_States:
+  - {fileID: 114056291804681172}
+  - {fileID: 114150375841704308}
+  - {fileID: 114071698882931508}
+--- !u!114 &114056291804681172
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1529946167859488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 513d2aafdc237504fbc3fd4e0b115d2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 0}
+--- !u!114 &114071698882931508
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1529946167859488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9b865450f5ea8d4c941957b34e314c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 0}
+  RestartMenuSceneName: RestartMenu
+--- !u!114 &114150375841704308
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1529946167859488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3722925557eee9499c2cd3edbbde1a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 0}
+  MainGameSceneName: Main
+  m_CoreObjectsPrefab: {fileID: 114732767363298434, guid: 7b5e38e416a9d6141be8f28999581eb0,
+    type: 2}
+  m_WallSpawnerPrefab: {fileID: 1176293351040832, guid: 162da72a9f1905d4589d6efe678b7be9,
+    type: 2}

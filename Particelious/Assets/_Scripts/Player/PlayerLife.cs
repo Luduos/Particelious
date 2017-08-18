@@ -96,7 +96,7 @@ public class PlayerLife : MonoBehaviour {
     private void OnDeathEnded()
     {
         this.gameObject.SetActive(false);
-        // TODO: Notify somebody!
+        GameManager.instance.AddState("RestartState");
     }
 
     private void UpdateCurrentScale()
