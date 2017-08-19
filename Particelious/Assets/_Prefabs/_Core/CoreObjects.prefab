@@ -682,7 +682,7 @@ MonoBehaviour:
   m_PlayerMesh: {fileID: 1034926629563666}
   m_PlayerBlinkReaction: {fileID: 114000881632241256}
   m_PlayerDeathReaction: {fileID: 114851720989043776}
-  m_NumberOfStadiums: 3
+  m_NumberOfStadiums: 1
   m_MinSizeMultiplicator: 0.8
   m_MaxSizeMultiplicator: 1.2
 --- !u!114 &114851720989043776

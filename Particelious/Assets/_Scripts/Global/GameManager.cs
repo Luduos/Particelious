@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
-    static protected GameManager s_Instance;
+    static protected GameManager s_Instance = null;
     static public GameManager instance
     {
         get
@@ -19,9 +19,6 @@ public class GameManager : MonoBehaviour {
             return s_Instance;
         }
     }
-
-    
-
     [SerializeField]
     private AState[] m_States;
 
@@ -35,12 +32,11 @@ public class GameManager : MonoBehaviour {
     {
         if (null != s_Instance)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
             return;
         }
 
         s_Instance = this;
-        this.enabled = false;
         DontDestroyOnLoad(this.gameObject);
 
         m_CurrentStateStack = new Stack<AState>(3);
@@ -56,10 +52,37 @@ public class GameManager : MonoBehaviour {
             m_States[0].Enter(null);
         }
     }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            string CurrentStateName = "";
+            AState CurrentState = m_CurrentStateStack.Peek();
+            if (CurrentState)
+                CurrentStateName = CurrentState.GetName();
+
+            if (CurrentStateName.Equals(MainMenuState.GetMainMenuStateName()))
+                OnExitApplication(CurrentStateName);
+            else
+                OnMainMenu(CurrentStateName);
+        }
+    }
+
     void OnDestroy()
     {
         if(this == s_Instance)
             s_Instance = null;
+    }
+
+    public void OnStartGame()
+    {
+        SwitchState(GameState.GetGameStateName());
+    }
+
+    public void OnPlayerDeath()
+    {
+        GameManager.instance.AddState("RestartState");
     }
 
     public void OnRestart()
@@ -68,12 +91,21 @@ public class GameManager : MonoBehaviour {
         OnStartGame();
     }
 
-    public void OnStartGame()
+    public void OnMainMenu(string from)
     {
-        SwitchState("GameState");
+        if (from.Equals(RestartState.GetRestartStateName()))
+        {
+            ExitCurrentState();
+        }
+        SwitchState(MainMenuState.GetMainMenuStateName());
     }
- 
-    public void SwitchState(string target)
+
+    public void OnExitApplication(string from)
+    {
+        Application.Quit();    
+    }
+
+    private void SwitchState(string target)
     {
         AState targetState = null;
 
@@ -88,7 +120,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public void AddState(string target)
+    private void AddState(string target)
     {
         AState targetState = null;
 
@@ -102,15 +134,15 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public AState ExitCurrentState()
+    private AState ExitCurrentState()
     {
         AState exitedState = null;
-        if (m_CurrentStateStack.Count > 1)
+        if (m_CurrentStateStack.Count > 0)
         {
             exitedState = m_CurrentStateStack.Pop();
             if (exitedState)
             {
-                exitedState.Exit(m_CurrentStateStack.Peek());
+                exitedState.Exit(null);
             }
         }
         return exitedState;

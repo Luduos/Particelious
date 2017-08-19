@@ -82,7 +82,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
-  RestartMenuSceneName: RestartMenu
+  m_RestartMenuSceneName: RestartMenu
 --- !u!114 &114150375841704308
 MonoBehaviour:
   m_ObjectHideFlags: 1

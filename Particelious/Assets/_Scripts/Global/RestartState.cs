@@ -8,17 +8,14 @@ using UnityEngine;
 public class RestartState : AState
 {
     [SerializeField]
-    private string RestartMenuSceneName = "RestartMenu";
+    private string m_RestartMenuSceneName = "RestartMenu";
+
+    private static string s_RestartStateName = "RestartState";
+    public static string GetRestartStateName() { return s_RestartStateName; }
 
     public override void Enter(AState from)
     {
-        SceneManager.LoadScene(RestartMenuSceneName, LoadSceneMode.Additive);
-    }
-
-    public void OnRestart()
-    {
-        manager.ExitCurrentState();
-        manager.SwitchState("GameState");
+        SceneManager.LoadScene(m_RestartMenuSceneName, LoadSceneMode.Additive);
     }
 
     public override void Exit(AState to)
@@ -28,6 +25,6 @@ public class RestartState : AState
 
     public override string GetName()
     {
-        return "RestartState";
+        return s_RestartStateName;
     }
 }

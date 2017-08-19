@@ -12,6 +12,9 @@ public class GameState : AState {
     [SerializeField]
     private GameObject m_WallSpawnerPrefab = null;
 
+    private static string s_GameStateName  = "GameState";
+    public static string GetGameStateName() { return s_GameStateName; }
+
     private PlayerController m_PlayerController = null;
     public PlayerController playerController { get { return m_PlayerController; } }
 
@@ -25,7 +28,7 @@ public class GameState : AState {
 
     public override string GetName()
     {
-        return "GameState";
+        return s_GameStateName;
     }
 
     public override void Enter(AState from)
