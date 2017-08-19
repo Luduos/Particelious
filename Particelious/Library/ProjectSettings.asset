@@ -6,7 +6,7 @@ PlayerSettings:
   serializedVersion: 11
   productGUID: e55392471d5f5c34d98cb98da41d1b3c
   AndroidProfiler: 0
-  defaultScreenOrientation: 2
+  defaultScreenOrientation: 4
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
@@ -14,7 +14,7 @@ PlayerSettings:
   productName: Particelious
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
-  m_SplashScreenBackgroundColor: {r: 0.13333334, g: 0.17254902, b: 0.21176471, a: 1}
+  m_SplashScreenBackgroundColor: {r: 0.28676468, g: 0, b: 0.04153151, a: 1}
   m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 1
   m_SplashScreenOverlayOpacity: 1
@@ -57,8 +57,8 @@ PlayerSettings:
   iosAppInBackgroundBehavior: 0
   displayResolutionDialog: 1
   iosAllowHTTPDownload: 1
-  allowedAutorotateToPortrait: 1
-  allowedAutorotateToPortraitUpsideDown: 1
+  allowedAutorotateToPortrait: 0
+  allowedAutorotateToPortraitUpsideDown: 0
   allowedAutorotateToLandscapeRight: 1
   allowedAutorotateToLandscapeLeft: 1
   useOSAutorotation: 1
@@ -142,7 +142,7 @@ PlayerSettings:
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 0
-  AndroidPreferredInstallLocation: 1
+  AndroidPreferredInstallLocation: 0
   aotOptions: 
   stripEngineCode: 1
   iPhoneStrippingLevel: 0

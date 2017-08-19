@@ -171,7 +171,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1267060624367348}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 100, y: 0, z: 0}
+  m_LocalPosition: {x: 120, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 4350231634849486}
@@ -230,7 +230,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1109307731364338}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 150, y: 0, z: 0}
+  m_LocalPosition: {x: 300, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 4350231634849486}
@@ -243,7 +243,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1492970003814960}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 250, y: 0, z: 0}
+  m_LocalPosition: {x: 750, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 4350231634849486}
@@ -256,7 +256,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1648788453348972}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 200, y: 0, z: 0}
+  m_LocalPosition: {x: 500, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 4350231634849486}
@@ -309,7 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6046e5037c575c34e9f1907a7d08a61e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NewFrequency: 2
+  NewFrequency: 1
   NewAmplitude: 5
   AddedOscillationOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &114312223548269530
@@ -361,7 +361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6046e5037c575c34e9f1907a7d08a61e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NewFrequency: 2
+  NewFrequency: 3
   NewAmplitude: 5
   AddedOscillationOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &114402153099056474
@@ -375,7 +375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6046e5037c575c34e9f1907a7d08a61e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NewFrequency: 1
+  NewFrequency: 0.5
   NewAmplitude: 5
   AddedOscillationOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &114468591622100318
@@ -413,7 +413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6046e5037c575c34e9f1907a7d08a61e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NewFrequency: 3
+  NewFrequency: 2.5
   NewAmplitude: 5
   AddedOscillationOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &114785154938779136
@@ -439,7 +439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6046e5037c575c34e9f1907a7d08a61e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NewFrequency: 3
+  NewFrequency: 1.5
   NewAmplitude: 5
   AddedOscillationOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &114945571999504570

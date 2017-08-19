@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class WaveMovement : MonoBehaviour {
 
@@ -11,8 +12,11 @@ public class WaveMovement : MonoBehaviour {
     public float FrequencyMultiplier { get { return m_FrequencyMultiplier; } set { m_FrequencyMultiplier = value; HasFrequencyChanged = true; } }
 
     [SerializeField] private float m_Amplitude = 2.0f;
-    public float Amplitude { get { return m_Amplitude; } set { m_Amplitude = value; } }
+    public UnityEvent OnAmplitudeChanged;
+    public float Amplitude { get { return m_Amplitude; } set { m_Amplitude = value; OnAmplitudeChanged.Invoke(); } }
     public float AmplitudeMultiplier { get; set; }
+
+    
 
     [SerializeField] private float m_CurrentSpeed = 2.0f;
     public float CurrentSpeed { get { return m_CurrentSpeed; } set { m_CurrentSpeed = value; } }

@@ -33,6 +33,7 @@ public class GameState : AState {
 
     public override void Enter(AState from)
     {
+        Screen.sleepTimeout = (int)SleepTimeout.NeverSleep;
         SceneManager.sceneLoaded += LevelLoaded;
         SceneManager.LoadScene(MainGameSceneName);
     }

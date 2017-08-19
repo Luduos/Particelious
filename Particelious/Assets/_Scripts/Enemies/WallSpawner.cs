@@ -14,9 +14,10 @@ public class WallSpawner : PathFollower {
 
     /* public variables, used by procedural level generator */
     [SerializeField]
-    public CameraController MainCamera = null;
+    public CameraController MainCameraController = null;
+    private Camera MainCamera = null;
     [SerializeField]
-    private WaveMovement m_PlayerWaveMovement;
+    public WaveMovement m_PlayerWaveMovement;
     [SerializeField]
     public SpawnMode CurrentSpawnMode = SpawnMode.BOTH;
     [SerializeField]
@@ -41,8 +42,10 @@ public class WallSpawner : PathFollower {
 
     private float CurrentWallWidth;
     private const float PI_QUARTER = Mathf.PI * 0.25f;
+    private Vector3 m_HighestViewportSpawnPoint = new Vector3(0.0f, 1.1f, 0.0f);
+    private Vector3 m_LowestViewportSpawnPoint = new Vector3(0.0f, -0.1f, 0.0f);
 
-	protected override void Start () {
+    protected override void Start () {
         base.Start();
         Movement = this.GetComponent<WaveMovement>();
         GetPlayerMovement();
@@ -56,13 +59,13 @@ public class WallSpawner : PathFollower {
         LastSpawnPosition = this.transform.position;
 
         Camera cullingCamera = null;
-        if(MainCamera == null)
+        if(MainCameraController == null)
         {
-            MainCamera = FindObjectOfType<CameraController>();
+            MainCameraController = FindObjectOfType<CameraController>();
         }
-        cullingCamera = MainCamera.GetComponent<Camera>();
+        MainCamera = MainCameraController.GetComponent<Camera>();
         
-        Wall.s_WallPool = new CullingPooler(WallPrefab, cullingCamera, InitialPoolSize, MaxPoolSize);
+        Wall.s_WallPool = new CullingPooler(WallPrefab, MainCamera, InitialPoolSize, MaxPoolSize);
         
         CurrentWallWidth = WallWidth / Movement.Frequency;
         UpdateSpawn();
@@ -116,7 +119,7 @@ public class WallSpawner : PathFollower {
     private Vector3 SpawnTopWall()
     {
         Vector2 LowestWallPoint = new Vector2(this.transform.position.x, this.transform.position.y + PathHalfSize);
-        Vector2 HighestViewPoint = Camera.main.ViewportToWorldPoint(new Vector3(1.0f, 1.1f, 0.0f));
+        Vector2 HighestViewPoint = MainCamera.ViewportToWorldPoint(m_HighestViewportSpawnPoint);
         float DistanceToTop = HighestViewPoint.y - LowestWallPoint.y;
 
         Vector3 SpawnPosition = LowestWallPoint + new Vector2(0.0f, DistanceToTop * 0.5f);
@@ -130,7 +133,7 @@ public class WallSpawner : PathFollower {
     private Vector3 SpawnBottomWall()
     {
         Vector2 HighestWallPoint = new Vector2(this.transform.position.x, this.transform.position.y - PathHalfSize);
-        Vector2 LowestViewPoint = Camera.main.ViewportToWorldPoint(new Vector3(0.0f, -0.1f, 0.0f));
+        Vector2 LowestViewPoint = MainCamera.ViewportToWorldPoint(m_LowestViewportSpawnPoint);
         float DistanceToBottom = HighestWallPoint.y - LowestViewPoint.y;
 
         Vector3 SpawnPosition = HighestWallPoint - new Vector2(0.0f, DistanceToBottom * 0.5f);
