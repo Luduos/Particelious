@@ -20,6 +20,8 @@ public class CullingPooler {
 
     protected Cullable m_Original;
 
+    private static readonly Vector4 s_UndangerousBoundingSpherePosition = new Vector4(float.MaxValue, float.MaxValue, float.MaxValue, 1.0f);
+
     public CullingPooler(Cullable original, Camera targetCamera, int initialSize, int maxSize)
     {
         m_Original = original;
@@ -37,6 +39,7 @@ public class CullingPooler {
             obj.gameObject.SetActive(false);
             m_FreeInstances.Push(obj);
             m_AllInstances[i] = obj;
+            m_BoundingSpheres[i] = new BoundingSphere(s_UndangerousBoundingSpherePosition);
         }
         m_CullingGroup = new CullingGroup();
         m_CullingGroup.SetBoundingSpheres(m_BoundingSpheres);
@@ -99,11 +102,13 @@ public class CullingPooler {
 
     private void Free(Cullable obj)
     {
-        m_BoundingSpheres[obj.Index] = new BoundingSphere();
-        obj.transform.SetParent(null);
-        obj.gameObject.SetActive(false);
-
-        m_FreeInstances.Push(obj);
+        if(null != obj)
+        {
+            obj.transform.SetParent(null);
+            obj.gameObject.SetActive(false);
+            m_BoundingSpheres[obj.Index] = new BoundingSphere(s_UndangerousBoundingSpherePosition);
+            m_FreeInstances.Push(obj);
+        }
     }
 
     public void Dispose()

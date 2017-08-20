@@ -24,14 +24,15 @@ public class UIController : MonoBehaviour {
     {
         if (PlayerMesh && PlayerWaveMovement && MainCamera)
         {
-            float CurrentScale = PlayerMesh.transform.localScale.y * 0.5f;
+            float CurrentScale = PlayerMesh.transform.lossyScale.y * 0.5f;
 
             Vector3 amplitudeOffset = new Vector3(0.0f, PlayerWaveMovement.Amplitude + CurrentScale, 0.0f);
             Vector3 minWorldPointPosition = MainCamera.transform.position - amplitudeOffset;
             Vector3 minScreenPointPosition = MainCamera.WorldToScreenPoint(minWorldPointPosition);
+            float amplitudeImplicatorWidth = minScreenPointPosition.y;
 
-            UpperImplicator.sizeDelta = new Vector2(0.0f, minScreenPointPosition.y);
-            LowerImplicator.sizeDelta = new Vector2(0.0f, minScreenPointPosition.y);
+            UpperImplicator.sizeDelta = new Vector2(0.0f, amplitudeImplicatorWidth);
+            LowerImplicator.sizeDelta = new Vector2(0.0f, amplitudeImplicatorWidth);
         }
         else
         {
