@@ -1,22 +1,21 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer), typeof(BoxCollider2D), typeof(Rigidbody2D))]
+[RequireComponent(typeof(SpriteRenderer), typeof(CircleCollider2D), typeof(Rigidbody2D))]
 [RequireComponent(typeof(ParticleSystem))]
-public class Wall : Cullable {
-    public static CullingPooler s_WallPool;
-
-    private float m_ParticleCountMultiplier = 10.0f;
+public class Coin : Cullable {
+    public static CullingPooler s_CoinPool;
 
     private SpriteRenderer m_Renderer = null;
-    private BoxCollider2D m_Collider = null;
+    private CircleCollider2D m_Collider = null;
     private ParticleSystem m_ParticleSystem = null;
 
     void Start()
     {
         m_Renderer = GetComponent<SpriteRenderer>();
-        m_Collider = GetComponent<BoxCollider2D>();
+        m_Collider = GetComponent<CircleCollider2D>();
         m_ParticleSystem = GetComponent<ParticleSystem>();
         Reset();
     }
@@ -24,27 +23,11 @@ public class Wall : Cullable {
     void Awake()
     {
         m_Renderer = GetComponent<SpriteRenderer>();
-        m_Collider = GetComponent<BoxCollider2D>();
+        m_Collider = GetComponent<CircleCollider2D>();
         m_ParticleSystem = GetComponent<ParticleSystem>();
         Reset();
     }
 
-    // This doesn't work for some reason.
-    public void SetSize(float Width, float Height)
-    {
-        Vector2 NewSize = new Vector2(Width, Height);
-        SetSize(NewSize);
-    }
-
-    public void SetSize(Vector2 NewSize)
-    {
-        m_Renderer.size = NewSize;
-        m_Collider.size = NewSize;
-        var shape = m_ParticleSystem.shape;
-        shape.box = NewSize;
-        var emission = m_ParticleSystem.emission;
-        emission.rateOverTime = NewSize.x * NewSize.y * m_ParticleCountMultiplier;
-    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {

@@ -20,14 +20,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4197028451645802}
   - component: {fileID: 50986553982899834}
-  - component: {fileID: 61101945261176620}
+  - component: {fileID: 58951492636589644}
   - component: {fileID: 212117227403187612}
-  - component: {fileID: 114935777490121118}
-  - component: {fileID: 198711221233856458}
-  - component: {fileID: 199932715861420450}
-  m_Layer: 11
-  m_Name: P_Wall
-  m_TagString: Enemy
+  - component: {fileID: 199478824739504988}
+  - component: {fileID: 198764007494090454}
+  - component: {fileID: 114523269275883018}
+  m_Layer: 8
+  m_Name: P_Coin
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1442078969640882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -955.5864, y: -8.704456, z: 36.061867}
+  m_LocalPosition: {x: -991.1645, y: -0.47110635, z: 36.061867}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -52,7 +52,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1442078969640882}
-  m_BodyType: 2
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -65,8 +65,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &61101945261176620
-BoxCollider2D:
+--- !u!58 &58951492636589644
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -78,19 +78,9 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0.13333334, y: 0, z: 0.13333334, w: 0.13333334}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.0666667, y: 1.0666667}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 1
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!114 &114935777490121118
+  m_Radius: 0.5
+--- !u!114 &114523269275883018
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -98,10 +88,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1442078969640882}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a30fbd9a03a776447b406c3ed6b2b91f, type: 3}
+  m_Script: {fileID: 11500000, guid: 6caa3d17327ba854db9c3bc7272b6a76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!198 &198711221233856458
+--- !u!198 &198764007494090454
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -158,7 +148,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1533509711
+  randomSeed: 362399895
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -206,7 +196,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0.2
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -248,7 +238,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.7960785, g: 0.054901965, b: 0.054901965, a: 1}
+      maxColor: {r: 1, g: 1, b: 0.6627451, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -601,14 +591,14 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 4
     enabled: 1
-    type: 5
+    type: 10
     angle: 25
     length: 5
     boxX: 1
     boxY: 1
     boxZ: 1
     radius:
-      value: 1
+      value: 0.5
       mode: 0
       spread: 0
       speed:
@@ -1021,7 +1011,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.7960785, g: 0.054901965, b: 0.054901965, a: 1}
+        key0: {r: 1, g: 1, b: 0.6627451, a: 1}
         key1: {r: 1, g: 1, b: 1, a: 0}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -3143,7 +3133,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
---- !u!199 &199932715861420450
+--- !u!199 &199478824739504988
 ParticleSystemRenderer:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -3157,7 +3147,7 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -3226,11 +3216,11 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 93c1420ee245180479e9aa297bf738ac, type: 3}
-  m_Color: {r: 1, g: 0.7794118, b: 0.7794118, a: 1}
+  m_Sprite: {fileID: 21300000, guid: fa117a632747e204caf8688d0e29621c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 1
-  m_Size: {x: 1, y: 1}
+  m_DrawMode: 0
+  m_Size: {x: 4, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0

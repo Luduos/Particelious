@@ -75,6 +75,23 @@ public class GameManager : MonoBehaviour {
             s_Instance = null;
     }
 
+    void OnApplicationPause(bool pause)
+    {
+        AState currentState = null;
+        if (null != m_CurrentStateStack)
+            currentState = m_CurrentStateStack.Peek();
+        string currentStateName = "";
+        if (null != currentState)
+            currentStateName = currentState.GetName();
+        if (pause)
+        {
+            OnExitApplication(currentStateName);
+        }else
+        {
+            OnMainMenu(currentStateName);
+        }
+    }
+
     public void OnStartGame()
     {
         SwitchState(GameState.GetGameStateName());

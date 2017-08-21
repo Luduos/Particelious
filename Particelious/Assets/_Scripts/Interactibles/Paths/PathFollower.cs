@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(WaveMovement))]
-public abstract class PathFollower : MonoBehaviour {
+public class PathFollower : MonoBehaviour {
 
     [SerializeField]
     public PathNode StartingNode = null;
+    [SerializeField]
+    public WaveMovement FollowTarget = null;
 
     protected PathNode NextNode;
     protected WaveMovement Movement;
@@ -21,6 +23,11 @@ public abstract class PathFollower : MonoBehaviour {
         Movement = this.GetComponent<WaveMovement>();
         Movement.UpdateWaveAttributes(StartingNode.GetComponent<WaveChangeInfo>());
 
+        if (null != StartingNode)
+            transform.position = StartingNode.transform.position;
+        if(null != FollowTarget)
+            Movement.CurrentSpeed = FollowTarget.CurrentSpeed;
+
     }
 
     protected virtual void FixedUpdate()
@@ -28,6 +35,8 @@ public abstract class PathFollower : MonoBehaviour {
         if (null != NextNode)
         {
             CheckPath();
+            if (null != FollowTarget)
+                Movement.CurrentSpeed = FollowTarget.CurrentSpeed;
         }
     }
 

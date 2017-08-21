@@ -143,6 +143,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4416335359423628}
   - component: {fileID: 114267539556755044}
+  - component: {fileID: 114647088688469270}
   - component: {fileID: 114038554466883636}
   m_Layer: 0
   m_Name: WallSpawner
@@ -273,13 +274,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 842d06472d851134db58fc9f1c02a737, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartingNode: {fileID: 114626778607262326}
-  MainCamera: {fileID: 0}
+  MainCameraController: {fileID: 0}
   m_PlayerWaveMovement: {fileID: 0}
   CurrentSpawnMode: 2
-  PathHalfSize: 5
-  WallWidth: 2
-  WallDistanceMultiplier: 2
+  PathHalfSize: 6
+  WallWidthMultiplier: 2
+  WallDistanceMultiplier: 1
+  AdditionalFixedWallDistance: 5
   WallPrefab: {fileID: 114935777490121118, guid: fe3913885f965f543acff1e7410cd39e,
     type: 2}
   InitialPoolSize: 64
@@ -296,7 +297,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Frequency: 2
-  m_Amplitude: 5
+  m_Amplitude: 9
+  OnAmplitudeChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   m_CurrentSpeed: 0
 --- !u!114 &114270786230090234
 MonoBehaviour:
@@ -402,6 +408,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Child: {fileID: 114312223548269530}
+--- !u!114 &114647088688469270
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1885187139017860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5496e8236cd72f3428a650da59ef5578, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartingNode: {fileID: 114626778607262326}
+  FollowTarget: {fileID: 0}
 --- !u!114 &114761308153085986
 MonoBehaviour:
   m_ObjectHideFlags: 1
