@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(WaveMovement))]
 public class WallSpawner : MonoBehaviour{
@@ -34,6 +35,8 @@ public class WallSpawner : MonoBehaviour{
     public int InitialPoolSize = 32;
     [SerializeField]
     public int MaxPoolSize = 256;
+
+    public UnityEvent<Vector3> OnSpawnWall;
 
     private WaveMovement m_SpawnerWaveMovement = null;
     public WaveMovement PlayerWaveMovement { get { return m_PlayerWaveMovement; } set { m_PlayerWaveMovement = value; } }
@@ -148,13 +151,9 @@ public class WallSpawner : MonoBehaviour{
         GameObject createdWall = Wall.s_WallPool.Get(SpawnPosition, rotation, Height);
        
         Wall wall = createdWall.GetComponent<Wall>();
-        if (wall)
-        {
-            Vector2 NewSize = new Vector2(CurrentWallWidth, Height);
-            wall.SetSize(NewSize);
-        }else
-        {
-            Debug.LogError("Didn't get wall.");
-        }
+        Vector2 NewSize = new Vector2(CurrentWallWidth, Height);
+        wall.SetSize(NewSize);
+        
+        OnSpawnWall.Invoke(SpawnPosition);
     }
 }
