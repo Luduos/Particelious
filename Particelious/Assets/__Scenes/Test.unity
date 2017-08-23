@@ -383,6 +383,51 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 212487894373341522, guid: 7b5e38e416a9d6141be8f28999581eb0,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000881632241256, guid: 7b5e38e416a9d6141be8f28999581eb0,
+        type: 2}
+      propertyPath: m_BlinkTint.a
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 96147942752726122, guid: 7b5e38e416a9d6141be8f28999581eb0,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8a0a25b58efad02459ec7899c3dfe656, type: 2}
+    - target: {fileID: 96147942752726122, guid: 7b5e38e416a9d6141be8f28999581eb0,
+        type: 2}
+      propertyPath: m_Parameters.numCornerVertices
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 96147942752726122, guid: 7b5e38e416a9d6141be8f28999581eb0,
+        type: 2}
+      propertyPath: m_Parameters.textureMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000881632241256, guid: 7b5e38e416a9d6141be8f28999581eb0,
+        type: 2}
+      propertyPath: m_BlinkTint.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000881632241256, guid: 7b5e38e416a9d6141be8f28999581eb0,
+        type: 2}
+      propertyPath: m_BlinkTint.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 96147942752726122, guid: 7b5e38e416a9d6141be8f28999581eb0,
+        type: 2}
+      propertyPath: m_Parameters.alignment
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000881632241256, guid: 7b5e38e416a9d6141be8f28999581eb0,
+        type: 2}
+      propertyPath: m_BlinkTint.g
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b5e38e416a9d6141be8f28999581eb0, type: 2}
   m_IsPrefabParent: 0

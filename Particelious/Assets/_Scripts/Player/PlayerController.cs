@@ -6,17 +6,6 @@ using UnityEngine;
 [RequireComponent(typeof(WaveMovement))]
 public class PlayerController : MonoBehaviour {
 
-    public enum AttributeType
-    {
-        FREQUENCY,
-        AMPLITUDE,
-        SPEED
-    }
-
-    [SerializeField] private AttributeType LeftSliderAttribute = AttributeType.FREQUENCY;
-    [SerializeField] private AttributeType RightSliderAttribute = AttributeType.AMPLITUDE;
-    [SerializeField] private AttributeType BottomSliderAttribute = AttributeType.SPEED;
-
     [SerializeField]
     private float m_InputMinValue = 0.2f;
     [SerializeField]
@@ -33,7 +22,7 @@ public class PlayerController : MonoBehaviour {
         m_InterPolationCoefficient = 1.0f / (m_InputMaxValue - m_InputMinValue);
     }
 
-    private void ChangeAttribute(AttributeType type, float value)
+    private void ChangeAttribute(float value)
     {
         if(m_PlayerControlEnabled)
         {
@@ -50,40 +39,15 @@ public class PlayerController : MonoBehaviour {
                 value -= m_InputMinValue;
                 value *= m_InterPolationCoefficient;
             }
-            switch (type)
-            {
-                case AttributeType.FREQUENCY:
-                    m_PlayerMovement.FrequencyMultiplier = value;
-                    break;
-                case AttributeType.AMPLITUDE:
-                    m_PlayerMovement.AmplitudeMultiplier = value;
-                    break;
-                case AttributeType.SPEED:
-                    m_PlayerMovement.SpeedMultiplier = value;
-                    break;
-                default:
-                    Debug.LogError("Invalid AttributeType", this);
-                    break;
-            }
+            
+            m_PlayerMovement.FrequencyMultiplier = value;             
         }
     }
 
-    public void OnLeftSliderChanged(Slider ChangedSlider)
+    public void OnSliderChanged(Slider ChangedSlider)
     {
         float CurrentSliderValue = ChangedSlider.value;
-        ChangeAttribute(LeftSliderAttribute, CurrentSliderValue);
-    }
-
-    public void OnRightSliderChanged(Slider ChangedSlider)
-    {
-        float CurrentSliderValue = ChangedSlider.value;
-        ChangeAttribute(RightSliderAttribute, CurrentSliderValue);
-    }
-
-    public void OnBottomSliderChanged(Slider ChangedSlider)
-    {
-        float CurrentSliderValue = ChangedSlider.value;
-        ChangeAttribute(BottomSliderAttribute, CurrentSliderValue);
+        ChangeAttribute(CurrentSliderValue);
     }
 
     public void SetPlayerCurrentSpeed(float NewPlayerSpeed)

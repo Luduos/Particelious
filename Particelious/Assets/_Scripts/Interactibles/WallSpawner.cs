@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+
+[System.Serializable]
+public class OnSpawnWallEvent : UnityEvent<Vector3>{
+
+}
+
 [RequireComponent(typeof(WaveMovement))]
 public class WallSpawner : MonoBehaviour{
 
@@ -36,7 +42,7 @@ public class WallSpawner : MonoBehaviour{
     [SerializeField]
     public int MaxPoolSize = 256;
 
-    public UnityEvent<Vector3> OnSpawnWall;
+    public OnSpawnWallEvent OnSpawnWall;
 
     private WaveMovement m_SpawnerWaveMovement = null;
     public WaveMovement PlayerWaveMovement { get { return m_PlayerWaveMovement; } set { m_PlayerWaveMovement = value; } }

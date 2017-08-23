@@ -47,7 +47,7 @@ public class PlayerLife : MonoBehaviour {
     {
         TrailRenderer PlayerTrail = m_PlayerMesh.GetComponent<TrailRenderer>();
         if (PlayerTrail)
-            PlayerTrail.startWidth = m_CurrentScale;
+            PlayerTrail.widthMultiplier = m_CurrentScale;
 
         if (null == m_PlayerBlinkReaction)
         {

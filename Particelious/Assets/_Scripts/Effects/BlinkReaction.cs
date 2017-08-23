@@ -79,7 +79,7 @@ public class BlinkReaction : MonoBehaviour {
             m_OriginalTrailColor = m_Trail.startColor;
             Color trailTint = m_OriginalTrailColor;
             trailTint.a = m_BlinkTint.a;
-            m_Trail.startColor = trailTint;
+            m_Trail.startColor = m_BlinkTint;
         }
         if(m_ShouldPerformCameraShake && m_CameraController)
         {
@@ -102,14 +102,15 @@ public class BlinkReaction : MonoBehaviour {
         OnBlinkEnded.Invoke();
     }
 
-    private void SetScale(float Factor)
+    public void SetScale(float Factor)
     {
         if (Factor > 0.0f)
         {
             this.transform.localScale = new Vector3(Factor, Factor, Factor);
             if (m_Trail)
             {
-                m_Trail.startWidth = Factor;
+                //m_Trail.startWidth = Factor;
+                m_Trail.widthMultiplier = Factor;
             }
         }
     }  

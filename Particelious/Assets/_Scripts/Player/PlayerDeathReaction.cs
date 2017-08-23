@@ -75,6 +75,10 @@ public class PlayerDeathReaction : MonoBehaviour {
         {
             m_Trail.enabled = false;
         }
+        if (!m_SpriteRenderer.enabled)
+        {
+            m_SpriteRenderer.enabled = true;
+        }
         this.enabled = true;
     }
 
