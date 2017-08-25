@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -6,21 +7,22 @@ using UnityEngine.Events;
 public class WaveMovement : MonoBehaviour {
 
     [SerializeField] [Tooltip("Frequency in Hertz")] private float m_Frequency = 0.5f;
-    public float Frequency { get { return m_Frequency; } set { m_Frequency = value; HasFrequencyChanged = true; } }
+    public float Frequency { get { return m_Frequency; } set { m_Frequency = value; m_HasFrequencyChanged = true; } }
 
     private float m_FrequencyMultiplier = 1.0f;
-    public float FrequencyMultiplier { get { return m_FrequencyMultiplier; } set { m_FrequencyMultiplier = value; HasFrequencyChanged = true; } }
+    public float FrequencyMultiplier { get { return m_FrequencyMultiplier; } set { m_FrequencyMultiplier = value; m_HasFrequencyChanged = true; } }
 
     [SerializeField] private float m_Amplitude = 2.0f;
-    public UnityEvent OnAmplitudeChanged;
     public float Amplitude { get { return m_Amplitude; } set { m_Amplitude = value; OnAmplitudeChanged.Invoke(); } }
     public float AmplitudeMultiplier { get; set; }
-
-    
 
     [SerializeField] private float m_CurrentSpeed = 2.0f;
     public float CurrentSpeed { get { return m_CurrentSpeed; } set { m_CurrentSpeed = value; } }
     public float SpeedMultiplier { get; set; }
+
+    public UnityEvent OnAmplitudeChanged;
+    public Action OnReachedTopMostPoint;
+    public Action OnReachedBottomMostPoint;
 
     private Vector3 m_OscillationOrigin;
     public Vector3 OscillationOrigin { get { return m_OscillationOrigin; } set { m_OscillationOrigin = value; } }
@@ -31,10 +33,14 @@ public class WaveMovement : MonoBehaviour {
     private const float TWO_PI = Mathf.PI * 2;
     private const float EPSILON = 1e-5f;
 
-    private float AccumulatedTime = 0.0f;
-    private float LastFrequencyCoefficient = 0.0f;
+    private float m_AccumulatedTime = 0.0f;
+    private float m_LastFrequencyCoefficient = 0.0f;
    
-    private bool HasFrequencyChanged = true;
+    private bool m_HasFrequencyChanged = true;
+
+    private float m_OldYDisplacement = 0.0f;
+    private bool m_IsGoingUp = true;
+    public bool IsGoingUp { get { return m_IsGoingUp; } }
 
 	// Use this for initialization
 	void Start () {
@@ -53,10 +59,13 @@ public class WaveMovement : MonoBehaviour {
         //X-Movement
         float SpeedCoefficient = Time.deltaTime * SpeedMultiplier * CurrentSpeed;
         Vector3 PositionIncrement = new Vector3(SpeedCoefficient, 0.0f, 0.0f);
-
+        // Check if we reached a minimum or maximum
+        CheckForExtremum(YDisplacementByFrequency);
         // Apply position changes
         m_OscillationOrigin += PositionIncrement;
-        this.transform.position = m_OscillationOrigin + OscillationDisplacement;  
+        this.transform.position = m_OscillationOrigin + OscillationDisplacement;
+        // Update Old Displacement
+        m_OldYDisplacement = YDisplacementByFrequency;
     }
 
     public void UpdateWaveAttributes(WaveChangeInfo UpdatedAttributes)
@@ -71,23 +80,38 @@ public class WaveMovement : MonoBehaviour {
 
     private float UpdateFrequency()
     {
-        AccumulatedTime += Time.deltaTime;
+        m_AccumulatedTime += Time.deltaTime;
 
-        if (HasFrequencyChanged)
+        if (m_HasFrequencyChanged)
         {
             float CurrentFrequencyCoefficient = m_Frequency * FrequencyMultiplier;
-            float CurrentPhase = (AccumulatedTime * LastFrequencyCoefficient + m_PhaseShift) % TWO_PI;
-            float NextPhase = (AccumulatedTime * CurrentFrequencyCoefficient) % TWO_PI;
+            float CurrentPhase = (m_AccumulatedTime * m_LastFrequencyCoefficient + m_PhaseShift) % TWO_PI;
+            float NextPhase = (m_AccumulatedTime * CurrentFrequencyCoefficient) % TWO_PI;
             m_PhaseShift = CurrentPhase - NextPhase;
 
-            LastFrequencyCoefficient = CurrentFrequencyCoefficient;
-            HasFrequencyChanged = false;
+            m_LastFrequencyCoefficient = CurrentFrequencyCoefficient;
+            m_HasFrequencyChanged = false;
         }
         // Y-Movement increment
-        float SineValue = AccumulatedTime * LastFrequencyCoefficient + m_PhaseShift;
+        float SineValue = m_AccumulatedTime * m_LastFrequencyCoefficient + m_PhaseShift;
         float YDisplacement = Mathf.Sin(SineValue);
 
        // TODO: Keep AccumulatedTime from Overspilling?
         return YDisplacement;
+    }
+
+    private void CheckForExtremum(float CurrentYDisplacement)
+    {
+       if(m_IsGoingUp && CurrentYDisplacement < m_OldYDisplacement)
+        {
+            m_IsGoingUp = false;
+            if(null != OnReachedTopMostPoint)
+                OnReachedTopMostPoint();
+        }else if(!m_IsGoingUp && CurrentYDisplacement > m_OldYDisplacement)
+        {
+            m_IsGoingUp = true;
+            if(null != OnReachedBottomMostPoint)
+                OnReachedBottomMostPoint();
+        }
     }
 }

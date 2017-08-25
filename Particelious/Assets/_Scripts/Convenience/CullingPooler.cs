@@ -9,6 +9,19 @@ public abstract class Cullable : MonoBehaviour
     public abstract void Reset();
 }
 
+[System.Serializable]
+public struct CullingPoolerInfo
+{
+    public int InitialSize;
+    public int MaxSize;
+    
+    public CullingPoolerInfo(int initialSize, int maxSize)
+    {
+        this.InitialSize = initialSize;
+        this.MaxSize = maxSize;
+    }
+}
+
 public class CullingPooler {
 
     protected Stack<Cullable> m_FreeInstances;
@@ -22,17 +35,17 @@ public class CullingPooler {
 
     private static readonly Vector4 s_UndangerousBoundingSpherePosition = new Vector4(float.MaxValue, float.MaxValue, float.MaxValue, 1.0f);
 
-    public CullingPooler(Cullable original, Camera targetCamera, int initialSize, int maxSize)
+    public CullingPooler(Cullable original, Camera targetCamera, CullingPoolerInfo poolerInfo)
     {
         m_Original = original;
-        maxSize = initialSize > maxSize ? initialSize : maxSize; // take maximum between the two sizes
+        poolerInfo.MaxSize = poolerInfo.InitialSize > poolerInfo.MaxSize ? poolerInfo.InitialSize : poolerInfo.MaxSize; // take maximum between the two sizes
 
-        m_ActualInstanceCount = initialSize;
-        m_FreeInstances = new Stack<Cullable>(initialSize);
-        m_AllInstances = new Cullable[maxSize];
-        m_BoundingSpheres = new BoundingSphere[maxSize];
+        m_ActualInstanceCount = poolerInfo.InitialSize;
+        m_FreeInstances = new Stack<Cullable>(poolerInfo.InitialSize);
+        m_AllInstances = new Cullable[poolerInfo.MaxSize];
+        m_BoundingSpheres = new BoundingSphere[poolerInfo.MaxSize];
 
-        for (int i = 0; i < initialSize; ++i)
+        for (int i = 0; i < poolerInfo.InitialSize; ++i)
         {
             Cullable obj = Object.Instantiate(original);
             obj.Index = i;
@@ -69,7 +82,7 @@ public class CullingPooler {
             ret = m_FreeInstances.Pop();
         }else
         {
-            if (m_ActualInstanceCount >= m_AllInstances.Length)
+            if (m_ActualInstanceCount >= m_AllInstances.Length - 2)
             {
                 DoubleArrayLengths();
             }

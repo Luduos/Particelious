@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -38,11 +39,9 @@ public class WallSpawner : MonoBehaviour{
     [SerializeField]
     public Wall WallPrefab = null;
     [SerializeField]
-    public int InitialPoolSize = 32;
-    [SerializeField]
-    public int MaxPoolSize = 256;
+    public CullingPoolerInfo PoolingInfo = new CullingPoolerInfo(32, 128);
 
-    public OnSpawnWallEvent OnSpawnWall;
+    public Action<Vector3> OnSpawnWall;
 
     private WaveMovement m_SpawnerWaveMovement = null;
     public WaveMovement PlayerWaveMovement { get { return m_PlayerWaveMovement; } set { m_PlayerWaveMovement = value; } }
@@ -72,8 +71,8 @@ public class WallSpawner : MonoBehaviour{
             MainCameraController = FindObjectOfType<CameraController>();
         }
         MainCamera = MainCameraController.GetComponent<Camera>();
-        
-        Wall.s_WallPool = new CullingPooler(WallPrefab, MainCamera, InitialPoolSize, MaxPoolSize);
+
+        Wall.s_WallPool = new CullingPooler(WallPrefab, MainCamera, PoolingInfo);
         
         CurrentWallWidth = WallWidthMultiplier / m_SpawnerWaveMovement.Frequency;
         UpdateSpawn();
@@ -154,12 +153,13 @@ public class WallSpawner : MonoBehaviour{
     {
         Quaternion rotation = flipped ? s_FlippedQuaternion : s_Identity;
 
-        GameObject createdWall = Wall.s_WallPool.Get(SpawnPosition, rotation, Height);
+        GameObject createdWall = Wall.s_WallPool.Get(SpawnPosition, rotation, Height + 5.0f);
        
         Wall wall = createdWall.GetComponent<Wall>();
         Vector2 NewSize = new Vector2(CurrentWallWidth, Height);
         wall.SetSize(NewSize);
         
-        OnSpawnWall.Invoke(SpawnPosition);
+        if(null != OnSpawnWall)
+            OnSpawnWall.Invoke(SpawnPosition);
     }
 }

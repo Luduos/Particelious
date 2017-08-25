@@ -24,7 +24,7 @@ public class CameraController : MonoBehaviour {
             CameraOffset += m_ShakeOffset;
         }
         Vector3 targetPosition = m_FollowTarget.OscillationOrigin + CameraOffset;
-        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref m_CurrentCameraVelocity, m_FollowSpeed);
+        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref m_CurrentCameraVelocity, m_FollowSpeed, 50.0f, Time.deltaTime);
     }
 
     public void StartCameraShake(CameraShakeInformation info)

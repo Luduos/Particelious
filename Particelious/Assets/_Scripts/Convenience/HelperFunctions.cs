@@ -28,10 +28,10 @@ public class HelperFunctions {
         if (null == s_CurrentPlayer)
         {
             TryToFindPlayer();
-            if (s_CurrentPlayer)
-            {
-                playerWaveMovement = s_CurrentPlayer.GetComponent<WaveMovement>(); 
-            }
+        }
+        if (s_CurrentPlayer)
+        {
+            playerWaveMovement = s_CurrentPlayer.GetComponent<WaveMovement>();
         }
         return playerWaveMovement;
     }
