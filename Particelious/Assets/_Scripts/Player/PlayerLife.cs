@@ -114,14 +114,27 @@ public class PlayerLife : MonoBehaviour {
     {
         m_CurrentPlayerState = (m_CurrentStadium > 0) ? PlayerState.BLINKING : PlayerState.DYING;
         UpdateCurrentScale();
+
+        // Check if we are about to die
         if (m_CurrentPlayerState == PlayerState.BLINKING)
         {
-            if(m_PlayerBlinkReaction)
-                m_PlayerBlinkReaction.OnStartBlinkAnimation(m_OldScale, m_CurrentScale);
-        }else if(m_CurrentPlayerState == PlayerState.DYING)
+            // Check if we have only one live left
+            BlinkReaction.BlinktTint TintToUse = BlinkReaction.BlinktTint.MEDIUM_LIFE;
+            if (1 == m_CurrentStadium)
+            {
+                TintToUse = BlinkReaction.BlinktTint.LOW_LIFE;
+            }
+            if (m_PlayerBlinkReaction)
+            {
+                m_PlayerBlinkReaction.OnStartBlinkAnimation(m_OldScale, m_CurrentScale, TintToUse);
+            }
+        }
+        else if(m_CurrentPlayerState == PlayerState.DYING)
         {
             if (m_PlayerDeathReaction)
+            {
                 m_PlayerDeathReaction.OnStartDeathAnimation(m_CurrentScale);
+            }
         }
     }
 }

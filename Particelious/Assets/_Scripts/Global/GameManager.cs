@@ -22,8 +22,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     private AState[] m_States;
 
-    private GameInfo m_GameInfo = new GameInfo(0);
-    public GameInfo gameInfo { get { return m_GameInfo; } set { m_GameInfo = value; } }
+    public System.Action OnEndedGameSession;
 
     private Dictionary<string, AState> m_StateDictionary;
     private Stack<AState> m_CurrentStateStack;
@@ -82,11 +81,13 @@ public class GameManager : MonoBehaviour {
 
     public void OnPlayerDeath()
     {
-        GameManager.instance.AddState("RestartState");
+        GameManager.instance.AddState(RestartState.GetRestartStateName());
     }
 
     public void OnRestart()
     {
+        if (null != OnEndedGameSession)
+            OnEndedGameSession.Invoke();
         ExitCurrentState();
         OnStartGame();
     }

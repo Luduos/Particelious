@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114523269275883018}
   m_Layer: 8
   m_Name: P_Coin
-  m_TagString: Collectible
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

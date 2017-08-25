@@ -10,7 +10,9 @@ public class BlinkReaction : MonoBehaviour {
     public UnityEvent OnBlinkEnded;
 
     [SerializeField]
-    private Color m_BlinkTint = new Color(1.0f, 1.0f, 1.0f, 0.7f);
+    private Color m_MediumBlinkTint = new Color(1.0f, 0.75f, 0.0f, 1.0f);
+    [SerializeField]
+    private Color m_LowBlinkTint = new Color(0.75f, 0.0f, 0.0f, 1.0f);
     [SerializeField]
     private float m_BlinkingAnimationDuration = 2.0f;
     [SerializeField]
@@ -34,6 +36,12 @@ public class BlinkReaction : MonoBehaviour {
     private float m_AccumulatedBlinkTime = 0.0f;
     private float m_OldScale;
     private float m_NewScale;
+
+    public enum BlinktTint
+    {
+        MEDIUM_LIFE,
+        LOW_LIFE
+    }
 
     // Use this for initialization
     void Start () {
@@ -67,19 +75,19 @@ public class BlinkReaction : MonoBehaviour {
         }
     }
 
-    public void OnStartBlinkAnimation(float OldScale, float NewScale)
+    public void OnStartBlinkAnimation(float OldScale, float NewScale, BlinktTint BlinkAnimationTint)
     {
         m_OldScale = OldScale;
         m_NewScale = NewScale;
 
+        Color CurrentBlinktTint = GetCurrentBlinkTint(BlinkAnimationTint);
+
         m_OriginalRendererColor = m_Renderer.color;
-        m_Renderer.color = m_BlinkTint;
+        m_Renderer.color = CurrentBlinktTint;
         if (m_Trail)
         {
             m_OriginalTrailColor = m_Trail.startColor;
-            Color trailTint = m_OriginalTrailColor;
-            trailTint.a = m_BlinkTint.a;
-            m_Trail.startColor = m_BlinkTint;
+            m_Trail.startColor = CurrentBlinktTint;
         }
         if(m_ShouldPerformCameraShake && m_CameraController)
         {
@@ -87,6 +95,21 @@ public class BlinkReaction : MonoBehaviour {
         }
 
         this.enabled = true;
+    }
+
+    private Color GetCurrentBlinkTint(BlinktTint BlinkAnimationTint)
+    {
+        Color blinkTint = Color.green;
+        switch (BlinkAnimationTint)
+        {
+            case BlinktTint.MEDIUM_LIFE:
+                blinkTint = m_MediumBlinkTint;
+                break;
+            case BlinktTint.LOW_LIFE:
+                blinkTint = m_LowBlinkTint;
+                break;
+        }
+        return blinkTint;
     }
 
     private void OnEndBlinkAnimation()

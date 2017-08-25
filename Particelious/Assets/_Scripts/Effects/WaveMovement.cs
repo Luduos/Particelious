@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class WaveMovement : MonoBehaviour {
+public class WaveMovement : MonoBehaviour, ISpawnUpdateable {
 
     [SerializeField] [Tooltip("Frequency in Hertz")] private float m_Frequency = 0.5f;
     public float Frequency { get { return m_Frequency; } set { m_Frequency = value; m_HasFrequencyChanged = true; } }
@@ -62,19 +62,18 @@ public class WaveMovement : MonoBehaviour {
         // Check if we reached a minimum or maximum
         CheckForExtremum(YDisplacementByFrequency);
         // Apply position changes
-        m_OscillationOrigin += PositionIncrement;
+        m_OscillationOrigin = new Vector3(transform.position.x, m_OscillationOrigin.y) + PositionIncrement;
         this.transform.position = m_OscillationOrigin + OscillationDisplacement;
         // Update Old Displacement
         m_OldYDisplacement = YDisplacementByFrequency;
     }
 
-    public void UpdateWaveAttributes(WaveChangeInfo UpdatedAttributes)
+    public void UpdateSpawnAttributes(SpawnChangeInfo UpdatedAttributes)
     {
         if(null != UpdatedAttributes)
         {
             Frequency = UpdatedAttributes.NewFrequency;
             Amplitude = UpdatedAttributes.NewAmplitude;
-            OscillationOrigin += UpdatedAttributes.AddedOscillationOffset;
         }
     }
 

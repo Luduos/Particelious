@@ -244,7 +244,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1120804956851682}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 10, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4977748843079982}
@@ -501,7 +501,8 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  m_BlinkTint: {r: 1, g: 0.691, b: 0, a: 1}
+  m_MediumBlinkTint: {r: 1, g: 0.691, b: 0, a: 1}
+  m_LowBlinkTint: {r: 0.76862746, g: 0, b: 0, a: 1}
   m_BlinkingAnimationDuration: 2
   m_BlinkingSpeed: 12
   m_BlinkAnimationThreshold: 0.7
@@ -515,7 +516,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1666631485037488}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -657,6 +658,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2af9730a2b276fb4787d9d24775d67f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_EnemyTag: Enemy
+  m_CoinTag: Coin
   OnHit:
     m_PersistentCalls:
       m_Calls:
@@ -759,7 +762,7 @@ MonoBehaviour:
   m_PlayerMesh: {fileID: 1034926629563666}
   m_PlayerBlinkReaction: {fileID: 114000881632241256}
   m_PlayerDeathReaction: {fileID: 114851720989043776}
-  m_NumberOfStadiums: 3
+  m_NumberOfStadiums: 1
   m_MinSizeMultiplicator: 1
   m_MaxSizeMultiplicator: 1.6
 --- !u!114 &114743323851039766
@@ -774,7 +777,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.2509804}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.5019608}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -801,7 +804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.23529412}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.5019608}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -929,7 +932,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 793881281
+  randomSeed: 761840891
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -1799,16 +1802,16 @@ ParticleSystem:
         serializedVersion: 2
         key0: {r: 0, g: 1, b: 0.07058824, a: 1}
         key1: {r: 1, g: 0.6901961, b: 0, a: 0}
-        key2: {r: 1, g: 1, b: 1, a: 0}
-        key3: {r: 0, g: 0, b: 0, a: 0}
+        key2: {r: 0.76862746, g: 0, b: 0, a: 0}
+        key3: {r: 1, g: 1, b: 1, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
-        ctime1: 32768
-        ctime2: 65535
-        ctime3: 0
+        ctime1: 29491
+        ctime2: 58982
+        ctime3: 65535
         ctime4: 0
         ctime5: 0
         ctime6: 0
@@ -1822,7 +1825,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_NumColorKeys: 3
+        m_NumColorKeys: 4
         m_NumAlphaKeys: 2
       minGradient:
         serializedVersion: 2
@@ -4086,7 +4089,7 @@ RectTransform:
   m_Father: {fileID: 224734435718025718}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}

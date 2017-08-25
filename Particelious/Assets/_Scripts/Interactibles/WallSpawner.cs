@@ -10,8 +10,8 @@ public class OnSpawnWallEvent : UnityEvent<Vector3>{
 
 }
 
-[RequireComponent(typeof(WaveMovement))]
-public class WallSpawner : MonoBehaviour{
+[RequireComponent(typeof(WaveMovement), typeof(SpawnController))]
+public class WallSpawner : MonoBehaviour, ISpawnUpdateable{
 
     public enum SpawnMode{
         WALLS_TOP,
@@ -24,8 +24,7 @@ public class WallSpawner : MonoBehaviour{
     [SerializeField]
     public CameraController MainCameraController = null;
     private Camera MainCamera = null;
-    [SerializeField]
-    public WaveMovement m_PlayerWaveMovement;
+
     [SerializeField]
     public SpawnMode CurrentSpawnMode = SpawnMode.BOTH;
     [SerializeField]
@@ -44,7 +43,6 @@ public class WallSpawner : MonoBehaviour{
     public Action<Vector3> OnSpawnWall;
 
     private WaveMovement m_SpawnerWaveMovement = null;
-    public WaveMovement PlayerWaveMovement { get { return m_PlayerWaveMovement; } set { m_PlayerWaveMovement = value; } }
 
     private Vector2 LastSpawnPosition;
     private static readonly Quaternion s_FlippedQuaternion = Quaternion.Euler(new Vector3(0.0f, 0.0f, 180.0f));
@@ -56,15 +54,8 @@ public class WallSpawner : MonoBehaviour{
     private static readonly Vector3 m_LowestViewportSpawnPoint = new Vector3(0.0f, -0.1f, 0.0f);
 
     protected void Start () {
-        m_PlayerWaveMovement = HelperFunctions.TryGetPlayerMovement();
         LastSpawnPosition = this.transform.position;
         m_SpawnerWaveMovement = GetComponent<WaveMovement>();
-
-        PathFollower pathFollower = GetComponent<PathFollower>();
-        if(null != pathFollower)
-        {
-            pathFollower.FollowTarget = m_PlayerWaveMovement;
-        }
 
         if (MainCameraController == null)
         {
@@ -75,12 +66,9 @@ public class WallSpawner : MonoBehaviour{
         Wall.s_WallPool = new CullingPooler(WallPrefab, MainCamera, PoolingInfo);
         
         CurrentWallWidth = WallWidthMultiplier / m_SpawnerWaveMovement.Frequency;
-        UpdateSpawn();
-    }
 
-    protected void FixedUpdate () {
-        // Update Speed
-        UpdateSpawn();
+        m_SpawnerWaveMovement.OnReachedTopMostPoint += UpdateSpawn;
+        m_SpawnerWaveMovement.OnReachedBottomMostPoint += UpdateSpawn;
     }
 
     void OnDestroy()
@@ -88,7 +76,47 @@ public class WallSpawner : MonoBehaviour{
         Wall.s_WallPool.Dispose();
     }
 
+    public void UpdateSpawnAttributes(SpawnChangeInfo UpdatedAttributes)
+    {
+        if (null != UpdatedAttributes)
+        {
+            CurrentSpawnMode = UpdatedAttributes.Wall_SpawnMode;
+            PathHalfSize = UpdatedAttributes.Wall_PathHalfHeight;
+        }
+    }
+
+    private void UpdateSpawn()
+    {
+        CurrentWallWidth = WallWidthMultiplier / m_SpawnerWaveMovement.Frequency;
+        switch (CurrentSpawnMode)
+        {
+            case SpawnMode.BOTH:
+                {
+                    SpawnTopWall();
+                    LastSpawnPosition = SpawnBottomWall();
+                    break;
+                }
+            case SpawnMode.WALLS_TOP:
+                {
+                    LastSpawnPosition = SpawnTopWall();
+                    break;
+                }
+            case SpawnMode.WALLS_BOTTOM:
+                {
+                    LastSpawnPosition = SpawnBottomWall();
+                    break;
+                }
+            case SpawnMode.NONE:
+                {
+                    LastSpawnPosition = this.transform.position - new Vector3(0.0f, -CurrentWallWidth, 0.0f);
+                    break;
+                }
+        }
+        
+    }
+
     // Used to check, if we have to spawn the next wall
+    /*
     private void UpdateSpawn()
     {
         CurrentWallWidth = WallWidthMultiplier / m_SpawnerWaveMovement.Frequency;
@@ -120,6 +148,7 @@ public class WallSpawner : MonoBehaviour{
             }
         }  
     }
+    */
 
     private Vector3 SpawnTopWall()
     {

@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(WaveMovement))]
 public class PathFollower : MonoBehaviour {
 
     [SerializeField]
     public PathNode StartingNode = null;
-    [SerializeField]
-    public WaveMovement FollowTarget = null;
+
+    public System.Action<PathNode> OnReachedNode;
+    public UnityEvent OnPassedLastNode;
 
     protected PathNode NextNode;
     protected WaveMovement Movement;
@@ -17,17 +19,12 @@ public class PathFollower : MonoBehaviour {
     protected bool IsFollowing { get { return m_IsFollowing; } }
 
     // Use this for initialization
-    protected virtual void Start () {
+    public virtual void Start () {
         NextNode = StartingNode;
         m_IsFollowing = true;
-        Movement = this.GetComponent<WaveMovement>();
-        Movement.UpdateWaveAttributes(StartingNode.GetComponent<WaveChangeInfo>());
-
+       
         if (null != StartingNode)
             transform.position = StartingNode.transform.position;
-        if(null != FollowTarget)
-            Movement.CurrentSpeed = FollowTarget.CurrentSpeed;
-
     }
 
     protected virtual void FixedUpdate()
@@ -35,8 +32,6 @@ public class PathFollower : MonoBehaviour {
         if (null != NextNode)
         {
             CheckPath();
-            if (null != FollowTarget)
-                Movement.CurrentSpeed = FollowTarget.CurrentSpeed;
         }
     }
 
@@ -47,14 +42,11 @@ public class PathFollower : MonoBehaviour {
         {
             PathNode CurrentNode = NextNode;
             NextNode = NextNode.Child;
-            if (null != CurrentNode)
+            OnReachedNode.Invoke(CurrentNode);
+            if(null == NextNode)
             {
-                Movement.UpdateWaveAttributes(CurrentNode.GetComponent<WaveChangeInfo>());
-            }else
-            {
-                m_IsFollowing = false;
+                OnPassedLastNode.Invoke();
             }
-            Destroy(CurrentNode.gameObject);
         }
     }
 }

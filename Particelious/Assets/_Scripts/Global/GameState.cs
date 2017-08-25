@@ -24,7 +24,6 @@ public class GameState : AState {
     public Camera mainCamera { get { return m_CameraController.GetComponent<Camera>(); } }
 
     private GameObject m_CoreGameObject = null;
-    private GameInfo m_CurrentGameInfo;
 
     public override string GetName()
     {
@@ -51,8 +50,6 @@ public class GameState : AState {
 
     private void StartGamePlay()
     {
-        m_CurrentGameInfo = manager.gameInfo;
-
         CoreObjectController coreCtrl = Instantiate(m_CoreObjectsPrefab);
         if (m_CoreGameObject)
             Destroy(m_CoreGameObject);

@@ -5,17 +5,20 @@ using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
 public class PlayerCollision : MonoBehaviour {
-
-    private int HitCounter = 0; // Just for debugging
+    [SerializeField]
+    private string m_EnemyTag = "Enemy";
+    [SerializeField]
+    private string m_CoinTag = "Coin";
 
     public UnityEvent OnHit;
-
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag(m_EnemyTag))
         {
             OnHit.Invoke();
-            HitCounter++;
+        }else if (collision.gameObject.CompareTag(m_CoinTag))
+        {
+            GlobalInfo.instance.OnCollectedCoin();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,8 +12,8 @@ public struct CoinSpawnerInfo
     public float ProbabilityIncrease;
     [Range(0.1f, 10.0f)]
     public float TimeToProbabilityIncrease;
-    [Range(0,100)]
-    public int MaxNumberOfSpawns;
+    [Range(0.0f, 2.0f)]
+    public float RandomOffsetAddition;
 }
 
 [RequireComponent(typeof(WaveMovement))]
@@ -54,12 +55,16 @@ public class CoinSpawner : MonoBehaviour {
         MainCamera = MainCameraController.GetComponent<Camera>();
 
         if(null == m_PlayerWaveMovement)
+        {
             m_PlayerWaveMovement = HelperFunctions.TryGetPlayerMovement();
+        }
 
         m_LastSpawnPosition = this.transform.position;
         CircleCollider2D coinCollider = m_CoinPrefab.GetComponent<CircleCollider2D>();
         if (coinCollider)
-            CoinPrefabRadius = coinCollider.radius * m_CoinPrefab.transform.localScale.magnitude;
+        {
+            CoinPrefabRadius = SpawnerInfo.RandomOffsetAddition + coinCollider.radius * m_CoinPrefab.transform.localScale.magnitude;
+        }
         TwoTimesCoinPrefabRadius = 2.0f * CoinPrefabRadius;
 
         Coin.s_CoinPool = new CullingPooler(m_CoinPrefab, MainCamera, PoolingInfo);
@@ -79,9 +84,9 @@ public class CoinSpawner : MonoBehaviour {
             m_CurrentSpawnProbability += SpawnerInfo.ProbabilityIncrease;
             m_TimeSinceLastProbabilityTick = 0.0f;
         }
-        if(m_CurrentSpawnProbability > Random.value)
+        if(m_CurrentSpawnProbability > UnityEngine.Random.value)
         {
-            float randomOffset = Random.Range(-CoinPrefabRadius, CoinPrefabRadius);
+            float randomOffset = UnityEngine.Random.Range(-CoinPrefabRadius, CoinPrefabRadius);
             Vector2 spawnPosition = this.transform.position + new Vector3(0.0f, randomOffset, 0.0f);
             if (spawnPosition.x != m_LastSpawnPosition.x)
             {
@@ -90,5 +95,5 @@ public class CoinSpawner : MonoBehaviour {
             }
             m_CurrentSpawnProbability = SpawnerInfo.StartProbability;
         }
-    } 
+    }
 }
