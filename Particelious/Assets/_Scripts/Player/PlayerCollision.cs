@@ -18,7 +18,7 @@ public class PlayerCollision : MonoBehaviour {
             OnHit.Invoke();
         }else if (collision.gameObject.CompareTag(m_CoinTag))
         {
-            GlobalInfo.instance.OnCollectedCoin();
+            GlobalInfo.instance.CollectedCoin();
         }
     }
 }

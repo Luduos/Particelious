@@ -21,6 +21,6 @@ public class InputDistributor : MonoBehaviour {
 
     public void OnExitApplication(string from)
     {
-
+        GameManager.instance.OnExitApplication(from);
     }
 }

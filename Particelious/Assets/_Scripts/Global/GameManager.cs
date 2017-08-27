@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour {
                 GameObject o = new GameObject("GameManager");
                 DontDestroyOnLoad(o);
                 s_Instance = o.AddComponent<GameManager>();
+
+                Debug.LogWarning("Manually constructed GameManager object, shouldn't usually happen.");
             }
             return s_Instance;
         }
@@ -27,15 +29,18 @@ public class GameManager : MonoBehaviour {
     private Dictionary<string, AState> m_StateDictionary;
     private Stack<AState> m_CurrentStateStack;
 
+    public GameManager()
+    {
+        s_Instance = this;
+    }
+
     void Start()
     {
-        if (null != s_Instance)
+        if (null != s_Instance && !s_Instance.Equals(this))
         {
             Destroy(this.gameObject);
             return;
         }
-
-        s_Instance = this;
         DontDestroyOnLoad(this.gameObject);
 
         m_CurrentStateStack = new Stack<AState>(3);
@@ -86,8 +91,6 @@ public class GameManager : MonoBehaviour {
 
     public void OnRestart()
     {
-        if (null != OnEndedGameSession)
-            OnEndedGameSession.Invoke();
         ExitCurrentState();
         OnStartGame();
     }

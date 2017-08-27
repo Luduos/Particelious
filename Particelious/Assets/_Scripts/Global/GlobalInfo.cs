@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GlobalInfo : MonoBehaviour{
  
@@ -22,9 +21,8 @@ public class GlobalInfo : MonoBehaviour{
         }
     }
 
-    [SerializeField]
-    private Text m_CoinText = null;
-    const string m_CoinDisplay = "x{0}";
+    public System.Action<int> OnGlobalCoinCountChanged;
+    public System.Action<int> OnCurrentSessionCoinCountChanged;
 
     private int m_GlobalCoinCount = 0;
     public int CointCount { get { return m_GlobalCoinCount; } set { m_GlobalCoinCount = value; } }
@@ -35,19 +33,23 @@ public class GlobalInfo : MonoBehaviour{
     private int m_CurrentLevel = 1;
     public int CurrentLevel { get { return m_CurrentLevel; } set { m_CurrentLevel = value; } }
 
+    public GlobalInfo()
+    {
+        s_Instance = this;
+
+    }
+
     void Start()
     {
-        if (null != s_Instance)
+        if (null != s_Instance && !s_Instance.Equals(this))
         {
             Destroy(this.gameObject);
             return;
         }
-
-        s_Instance = this;
         DontDestroyOnLoad(this.gameObject);
 
         GameManager.instance.OnEndedGameSession += OnRestartLevel;
-        UpdateCoinText();
+        UpdateCoinInfo();
     }
 
     void OnDestroy()
@@ -56,27 +58,34 @@ public class GlobalInfo : MonoBehaviour{
             s_Instance = null;
     }
 
-    public void OnCollectedCoin()
+    public void CollectedCoin()
     {
         m_GlobalCoinCount++;
         CoinsFromCurrentSession++;
-        UpdateCoinText();
+        UpdateCoinInfo();
     }
 
-    public void OnAddGlobalCoins(int AddAmount)
+    public void AddGlobalCoins(int AddAmount)
     {
         m_GlobalCoinCount += AddAmount;
-        UpdateCoinText();
+        UpdateCoinInfo();
     }
 
     private void OnRestartLevel()
     {
         CoinsFromCurrentSession = 0;
+        UpdateCoinInfo();
     }
 
-    private void UpdateCoinText()
+    public void UpdateCoinInfo()
     {
-        if(m_CoinText)
-            m_CoinText.text = string.Format(m_CoinDisplay, m_GlobalCoinCount);
+        if (null != OnGlobalCoinCountChanged)
+        {
+            OnGlobalCoinCountChanged.Invoke(m_GlobalCoinCount);
+        }
+        if(null != OnCurrentSessionCoinCountChanged)
+        {
+            OnCurrentSessionCoinCountChanged.Invoke(m_CoinsFromCurrentSession);
+        }
     }
 }
