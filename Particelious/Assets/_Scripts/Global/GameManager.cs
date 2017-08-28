@@ -24,23 +24,18 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     private AState[] m_States;
 
-    public System.Action OnEndedGameSession;
-
     private Dictionary<string, AState> m_StateDictionary;
     private Stack<AState> m_CurrentStateStack;
 
-    public GameManager()
-    {
-        s_Instance = this;
-    }
 
     void Start()
     {
-        if (null != s_Instance && !s_Instance.Equals(this))
+        if (null != s_Instance)
         {
             Destroy(this.gameObject);
             return;
         }
+        s_Instance = this;
         DontDestroyOnLoad(this.gameObject);
 
         m_CurrentStateStack = new Stack<AState>(3);

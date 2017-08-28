@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIController : MonoBehaviour {
+public class UIController : MonoBehaviour{
     [SerializeField]
     private WaveMovement PlayerWaveMovement = null;
     [SerializeField]
@@ -14,6 +15,9 @@ public class UIController : MonoBehaviour {
     private RectTransform UpperImplicator = null;
     [SerializeField]
     private RectTransform LowerImplicator = null;
+
+    public System.Action OnTouchDown;
+    public System.Action OnTouchUp;
 
     void Start () {
         this.enabled = false;
@@ -39,6 +43,4 @@ public class UIController : MonoBehaviour {
             Debug.Log("No PlayerMesh / PlayerMovement / MainCamera defined in AmplitudeImplicator");
         }
     }
-	
-	
 }

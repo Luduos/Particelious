@@ -304,17 +304,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0.9607844, g: 0.9607844, b: 0.49411768, a: 0.16470589}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
-  m_FillCenter: 0
+  m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
@@ -403,6 +403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16fd599de98b92545a5e679f4d09f003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_GameManager: {fileID: 114023578518241452}
 --- !u!114 &114834396510894066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -445,7 +446,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 1
-  m_Value: 0
+  m_Value: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -473,8 +474,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2915b135910d2246b5b65e6402e6b59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_GlobalInfo: {fileID: 114795831248025304}
   m_CoinText: {fileID: 114977523741581642}
-  m_CoinProgressSlider: {fileID: 0}
+  m_CoinProgressSlider: {fileID: 114834396510894066}
 --- !u!114 &114894707552117714
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -514,7 +516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.078431375}
+  m_Color: {r: 0.9607844, g: 0.9607844, b: 0.49411768, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

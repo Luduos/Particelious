@@ -15,6 +15,9 @@ public class GameState : AState {
     private static string s_GameStateName  = "GameState";
     public static string GetGameStateName() { return s_GameStateName; }
 
+    public static System.Action OnGameSessionEnter;
+    public static System.Action OnGameSessionExit;
+
     private PlayerController m_PlayerController = null;
     public PlayerController playerController { get { return m_PlayerController; } }
 
@@ -35,6 +38,11 @@ public class GameState : AState {
         Screen.sleepTimeout = (int)SleepTimeout.NeverSleep;
         SceneManager.sceneLoaded += LevelLoaded;
         SceneManager.LoadScene(MainGameSceneName);
+
+        if(null != OnGameSessionEnter)
+        {
+            OnGameSessionEnter.Invoke();
+        }
     }
     void LevelLoaded(Scene loadedScene, LoadSceneMode loadSceneMode)
     {
@@ -46,6 +54,10 @@ public class GameState : AState {
     public override void Exit(AState to)
     {
         SceneManager.sceneLoaded -= LevelLoaded;
+        if (null != OnGameSessionExit)
+        {
+            OnGameSessionExit.Invoke();
+        }
     }
 
     private void StartGamePlay()

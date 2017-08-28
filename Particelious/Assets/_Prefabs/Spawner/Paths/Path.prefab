@@ -373,7 +373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NewFrequency: 3
   NewAmplitude: 5
-  Wall_PathHalfHeight: 2
+  Wall_PathHalfHeight: 3
   Wall_SpawnMode: 2
 --- !u!114 &114402153099056474
 MonoBehaviour:
@@ -468,7 +468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NewFrequency: 2.5
   NewAmplitude: 5
-  Wall_PathHalfHeight: 2
+  Wall_PathHalfHeight: 3
   Wall_SpawnMode: 2
 --- !u!114 &114785154938779136
 MonoBehaviour:

@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(GameManager))]
 public class GlobalInfo : MonoBehaviour{
+
+    [SerializeField]
+    private GameManager m_GameManager = null;
  
     static protected GlobalInfo s_Instance = null;
     static public GlobalInfo instance
@@ -33,29 +37,29 @@ public class GlobalInfo : MonoBehaviour{
     private int m_CurrentLevel = 1;
     public int CurrentLevel { get { return m_CurrentLevel; } set { m_CurrentLevel = value; } }
 
-    public GlobalInfo()
-    {
-        s_Instance = this;
-
-    }
 
     void Start()
     {
-        if (null != s_Instance && !s_Instance.Equals(this))
+        if (null != s_Instance)
         {
             Destroy(this.gameObject);
             return;
         }
+        s_Instance = this;
         DontDestroyOnLoad(this.gameObject);
 
-        GameManager.instance.OnEndedGameSession += OnRestartLevel;
-        UpdateCoinInfo();
+        if(null == m_GameManager)
+        {
+            m_GameManager = GetComponent<GameManager>();
+        }
+        GameState.OnGameSessionExit += OnRestartLevel;
     }
 
     void OnDestroy()
     {
         if (this == s_Instance)
             s_Instance = null;
+        GameState.OnGameSessionExit -= OnRestartLevel;
     }
 
     public void CollectedCoin()

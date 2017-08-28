@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class CoinInfoController : MonoBehaviour {
 
     [SerializeField]
+    private GlobalInfo m_GlobalInfo = null;
+
+    [SerializeField]
     private Text m_CoinText = null;
     const string m_CoinDisplay = "x{0}";
 
@@ -15,11 +18,40 @@ public class CoinInfoController : MonoBehaviour {
     // Use this for initialization
 
     void Start () {
-        GlobalInfo.instance.OnGlobalCoinCountChanged += OnUpdateCoinText;
-        GlobalInfo.instance.OnCurrentSessionCoinCountChanged += OnUpdateCoinProgressSlider;
-        GlobalInfo.instance.UpdateCoinInfo();
-	}
-    
+        if(null != m_GlobalInfo)
+        {
+            m_GlobalInfo.OnGlobalCoinCountChanged += OnUpdateCoinText;
+            m_GlobalInfo.OnCurrentSessionCoinCountChanged += OnUpdateCoinProgressSlider;
+            m_GlobalInfo.UpdateCoinInfo();
+        }
+
+        GameState.OnGameSessionEnter += ShowProgressSlider;
+        GameState.OnGameSessionExit += HideProgessSlider;
+        HideProgessSlider();
+    }
+
+    private void OnDestroy()
+    {
+        GameState.OnGameSessionEnter -= ShowProgressSlider;
+        GameState.OnGameSessionExit -= HideProgessSlider;
+    }
+
+    private void ShowProgressSlider()
+    {
+        if (m_CoinProgressSlider)
+        {
+            m_CoinProgressSlider.gameObject.SetActive(true);
+        }
+    }
+
+    private void HideProgessSlider()
+    {
+        if (m_CoinProgressSlider)
+        {
+            m_CoinProgressSlider.gameObject.SetActive(false);
+        }
+    }
+
     void OnUpdateCoinText(int UpdatedCoinCount)
     {
         if (m_CoinText)
@@ -32,15 +64,7 @@ public class CoinInfoController : MonoBehaviour {
     {
         if (m_CoinProgressSlider)
         {
-            if(UpdatedCurrentSessionCoinCount > 0)
-            {
-                m_CoinProgressSlider.gameObject.SetActive(true);
-                m_CoinProgressSlider.value = UpdatedCurrentSessionCoinCount;
-            }
-            else
-            {
-                m_CoinProgressSlider.gameObject.SetActive(false);
-            }
+            m_CoinProgressSlider.value = UpdatedCurrentSessionCoinCount;
         }
     }
 }

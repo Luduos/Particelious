@@ -78,6 +78,7 @@ GameObject:
   - component: {fileID: 114737847419718628}
   - component: {fileID: 114560381394105944}
   - component: {fileID: 114739144682661210}
+  - component: {fileID: 114906172090873690}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -160,7 +161,7 @@ GameObject:
   - component: {fileID: 223490262421450690}
   - component: {fileID: 114267429153326368}
   - component: {fileID: 114593128607599948}
-  - component: {fileID: 114469498520151238}
+  - component: {fileID: 114806670506138882}
   m_Layer: 5
   m_Name: UI-Canvas
   m_TagString: Untagged
@@ -220,7 +221,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1952180859124010
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,7 +489,7 @@ MonoBehaviour:
   OnBlinkEnded:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114469498520151238}
+      - m_Target: {fileID: 0}
         m_MethodName: UpdateAmplitudeImplicators
         m_Mode: 1
         m_Arguments:
@@ -617,22 +618,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &114469498520151238
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1487021133891600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cb0633baf0f83e4c850b0c35a30fbda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerWaveMovement: {fileID: 114560381394105944}
-  PlayerMesh: {fileID: 1034926629563666}
-  MainCamera: {fileID: 20698957358016718}
-  UpperImplicator: {fileID: 224415974297428870}
-  LowerImplicator: {fileID: 224467325327668782}
 --- !u!114 &114502527360966926
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -693,7 +678,7 @@ MonoBehaviour:
   OnAmplitudeChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114469498520151238}
+      - m_Target: {fileID: 0}
         m_MethodName: UpdateAmplitudeImplicators
         m_Mode: 1
         m_Arguments:
@@ -746,8 +731,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 778c99d2625b2254a8b73cc8751bd729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InputMinValue: 0.2
-  m_InputMaxValue: 0.8
+  m_InterpolationMultiplierUp: 1.1
+  m_InterpolationMultiplierDown: 3
 --- !u!114 &114739144682661210
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -762,7 +747,7 @@ MonoBehaviour:
   m_PlayerMesh: {fileID: 1034926629563666}
   m_PlayerBlinkReaction: {fileID: 114000881632241256}
   m_PlayerDeathReaction: {fileID: 114851720989043776}
-  m_NumberOfStadiums: 1
+  m_NumberOfStadiums: 3
   m_MinSizeMultiplicator: 1
   m_MaxSizeMultiplicator: 1.6
 --- !u!114 &114743323851039766
@@ -792,6 +777,22 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114806670506138882
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1487021133891600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb0633baf0f83e4c850b0c35a30fbda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerWaveMovement: {fileID: 114560381394105944}
+  PlayerMesh: {fileID: 1034926629563666}
+  MainCamera: {fileID: 20698957358016718}
+  UpperImplicator: {fileID: 224415974297428870}
+  LowerImplicator: {fileID: 224467325327668782}
 --- !u!114 &114818481058447556
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -841,6 +842,24 @@ MonoBehaviour:
   m_CameraShakeInfo:
     Duration: 2
     Intensity: 2
+--- !u!114 &114906172090873690
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1120804956851682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08baa3d19a3754108af85534c7824251, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TreatMousePointerAsFinger: 1
+  SimulateMouseWithTouches: 0
+  PassThroughObjects: []
+  TouchCircles: []
+  ShowTouches: 0
+  DefaultDPI: 200
+  ClearGesturesOnLevelLoad: 1
 --- !u!114 &114961119853334178
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4100,7 +4119,7 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1130929253953548}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4128,7 +4147,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
