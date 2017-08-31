@@ -139,6 +139,7 @@ GameObject:
   - component: {fileID: 223216933547991146}
   - component: {fileID: 114383503746310566}
   - component: {fileID: 114943535909872578}
+  - component: {fileID: 114561150039337382}
   m_Layer: 0
   m_Name: GlobalCanvas
   m_TagString: Untagged
@@ -365,6 +366,17 @@ MonoBehaviour:
   m_Text: 'FPS
 
 '
+--- !u!114 &114561150039337382
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1461488733021680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6ff9329884874c43be1cc6ffa7a725c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114630857262685018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -624,7 +636,7 @@ Canvas:
   m_GameObject: {fileID: 1461488733021680}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0

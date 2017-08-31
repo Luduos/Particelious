@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 92430372593845148}
   - component: {fileID: 124375751787344652}
   - component: {fileID: 81449554686903472}
+  - component: {fileID: 114425185156204350}
   m_Layer: 0
   m_Name: MenuCamera
   m_TagString: MainCamera
@@ -93,6 +94,21 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1981645312969506}
   m_Enabled: 1
+--- !u!114 &114425185156204350
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1981645312969506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29c38bf78cc8e4a4c87b078ab0c1bb32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Threshold: 0.5
+  m_FinalResolutionScaler: 1
+  m_Precision: 4
+  BloomShader: {fileID: 4800000, guid: 533af73f57a52ac4ea8e35be2672607a, type: 3}
 --- !u!124 &124375751787344652
 Behaviour:
   m_ObjectHideFlags: 1

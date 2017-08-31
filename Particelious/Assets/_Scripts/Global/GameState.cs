@@ -16,6 +16,7 @@ public class GameState : AState {
     public static string GetGameStateName() { return s_GameStateName; }
 
     public static System.Action OnGameSessionEnter;
+    public static System.Action OnFinishedGameSessionLoading;
     public static System.Action OnGameSessionExit;
 
     private PlayerController m_PlayerController = null;
@@ -69,5 +70,10 @@ public class GameState : AState {
         m_PlayerController = coreCtrl.playerController;
         m_CameraController = coreCtrl.cameraController;
         Instantiate(m_WallSpawnerPrefab);
+
+        if(null != OnFinishedGameSessionLoading)
+        {
+            OnFinishedGameSessionLoading.Invoke();
+        }
     }
 }

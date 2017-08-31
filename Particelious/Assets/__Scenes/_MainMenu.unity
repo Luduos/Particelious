@@ -372,7 +372,7 @@ Canvas:
   m_GameObject: {fileID: 413115247}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 643775573}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -443,6 +443,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114425185156204350, guid: f52fb46ade6a63548a23a70db64f2aa8,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114425185156204350, guid: f52fb46ade6a63548a23a70db64f2aa8,
+        type: 2}
+      propertyPath: m_Threshold
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114425185156204350, guid: f52fb46ade6a63548a23a70db64f2aa8,
+        type: 2}
+      propertyPath: m_Precision
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f52fb46ade6a63548a23a70db64f2aa8, type: 2}
   m_IsPrefabParent: 0
@@ -485,6 +500,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 223216933547991146, guid: 8a036219dfdbeb64d882eb302834aebc,
+        type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 643775573}
     - target: {fileID: 224458196418090044, guid: 8a036219dfdbeb64d882eb302834aebc,
         type: 2}
       propertyPath: m_AnchorMax.x
