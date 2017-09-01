@@ -17,7 +17,8 @@ public class PlayerDeathReaction : MonoBehaviour {
 
     [SerializeField]
     private PlayerController m_PlayerControl;
-
+    [SerializeField]
+    private CircleCollider2D m_ExplosionCollider = null;
     [SerializeField]
     private float m_ExplosionAfterSeconds = 3.0f;
 
@@ -47,7 +48,9 @@ public class PlayerDeathReaction : MonoBehaviour {
         m_DeathEffect = GetComponent<ParticleSystem>();
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
         this.enabled = false;
-	}
+        if (m_ExplosionCollider)
+            m_ExplosionCollider.enabled = false;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -100,8 +103,15 @@ public class PlayerDeathReaction : MonoBehaviour {
                 m_CameraController.StartCameraShake(m_CameraShakeInfo);
             }
             m_DeathEffect.Play();
-        }else
+            if(m_ExplosionCollider)
+                m_ExplosionCollider.enabled = true;
+        }
+        else
         {
+            if (m_ExplosionCollider)
+            {
+                m_ExplosionCollider.radius += m_DeathEffect.main.startSpeed.constant * Time.deltaTime / m_DeathEffect.main.startSize.constant;
+            }
             if (!m_DeathEffect.isPlaying)
             {
                 OnEndDeathAnimation();

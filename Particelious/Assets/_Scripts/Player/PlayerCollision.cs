@@ -20,5 +20,6 @@ public class PlayerCollision : MonoBehaviour {
         {
             GlobalInfo.instance.CollectedCoin();
         }
+        
     }
 }

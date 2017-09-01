@@ -44,8 +44,6 @@ public class SpawnController : MonoBehaviour {
             m_WaveMovement.CurrentSpeed = FollowTarget.CurrentSpeed;
     }
 
-
-
     void OnReachedPathNode(PathNode pathNode)
     {
         SpawnChangeInfo changedInfo = pathNode.GetComponent<SpawnChangeInfo>();

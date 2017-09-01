@@ -15,11 +15,11 @@ TagManager:
   - UI
   - 
   - 
-  - Collision
-  - Debugging
+  - Coin
+  - 
   - LevelEditor
   - Enemy
-  - 
+  - Player
   - 
   - 
   - 

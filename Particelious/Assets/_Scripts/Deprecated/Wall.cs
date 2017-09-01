@@ -53,7 +53,7 @@ public class Wall : Cullable {
             m_Renderer.enabled = false;
             m_Collider.enabled = false;
         }
-    }
+    }  
 
     public override void Reset()
     {

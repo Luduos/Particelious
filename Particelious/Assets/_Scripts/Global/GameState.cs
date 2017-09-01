@@ -63,13 +63,16 @@ public class GameState : AState {
 
     private void StartGamePlay()
     {
-        CoreObjectController coreCtrl = Instantiate(m_CoreObjectsPrefab);
-        if (m_CoreGameObject)
-            Destroy(m_CoreGameObject);
+        CoreObjectController coreCtrl = FindObjectOfType<CoreObjectController>();
+        if (!coreCtrl)
+        {
+            coreCtrl = Instantiate(m_CoreObjectsPrefab);
+        }
+
         m_CoreGameObject = coreCtrl.gameObject;
         m_PlayerController = coreCtrl.playerController;
         m_CameraController = coreCtrl.cameraController;
-        Instantiate(m_WallSpawnerPrefab);
+        //Instantiate(m_WallSpawnerPrefab);
 
         if(null != OnFinishedGameSessionLoading)
         {

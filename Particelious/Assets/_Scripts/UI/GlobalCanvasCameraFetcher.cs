@@ -18,7 +18,6 @@ public class GlobalCanvasCameraFetcher : MonoBehaviour {
         SceneManager.sceneLoaded += LevelLoaded;
     }
 
-
     void LevelLoaded()
     {
         if (CurrentCanvas)
@@ -41,7 +40,5 @@ public class GlobalCanvasCameraFetcher : MonoBehaviour {
     {
         GameState.OnFinishedGameSessionLoading -= LevelLoaded;
         SceneManager.sceneLoaded -= LevelLoaded;
-
     }
-
 }
