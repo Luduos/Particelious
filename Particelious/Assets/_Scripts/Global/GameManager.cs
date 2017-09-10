@@ -38,7 +38,13 @@ public class GameManager : MonoBehaviour {
         s_Instance = this;
         DontDestroyOnLoad(this.gameObject);
 
-        m_CurrentStateStack = new Stack<AState>(3);
+        m_CurrentStateStack = new Stack<AState>(10);
+
+        if (null == m_States)
+        {
+            return;
+        }
+
         m_StateDictionary = new Dictionary<string, AState>(m_States.Length);
         foreach (AState currentState in m_States)
         {
