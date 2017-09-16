@@ -16,7 +16,7 @@ public class InputDistributor : MonoBehaviour {
 
     public void OnMainMenu(string from)
     {
-        GameManager.instance.OnMainMenu(from);
+        GameManager.instance.OnMainMenu();
     }
 
     public void OnExitApplication(string from)

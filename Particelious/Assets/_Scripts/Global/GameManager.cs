@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour {
             if (CurrentStateName.Equals(MainMenuState.GetMainMenuStateName()))
                 OnExitApplication(CurrentStateName);
             else
-                OnMainMenu(CurrentStateName);
+                OnMainMenu();
         }
     }
 
@@ -87,21 +87,21 @@ public class GameManager : MonoBehaviour {
 
     public void OnPlayerDeath()
     {
-        GameManager.instance.AddState(RestartState.GetRestartStateName());
+        GameManager.instance.SwitchState(RestartState.GetRestartStateName());
+    }
+
+    public void OnFinishedLevel()
+    {
+        GameManager.instance.SwitchState(FinishedLevelState.GetFinishedLevelStateName());
     }
 
     public void OnRestart()
     {
-        ExitCurrentState();
         OnStartGame();
     }
 
-    public void OnMainMenu(string from)
+    public void OnMainMenu()
     {
-        if (from.Equals(RestartState.GetRestartStateName()))
-        {
-            ExitCurrentState();
-        }
         SwitchState(MainMenuState.GetMainMenuStateName());
     }
 

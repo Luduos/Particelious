@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
-
 using UnityEngine;
 
 public class RestartState : AState
@@ -15,7 +14,7 @@ public class RestartState : AState
 
     public override void Enter(AState from)
     {
-        SceneManager.LoadScene(m_RestartMenuSceneName, LoadSceneMode.Additive);
+        SceneManager.LoadScene(m_RestartMenuSceneName);
     }
 
     public override void Exit(AState to)
