@@ -30,8 +30,8 @@ public class WaveMovement : MonoBehaviour, ISpawnUpdateable {
     private float m_PhaseShift = 0.0f;
     public float PhaseShift { get { return m_PhaseShift; } }
 
-    private const float TWO_PI = Mathf.PI * 2;
-    private const float EPSILON = 1e-5f;
+    private static readonly float TWO_PI = Mathf.PI * 2;
+    private static readonly float EPSILON = 1e-5f;
 
     private float m_AccumulatedTime = 0.0f;
     private float m_LastFrequencyCoefficient = 0.0f;
@@ -101,12 +101,12 @@ public class WaveMovement : MonoBehaviour, ISpawnUpdateable {
 
     private void CheckForExtremum(float CurrentYDisplacement)
     {
-       if(m_IsGoingUp && CurrentYDisplacement < m_OldYDisplacement)
+       if(m_IsGoingUp && CurrentYDisplacement < m_OldYDisplacement - EPSILON)
         {
             m_IsGoingUp = false;
             if(null != OnReachedTopMostPoint)
                 OnReachedTopMostPoint();
-        }else if(!m_IsGoingUp && CurrentYDisplacement > m_OldYDisplacement)
+        }else if(!m_IsGoingUp && CurrentYDisplacement > m_OldYDisplacement + EPSILON)
         {
             m_IsGoingUp = true;
             if(null != OnReachedBottomMostPoint)

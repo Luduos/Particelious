@@ -1,17 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class ExtremumParticleStarter : MonoBehaviour {
+public class DirectionImplicationController : MonoBehaviour {
 
     [SerializeField]
     private WaveMovement PlayerWaveMovement = null;
 
     [SerializeField]
-    private ParticleSystem UpperBoundSignal = null;
+    private Image UpperBoundSignal = null;
 
     [SerializeField]
-    private ParticleSystem LowerBoundSignal = null;
+    private Image LowerBoundSignal = null;
 
 	// Use this for initialization
 	void Start () {
@@ -28,15 +29,18 @@ public class ExtremumParticleStarter : MonoBehaviour {
         {
             PlayerWaveMovement.OnReachedBottomMostPoint += OnStartLowerBoundSignal;
         }
+        OnStartUpperBoundSignal();
     }
 
     private void OnStartUpperBoundSignal()
     {
-        UpperBoundSignal.Play();
+        UpperBoundSignal.enabled = true;
+        LowerBoundSignal.enabled = false;
     }
 
     private void OnStartLowerBoundSignal()
     {
-        LowerBoundSignal.Play();
+        UpperBoundSignal.enabled = false;
+        LowerBoundSignal.enabled = true;
     }
 }

@@ -28,7 +28,7 @@ public class Coin_New : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D collision)
     {
         m_ParticleSystem.Play();
-        m_Renderer.enabled = false;
+        m_Renderer.enabled = false; 
         m_Collider.enabled = false;
     } 
 }

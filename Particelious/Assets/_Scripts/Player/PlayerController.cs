@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
-using DigitalRubyShared;
-[RequireComponent(typeof(WaveMovement), typeof(FingersScript))]
+[RequireComponent(typeof(WaveMovement))]
 public class PlayerController : MonoBehaviour {
 
     [SerializeField]
@@ -12,8 +11,6 @@ public class PlayerController : MonoBehaviour {
     private float m_InterpolationMultiplierDown = 3.0f;
 
     private float m_CurrentInterpolationMultiplier = 1.0f;
-
-    private LongPressGestureRecognizer tapGesture;
 
     private WaveMovement m_PlayerMovement;
     private bool m_PlayerControlEnabled = true;
@@ -26,37 +23,34 @@ public class PlayerController : MonoBehaviour {
         m_PlayerMovement = this.GetComponent<WaveMovement>();
 
         //m_InterPolationCoefficient = 1.0f / (m_InputMaxValue - m_InputMinValue);
-        CreateTapGestures();
+        
         m_CurrentInterpolationMultiplier = m_InterpolationMultiplierUp;
     }
 
-    private void CreateTapGestures()
+    void Update()
     {
-        tapGesture = new LongPressGestureRecognizer();
-        tapGesture.MinimumDurationSeconds = 0.0f;
-        tapGesture.Updated += TapGestureCallback;
-        FingersScript.Instance.AddGesture(tapGesture); 
+        UpdateInput();
+        m_CurrentValue = Mathf.Lerp(m_CurrentValue, m_GoalValue, Time.deltaTime * m_CurrentInterpolationMultiplier);
+        m_PlayerMovement.FrequencyMultiplier = m_CurrentValue;   
     }
 
-    private void TapGestureCallback(GestureRecognizer gesture, ICollection<GestureTouch> touches)
+    private void UpdateInput()
     {
-        if(touches.Count > 0)
+        bool shouldMove = false;
+
+#if UNITY_ANDROID || UNITY_IOS
+        shouldMove = Input.touchCount > 0;
+#endif
+#if UNITY_STANDALONE || UNITY_EDITOR
+        shouldMove = Input.anyKey;
+#endif
+        if (shouldMove)
         {
             OnTouchDown();
         }
         else
         {
             OnTouchUp();
-        }
-    }
-
-    void Update()
-    {
-        if (m_PlayerControlEnabled)
-        {
-            m_CurrentValue = Mathf.Lerp(m_CurrentValue, m_GoalValue, Time.deltaTime * m_CurrentInterpolationMultiplier);
-            //m_CurrentValue = m_GoalValue;
-            m_PlayerMovement.FrequencyMultiplier = m_CurrentValue;
         }
     }
 
@@ -100,6 +94,7 @@ public class PlayerController : MonoBehaviour {
         float CurrentSliderValue = ChangedSlider.value;
         ChangeAttribute(CurrentSliderValue);
         */
+        
     }
 
     public void SetPlayerCurrentSpeed(float NewPlayerSpeed)
