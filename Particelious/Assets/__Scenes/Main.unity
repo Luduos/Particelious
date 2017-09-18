@@ -274,91 +274,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 198792582248679410, guid: 7b5e38e416a9d6141be8f28999581eb0,
-        type: 2}
-      propertyPath: EmissionModule.m_Bursts.Array.data[0].minCount
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 198792582248679410, guid: 7b5e38e416a9d6141be8f28999581eb0,
-        type: 2}
-      propertyPath: randomSeed
-      value: 373460453
-      objectReference: {fileID: 0}
-    - target: {fileID: 198792582248679410, guid: 7b5e38e416a9d6141be8f28999581eb0,
-        type: 2}
-      propertyPath: EmissionModule.m_Bursts.Array.data[0].maxCount
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 114739144682661210, guid: 7b5e38e416a9d6141be8f28999581eb0,
-        type: 2}
-      propertyPath: m_NumberOfStadiums
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 198792582248679410, guid: 7b5e38e416a9d6141be8f28999581eb0,
-        type: 2}
-      propertyPath: TriggerModule.enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198792582248679410, guid: 7b5e38e416a9d6141be8f28999581eb0,
-        type: 2}
-      propertyPath: TriggerModule.collisionShape1
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 198792582248679410, guid: 7b5e38e416a9d6141be8f28999581eb0,
-        type: 2}
-      propertyPath: TriggerModule.inside
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198792582248679410, guid: 7b5e38e416a9d6141be8f28999581eb0,
-        type: 2}
-      propertyPath: TriggerModule.outside
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198792582248679410, guid: 7b5e38e416a9d6141be8f28999581eb0,
-        type: 2}
-      propertyPath: TriggerModule.enter
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 198792582248679410, guid: 7b5e38e416a9d6141be8f28999581eb0,
-        type: 2}
-      propertyPath: TriggerModule.radiusScale
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 198792582248679410, guid: 7b5e38e416a9d6141be8f28999581eb0,
-        type: 2}
-      propertyPath: TriggerModule.exit
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114851720989043776, guid: 7b5e38e416a9d6141be8f28999581eb0,
-        type: 2}
-      propertyPath: m_ExplosionCollider
-      value: 
-      objectReference: {fileID: 170031578}
-    - target: {fileID: 199448149361067212, guid: 7b5e38e416a9d6141be8f28999581eb0,
-        type: 2}
-      propertyPath: m_MinParticleSize
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 199448149361067212, guid: 7b5e38e416a9d6141be8f28999581eb0,
-        type: 2}
-      propertyPath: m_MaxParticleSize
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 198792582248679410, guid: 7b5e38e416a9d6141be8f28999581eb0,
-        type: 2}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198792582248679410, guid: 7b5e38e416a9d6141be8f28999581eb0,
-        type: 2}
-      propertyPath: autoRandomSeed
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198792582248679410, guid: 7b5e38e416a9d6141be8f28999581eb0,
-        type: 2}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 15
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b5e38e416a9d6141be8f28999581eb0, type: 2}
   m_IsPrefabParent: 0
@@ -983,50 +898,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6676623692703444ca33d55fd6d544fb, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &170031576
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 170031577}
-  - component: {fileID: 170031578}
-  m_Layer: 12
-  m_Name: PlayerExplosionCollision
-  m_TagString: Player
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &170031577
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 170031576}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 11}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1795390695}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &170031578
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 170031576}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!1001 &195493183
 Prefab:
   m_ObjectHideFlags: 0
@@ -6764,11 +6635,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4815300703202468, guid: 6676623692703444ca33d55fd6d544fb,
     type: 2}
   m_PrefabInternal: {fileID: 757561804}
---- !u!4 &1795390695 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4977748843079982, guid: 7b5e38e416a9d6141be8f28999581eb0,
-    type: 2}
-  m_PrefabInternal: {fileID: 54555080}
 --- !u!1001 &1795435916
 Prefab:
   m_ObjectHideFlags: 0

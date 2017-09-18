@@ -61,7 +61,8 @@ public class PlayerLife : MonoBehaviour {
             }
         }
         m_PlayerBlinkReaction.OnBlinkEnded.AddListener(OnBlinkingEnded);
-        m_PlayerMesh.transform.localScale = new Vector3(m_CurrentScale, m_CurrentScale, 1.0f);   
+        m_PlayerMesh.transform.localScale = new Vector3(m_CurrentScale, m_CurrentScale, 1.0f);
+        m_PlayerBlinkReaction.OnBlinkEnded.Invoke();
     }
 
     private void InitDeathReaction()

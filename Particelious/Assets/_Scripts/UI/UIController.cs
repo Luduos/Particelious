@@ -46,7 +46,7 @@ public class UIController : MonoBehaviour{
         }
         if (PlayerMesh && PlayerWaveMovement && MainCamera)
         {
-            float CurrentScale = PlayerMesh.transform.lossyScale.y * 0.5f;
+            float CurrentScale = PlayerMesh.transform.localScale.y * 0.5f;
 
             Vector3 amplitudeOffset = new Vector3(0.0f, PlayerWaveMovement.Amplitude + CurrentScale, 0.0f);
             Vector3 minWorldPointPosition = MainCamera.transform.position - amplitudeOffset;
