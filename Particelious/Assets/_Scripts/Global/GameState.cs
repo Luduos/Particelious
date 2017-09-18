@@ -9,8 +9,6 @@ public class GameState : AState {
     private string MainGameSceneName = "Main";
     [SerializeField]
     private CoreObjectController m_CoreObjectsPrefab = null;
-    [SerializeField]
-    private GameObject m_WallSpawnerPrefab = null;
 
     private static string s_GameStateName  = "GameState";
     public static string GetGameStateName() { return s_GameStateName; }
@@ -72,7 +70,6 @@ public class GameState : AState {
         m_CoreGameObject = coreCtrl.gameObject;
         m_PlayerController = coreCtrl.playerController;
         m_CameraController = coreCtrl.cameraController;
-        //Instantiate(m_WallSpawnerPrefab);
 
         if(null != OnFinishedGameSessionLoading)
         {

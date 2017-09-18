@@ -4,6 +4,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[System.Serializable]
+public struct ImplicatorInformation
+{
+    public RectTransform UpperImplicator;
+    public RectTransform LowerImplicator;
+
+    public Image GoingUpSignal;
+    public Image GoingDownSignal;
+
+    public float SignalAlphaMin;
+    public float SignalAlphaMax;
+
+    public float FadeDuration;
+}
+
 public class UIController : MonoBehaviour{
     [SerializeField]
     private WaveMovement PlayerWaveMovement = null;
@@ -13,14 +28,7 @@ public class UIController : MonoBehaviour{
     private Camera MainCamera = null;
 
     [SerializeField]
-    private RectTransform UpperImplicator = null;
-    [SerializeField]
-    private RectTransform LowerImplicator = null;
-
-    [SerializeField]
-    private Image GoingUpSignal = null;
-    [SerializeField]
-    private Image GoingDownSignal = null;
+    private ImplicatorInformation m_ImplicatorInfo;
 
     public System.Action OnTouchDown;
     public System.Action OnTouchUp;
@@ -45,35 +53,35 @@ public class UIController : MonoBehaviour{
             Vector3 minScreenPointPosition = MainCamera.WorldToScreenPoint(minWorldPointPosition);
             float amplitudeImplicatorWidth = minScreenPointPosition.y;
 
-            UpperImplicator.sizeDelta = new Vector2(0.0f, amplitudeImplicatorWidth);
-            LowerImplicator.sizeDelta = new Vector2(0.0f, amplitudeImplicatorWidth);
+            m_ImplicatorInfo.UpperImplicator.sizeDelta = new Vector2(0.0f, amplitudeImplicatorWidth);
+            m_ImplicatorInfo.LowerImplicator.sizeDelta = new Vector2(0.0f, amplitudeImplicatorWidth);
         }
         else
         {
             Debug.Log("No PlayerMesh / PlayerMovement / MainCamera defined in AmplitudeImplicator");
         }
 
-        if (null != GoingUpSignal)
+        if (null != m_ImplicatorInfo.GoingUpSignal)
         {
             PlayerWaveMovement.OnReachedTopMostPoint += OnShowGoingDownSignal;
         }
-        if (null != GoingDownSignal)
+        if (null != m_ImplicatorInfo.GoingDownSignal)
         {
             PlayerWaveMovement.OnReachedBottomMostPoint += OnShowGoingUpSignal;
         }
-        GoingUpSignal.CrossFadeAlpha(1.0f, 0.0f, false);
-        GoingDownSignal.CrossFadeAlpha(0.05f, 0.0f, false);
+        m_ImplicatorInfo.GoingUpSignal.CrossFadeAlpha(m_ImplicatorInfo.SignalAlphaMax, 0.0f, false);
+        m_ImplicatorInfo.GoingDownSignal.CrossFadeAlpha(m_ImplicatorInfo.SignalAlphaMin, 0.0f, false);
     }
 
     private void OnShowGoingUpSignal()
     {
-        GoingUpSignal.CrossFadeAlpha(1.0f, 0.25f, false);
-        GoingDownSignal.CrossFadeAlpha(0.05f, 0.25f, false);
+        m_ImplicatorInfo.GoingUpSignal.CrossFadeAlpha(m_ImplicatorInfo.SignalAlphaMax, m_ImplicatorInfo.FadeDuration, false);
+        m_ImplicatorInfo.GoingDownSignal.CrossFadeAlpha(m_ImplicatorInfo.SignalAlphaMin, m_ImplicatorInfo.FadeDuration, false);
     }
 
     private void OnShowGoingDownSignal()
     {
-        GoingUpSignal.CrossFadeAlpha(0.05f, 0.25f, false);
-        GoingDownSignal.CrossFadeAlpha(1.0f, 0.25f, false);
+        m_ImplicatorInfo.GoingUpSignal.CrossFadeAlpha(m_ImplicatorInfo.SignalAlphaMin, m_ImplicatorInfo.FadeDuration, false);
+        m_ImplicatorInfo.GoingDownSignal.CrossFadeAlpha(m_ImplicatorInfo.SignalAlphaMax, m_ImplicatorInfo.FadeDuration, false);
     }
 }

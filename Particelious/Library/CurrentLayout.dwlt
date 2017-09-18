@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 8}
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -232,10 +232,10 @@ MonoBehaviour:
     y: 30
     width: 1366
     height: 645
-  m_MinSize: {x: 683, y: 492}
-  m_MaxSize: {x: 14004, y: 14042}
+  m_MinSize: {x: 681, y: 492}
+  m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 77
+  controlID: 9
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 78
+  controlID: 10
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -283,7 +283,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 221}
   m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
-  controlID: 79
+  controlID: 11
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -381,8 +381,8 @@ MonoBehaviour:
     y: 0
     width: 381
     height: 645
-  m_MinSize: {x: 277, y: 71}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 25}
   m_Panes:
   - {fileID: 25}
@@ -493,9 +493,9 @@ MonoBehaviour:
     height: 341
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 866d0000
+    m_SelectedIDs: a8260000
     m_LastClickedID: 0
-    m_ExpandedIDs: fc1affff101bffff1a21ffff882effffb22fffff1232ffff9033ffff1434ffff6454ffff5459ffff125bffffcc7bffffa491ffffbc91ffffc091ffff9898ffff16c3ffff70c5ffff18ceffff84f5ffff00000000e8340000286a0000326a0000e86c0000
+    m_ExpandedIDs: 42defefff2e4feffbae9fefff0e9feffb8eafeffceeefeffbcfbfefff225ffff8e2effffec30ffff2e38ffff3a39ffffd639ffffe23affff7e3bffff3e47ffff3459ffff745fffff686affff0475ffffa27effffa67effffc67effff528bffff568bffff768bffffda9ffffff69fffff04a0ffff24a4ffff90afffffe0fbffff0000000060280000d02800002429000092290000d8290000242a00004c2a00004a9100005c9100006c9100000c920000b8a300007ca700008ca700009ea70000b2a70000c8a700004ea8000054a8000062a8000080a8000092a8000096aa0000e2aa0000c6ab000016b9000056b9000014ba000024ba0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -514,7 +514,7 @@ MonoBehaviour:
       m_ClientGUIView: {fileID: 14}
     m_SearchString: 
   m_ExpandedScenes:
-  - Level_00
+  - _MainMenu
   m_CurrenRootInstanceID: 0
   m_Locked: 0
   m_CurrentSortingName: TransformSorting
@@ -545,14 +545,14 @@ MonoBehaviour:
     width: 703
     height: 341
   m_SceneLighting: 1
-  lastFramingTime: 3489.390288743544
+  lastFramingTime: 1708.848951069885
   m_2DMode: 1
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -962.5, y: 0, z: 0}
+    m_Target: {x: 640, y: 360, z: 0}
     speed: 2
-    m_Value: {x: -962.5, y: 0, z: 0}
+    m_Value: {x: 640, y: 360, z: 0}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -579,9 +579,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 64.1814
+    m_Target: 888.5522
     speed: 2
-    m_Value: 64.1814
+    m_Value: 888.5522
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -655,19 +655,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/_Sprites
+    - Assets/__Scenes
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/_Sprites
+  - Assets/__Scenes
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\David\Documents\UnityProjects\Particelious\Particelious
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 303}
-    m_SelectedIDs: 802c0000
-    m_LastClickedID: 11392
-    m_ExpandedIDs: 00000000f02b0000142c00001c2c00001e2c00002c2c00004a2c00005a2c0000782c0000922c00009a2c0000b82c0000c82c0000ce2c00006a2d00006c2d00006e2d0000702d0000722d0000742d0000762d0000782d00007a2d00007c2d00007e2d0000802d0000822d0000842d0000862d0000882d000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 67.00006}
+    m_SelectedIDs: c4260000
+    m_LastClickedID: 9924
+    m_ExpandedIDs: 00000000da25000000260000082600000a260000202600003e26000054260000a0260000d6260000f0260000202700004c2700004a2b00004c2b00004e2b0000502b0000522b0000542b0000562b0000582b00005a2b00005c2b00005e2b0000602b0000622b0000642b0000662b0000682b000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -695,7 +695,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000f02b0000142c00001c2c00001e2c00002c2c00004a2c00005a2c0000782c0000922c00009a2c0000b82c0000c82c0000ce2c00006a2d00006c2d00006e2d0000702d0000722d0000742d0000762d0000782d00007a2d00007c2d00007e2d0000802d0000822d0000842d0000862d0000882d0000
+    m_ExpandedIDs: 00000000da25000000260000082600000a260000202600003e26000054260000a0260000d6260000f026000020270000462700004c2700004a2b00004c2b00004e2b0000502b0000522b0000542b0000562b0000582b00005a2b00005c2b00005e2b0000602b0000622b0000642b0000662b0000682b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -723,7 +723,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c6230000ea240000a40bfeff82860000f28a00004e68fbff9a6d0000502500008c2500004c2500008025000056250000a02500005c2500009c250000f44400008e2500005e290000f8930000322a0000e8250000e02500006226000060260000a02700009a270000162600006426000046270000722600009a2600006e2600006c270000702600006e2700005026000000000000ca2600003226000058260000c2260000
+    m_ExpandedInstanceIDs: c6230000ea240000a40bfeff82860000f28a00004e68fbff9a6d0000502500008c2500004c2500008025000056250000a02500005c2500009c250000f44400008e2500005e290000f8930000322a0000e8250000e02500006226000060260000a02700009a270000162600006426000046270000722600009a2600006e2600006c270000702600006e2700005026000000000000ca2600003226000058260000c226000056260000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -801,13 +801,13 @@ MonoBehaviour:
     y: 454
     width: 983
     height: 262
-  logPanelScroll: {x: 0, y: -57}
+  logPanelScroll: {x: 0, y: 0}
   logPanelSelectedIndex: -1
   logPanelAutoScroll: 1
-  currentFrame: 196608
+  currentFrame: 198373
   logs:
-    lastGrabbedIndex: 5
-    lastGrabbedCount: 6
+    lastGrabbedIndex: 4
+    lastGrabbedCount: 5
     proEntries: []
     newEntries:
     - logType: 1
@@ -1126,70 +1126,50 @@ MonoBehaviour:
       listIndex: 0
       nativeIndex: 2
       nativeIdentifier: 0
-      originalLog: Manually constructed GameInfo object, shouldn't usually happen.
-      originalStackTrace: 'Manually constructed GameInfo object, shouldn''t usually
-        happen.
+      originalLog: 'Tiled GPU perf. warning: RenderTexture color surface  (320x180)
+        was not cleared/discarded, doing <run with profiler for info>'
+      originalStackTrace: 'Tiled GPU perf. warning: RenderTexture color surface  (320x180)
+        was not cleared/discarded, doing <run with profiler for info>
 
-        UnityEngine.Debug:LogWarning(Object)
+        UnityEngine.Graphics:Blit(Texture, RenderTexture, Material, Int32)
 
-        GlobalInfo:get_instance() (at Assets/_Scripts/Global/GlobalInfo.cs:22)
-
-        PlayerCollision:OnTriggerEnter2D(Collider2D) (at Assets/_Scripts/Player/PlayerCollision.cs:21)
+        MobileBloom:OnPostRender() (at Assets/_Scripts/Effects/MobileBloom.cs:190)
 
 '
-      nativeFileName: Assets/_Scripts/Global/GlobalInfo.cs
-      nativeLineNumber: 22
+      nativeFileName: Assets/_Scripts/Effects/MobileBloom.cs
+      nativeLineNumber: 190
       watchName: 
-      logText: Manually constructed GameInfo object, shouldn't usually happen.
-      logTruncatedText: Manually constructed GameInfo object, shouldn't usually happen.
-      logColumnText: Manually constructed GameInfo object, shouldn't usually happen.
+      logText: 'Tiled GPU perf. warning: RenderTexture color surface  (320x180) was
+        not cleared/discarded, doing <run with profiler for info>'
+      logTruncatedText: 'Tiled GPU perf. warning: RenderTexture color surface  (320x180)
+        was not cleared/discarded, doing <run with profiler for info>'
+      logColumnText: 'Tiled GPU perf. warning: RenderTexture color surface  (320x180)
+        was not cleared/discarded, doing <run with profiler for info>'
       fileName: 
       className: 
       namespaceName: 
       lineCount: 1
       hasSourceCode: 0
-      timeStamp: 3.7279272079467773
-      timeFrame: 418
+      timeStamp: 1.69082772731781
+      timeFrame: 228
       instanceID: 0
       collapsedCount: 0
       cachedHeight: -1
       cachedHeightLogWidth: 0
       stackEntries:
-      - fileName: Assets/_Scripts/Global/GlobalInfo.cs
-        fileNameWithoutAssets: _Scripts/Global/GlobalInfo.cs
-        fileNameWithoutAssetsPlusLineNumber: _Scripts/Global/GlobalInfo.cs:22
-        fileNameWithoutPath: GlobalInfo.cs
-        fileNameWithoutPathPlusLineNumber: GlobalInfo.cs:22
+      - fileName: Assets/_Scripts/Effects/MobileBloom.cs
+        fileNameWithoutAssets: _Scripts/Effects/MobileBloom.cs
+        fileNameWithoutAssetsPlusLineNumber: _Scripts/Effects/MobileBloom.cs:190
+        fileNameWithoutPath: MobileBloom.cs
+        fileNameWithoutPathPlusLineNumber: MobileBloom.cs:190
         instanceID: -1
-        className: GlobalInfo
-        methodName: get_instance
+        className: MobileBloom
+        methodName: OnPostRender
         namespaceName: None
-        lineNumber: 22
+        lineNumber: 190
         charNumber: 0
-        stackLabel: GlobalInfo.get_instance()
-        stackLabel2: '    Assets/_Scripts/Global/GlobalInfo.cs:22'
-        stackLabelContent:
-          m_Text: 
-          m_Image: {fileID: 0}
-          m_Tooltip: 
-        stackLabelWidth: 0
-        stackLabelHeight: 0
-        stackSourceLineHeight: 0
-        sourceCode: []
-        showSource: 1
-      - fileName: Assets/_Scripts/Player/PlayerCollision.cs
-        fileNameWithoutAssets: _Scripts/Player/PlayerCollision.cs
-        fileNameWithoutAssetsPlusLineNumber: _Scripts/Player/PlayerCollision.cs:21
-        fileNameWithoutPath: PlayerCollision.cs
-        fileNameWithoutPathPlusLineNumber: PlayerCollision.cs:21
-        instanceID: -1
-        className: PlayerCollision
-        methodName: OnTriggerEnter2D
-        namespaceName: None
-        lineNumber: 21
-        charNumber: 0
-        stackLabel: PlayerCollision.OnTriggerEnter2D()
-        stackLabel2: '    Assets/_Scripts/Player/PlayerCollision.cs:21'
+        stackLabel: MobileBloom.OnPostRender()
+        stackLabel2: '    Assets/_Scripts/Effects/MobileBloom.cs:190'
         stackLabelContent:
           m_Text: 
           m_Image: {fileID: 0}
@@ -1311,71 +1291,50 @@ MonoBehaviour:
       listIndex: 0
       nativeIndex: 3
       nativeIdentifier: 0
-      originalLog: Manually constructed GameManager object, shouldn't usually happen.
-      originalStackTrace: 'Manually constructed GameManager object, shouldn''t usually
-        happen.
+      originalLog: 'Tiled GPU perf. warning: RenderTexture color surface  (320x180)
+        was not cleared/discarded, doing <run with profiler for info>'
+      originalStackTrace: 'Tiled GPU perf. warning: RenderTexture color surface  (320x180)
+        was not cleared/discarded, doing <run with profiler for info>
 
-        UnityEngine.Debug:LogWarning(Object)
+        UnityEngine.Graphics:Blit(Texture, RenderTexture, Material, Int32)
 
-        GameManager:get_instance() (at Assets/_Scripts/Global/GameManager.cs:19)
-
-        LevelEnd:OnTriggerEnter2D(Collider2D) (at Assets/_Scripts/Interactibles/LevelEnd.cs:14)
+        MobileBloom:OnPostRender() (at Assets/_Scripts/Effects/MobileBloom.cs:190)
 
 '
-      nativeFileName: Assets/_Scripts/Global/GameManager.cs
-      nativeLineNumber: 19
+      nativeFileName: Assets/_Scripts/Effects/MobileBloom.cs
+      nativeLineNumber: 190
       watchName: 
-      logText: Manually constructed GameManager object, shouldn't usually happen.
-      logTruncatedText: Manually constructed GameManager object, shouldn't usually
-        happen.
-      logColumnText: Manually constructed GameManager object, shouldn't usually happen.
+      logText: 'Tiled GPU perf. warning: RenderTexture color surface  (320x180) was
+        not cleared/discarded, doing <run with profiler for info>'
+      logTruncatedText: 'Tiled GPU perf. warning: RenderTexture color surface  (320x180)
+        was not cleared/discarded, doing <run with profiler for info>'
+      logColumnText: 'Tiled GPU perf. warning: RenderTexture color surface  (320x180)
+        was not cleared/discarded, doing <run with profiler for info>'
       fileName: 
       className: 
       namespaceName: 
       lineCount: 1
       hasSourceCode: 0
-      timeStamp: 5.424458026885986
-      timeFrame: 623
+      timeStamp: 8.735876083374023
+      timeFrame: 1401
       instanceID: 0
       collapsedCount: 0
       cachedHeight: -1
       cachedHeightLogWidth: 0
       stackEntries:
-      - fileName: Assets/_Scripts/Global/GameManager.cs
-        fileNameWithoutAssets: _Scripts/Global/GameManager.cs
-        fileNameWithoutAssetsPlusLineNumber: _Scripts/Global/GameManager.cs:19
-        fileNameWithoutPath: GameManager.cs
-        fileNameWithoutPathPlusLineNumber: GameManager.cs:19
+      - fileName: Assets/_Scripts/Effects/MobileBloom.cs
+        fileNameWithoutAssets: _Scripts/Effects/MobileBloom.cs
+        fileNameWithoutAssetsPlusLineNumber: _Scripts/Effects/MobileBloom.cs:190
+        fileNameWithoutPath: MobileBloom.cs
+        fileNameWithoutPathPlusLineNumber: MobileBloom.cs:190
         instanceID: -1
-        className: GameManager
-        methodName: get_instance
+        className: MobileBloom
+        methodName: OnPostRender
         namespaceName: None
-        lineNumber: 19
+        lineNumber: 190
         charNumber: 0
-        stackLabel: GameManager.get_instance()
-        stackLabel2: '    Assets/_Scripts/Global/GameManager.cs:19'
-        stackLabelContent:
-          m_Text: 
-          m_Image: {fileID: 0}
-          m_Tooltip: 
-        stackLabelWidth: 0
-        stackLabelHeight: 0
-        stackSourceLineHeight: 0
-        sourceCode: []
-        showSource: 1
-      - fileName: Assets/_Scripts/Interactibles/LevelEnd.cs
-        fileNameWithoutAssets: _Scripts/Interactibles/LevelEnd.cs
-        fileNameWithoutAssetsPlusLineNumber: _Scripts/Interactibles/LevelEnd.cs:14
-        fileNameWithoutPath: LevelEnd.cs
-        fileNameWithoutPathPlusLineNumber: LevelEnd.cs:14
-        instanceID: -1
-        className: LevelEnd
-        methodName: OnTriggerEnter2D
-        namespaceName: None
-        lineNumber: 14
-        charNumber: 0
-        stackLabel: LevelEnd.OnTriggerEnter2D()
-        stackLabel2: '    Assets/_Scripts/Interactibles/LevelEnd.cs:14'
+        stackLabel: MobileBloom.OnPostRender()
+        stackLabel2: '    Assets/_Scripts/Effects/MobileBloom.cs:190'
         stackLabelContent:
           m_Text: 
           m_Image: {fileID: 0}
@@ -1497,255 +1456,50 @@ MonoBehaviour:
       listIndex: 0
       nativeIndex: 4
       nativeIdentifier: 0
-      originalLog: Manually constructed GameInfo object, shouldn't usually happen.
-      originalStackTrace: 'Manually constructed GameInfo object, shouldn''t usually
-        happen.
+      originalLog: 'Tiled GPU perf. warning: RenderTexture color surface  (320x180)
+        was not cleared/discarded, doing <run with profiler for info>'
+      originalStackTrace: 'Tiled GPU perf. warning: RenderTexture color surface  (320x180)
+        was not cleared/discarded, doing <run with profiler for info>
 
-        UnityEngine.Debug:LogWarning(Object)
+        UnityEngine.Graphics:Blit(Texture, RenderTexture, Material, Int32)
 
-        GlobalInfo:get_instance() (at Assets/_Scripts/Global/GlobalInfo.cs:22)
-
-        PlayerCollision:OnTriggerEnter2D(Collider2D) (at Assets/_Scripts/Player/PlayerCollision.cs:21)
+        MobileBloom:OnPostRender() (at Assets/_Scripts/Effects/MobileBloom.cs:190)
 
 '
-      nativeFileName: Assets/_Scripts/Global/GlobalInfo.cs
-      nativeLineNumber: 22
+      nativeFileName: Assets/_Scripts/Effects/MobileBloom.cs
+      nativeLineNumber: 190
       watchName: 
-      logText: Manually constructed GameInfo object, shouldn't usually happen.
-      logTruncatedText: Manually constructed GameInfo object, shouldn't usually happen.
-      logColumnText: Manually constructed GameInfo object, shouldn't usually happen.
+      logText: 'Tiled GPU perf. warning: RenderTexture color surface  (320x180) was
+        not cleared/discarded, doing <run with profiler for info>'
+      logTruncatedText: 'Tiled GPU perf. warning: RenderTexture color surface  (320x180)
+        was not cleared/discarded, doing <run with profiler for info>'
+      logColumnText: 'Tiled GPU perf. warning: RenderTexture color surface  (320x180)
+        was not cleared/discarded, doing <run with profiler for info>'
       fileName: 
       className: 
       namespaceName: 
       lineCount: 1
       hasSourceCode: 0
-      timeStamp: 7.720389366149902
-      timeFrame: 906
+      timeStamp: 11.210638999938965
+      timeFrame: 1799
       instanceID: 0
       collapsedCount: 0
       cachedHeight: -1
       cachedHeightLogWidth: 0
       stackEntries:
-      - fileName: Assets/_Scripts/Global/GlobalInfo.cs
-        fileNameWithoutAssets: _Scripts/Global/GlobalInfo.cs
-        fileNameWithoutAssetsPlusLineNumber: _Scripts/Global/GlobalInfo.cs:22
-        fileNameWithoutPath: GlobalInfo.cs
-        fileNameWithoutPathPlusLineNumber: GlobalInfo.cs:22
+      - fileName: Assets/_Scripts/Effects/MobileBloom.cs
+        fileNameWithoutAssets: _Scripts/Effects/MobileBloom.cs
+        fileNameWithoutAssetsPlusLineNumber: _Scripts/Effects/MobileBloom.cs:190
+        fileNameWithoutPath: MobileBloom.cs
+        fileNameWithoutPathPlusLineNumber: MobileBloom.cs:190
         instanceID: -1
-        className: GlobalInfo
-        methodName: get_instance
+        className: MobileBloom
+        methodName: OnPostRender
         namespaceName: None
-        lineNumber: 22
+        lineNumber: 190
         charNumber: 0
-        stackLabel: GlobalInfo.get_instance()
-        stackLabel2: '    Assets/_Scripts/Global/GlobalInfo.cs:22'
-        stackLabelContent:
-          m_Text: 
-          m_Image: {fileID: 0}
-          m_Tooltip: 
-        stackLabelWidth: 0
-        stackLabelHeight: 0
-        stackSourceLineHeight: 0
-        sourceCode: []
-        showSource: 1
-      - fileName: Assets/_Scripts/Player/PlayerCollision.cs
-        fileNameWithoutAssets: _Scripts/Player/PlayerCollision.cs
-        fileNameWithoutAssetsPlusLineNumber: _Scripts/Player/PlayerCollision.cs:21
-        fileNameWithoutPath: PlayerCollision.cs
-        fileNameWithoutPathPlusLineNumber: PlayerCollision.cs:21
-        instanceID: -1
-        className: PlayerCollision
-        methodName: OnTriggerEnter2D
-        namespaceName: None
-        lineNumber: 21
-        charNumber: 0
-        stackLabel: PlayerCollision.OnTriggerEnter2D()
-        stackLabel2: '    Assets/_Scripts/Player/PlayerCollision.cs:21'
-        stackLabelContent:
-          m_Text: 
-          m_Image: {fileID: 0}
-          m_Tooltip: 
-        stackLabelWidth: 0
-        stackLabelHeight: 0
-        stackSourceLineHeight: 0
-        sourceCode: []
-        showSource: 1
-      ignoredStackEntries: []
-      lastMatchedCount: 0
-      belongsToFilters: []
-      belongsToStandardFilters: []
-      assignedTempFilter:
-        name: 
-        isEnabled: 1
-        collapsed: 0
-        itemGUID: 
-        filterName: 
-        mainColor: {r: 1, g: 1, b: 1, a: 1}
-        isStandardFilter: 0
-        isTempFilter: 0
-        useAdvancedColors: 0
-        customTextColor: {r: 1, g: 1, b: 1, a: 1}
-        customBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
-        swallowStandard: 1
-        overrideStandardColors: 1
-        overrideStandardIcon: 1
-        collapseIconBackground: 0
-        collapseIconSymbol: 0
-        collapseIconLetter: 0
-        collapseIconTexture: 0
-        useIconBackground: 1
-        useIconSymbol: 0
-        useIconLetter: 0
-        useIconTexture: 0
-        filterFormatVersion: -1
-        iconColorize: 0
-        searchList:
-          list: []
-          selectionList: 0
-          collapsable: 1
-          collapsed: 0
-        iconLetter:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        iconSymbol:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        iconBackground:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        iconTexture:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        showInToolbar: 1
-        hideLabelInToolbar: 0
-        hideWhenNoMatches: 0
-    - logType: 2
-      logPanelVisible: 1
-      logPanelIndex: 0
-      logOutputHeight: -1
-      listIndex: 0
-      nativeIndex: 5
-      nativeIdentifier: 0
-      originalLog: Manually constructed GameInfo object, shouldn't usually happen.
-      originalStackTrace: 'Manually constructed GameInfo object, shouldn''t usually
-        happen.
-
-        UnityEngine.Debug:LogWarning(Object)
-
-        GlobalInfo:get_instance() (at Assets/_Scripts/Global/GlobalInfo.cs:22)
-
-        PlayerCollision:OnTriggerEnter2D(Collider2D) (at Assets/_Scripts/Player/PlayerCollision.cs:21)
-
-'
-      nativeFileName: Assets/_Scripts/Global/GlobalInfo.cs
-      nativeLineNumber: 22
-      watchName: 
-      logText: Manually constructed GameInfo object, shouldn't usually happen.
-      logTruncatedText: Manually constructed GameInfo object, shouldn't usually happen.
-      logColumnText: Manually constructed GameInfo object, shouldn't usually happen.
-      fileName: 
-      className: 
-      namespaceName: 
-      lineCount: 1
-      hasSourceCode: 0
-      timeStamp: 11.720388412475586
-      timeFrame: 1353
-      instanceID: 0
-      collapsedCount: 0
-      cachedHeight: -1
-      cachedHeightLogWidth: 0
-      stackEntries:
-      - fileName: Assets/_Scripts/Global/GlobalInfo.cs
-        fileNameWithoutAssets: _Scripts/Global/GlobalInfo.cs
-        fileNameWithoutAssetsPlusLineNumber: _Scripts/Global/GlobalInfo.cs:22
-        fileNameWithoutPath: GlobalInfo.cs
-        fileNameWithoutPathPlusLineNumber: GlobalInfo.cs:22
-        instanceID: -1
-        className: GlobalInfo
-        methodName: get_instance
-        namespaceName: None
-        lineNumber: 22
-        charNumber: 0
-        stackLabel: GlobalInfo.get_instance()
-        stackLabel2: '    Assets/_Scripts/Global/GlobalInfo.cs:22'
-        stackLabelContent:
-          m_Text: 
-          m_Image: {fileID: 0}
-          m_Tooltip: 
-        stackLabelWidth: 0
-        stackLabelHeight: 0
-        stackSourceLineHeight: 0
-        sourceCode: []
-        showSource: 1
-      - fileName: Assets/_Scripts/Player/PlayerCollision.cs
-        fileNameWithoutAssets: _Scripts/Player/PlayerCollision.cs
-        fileNameWithoutAssetsPlusLineNumber: _Scripts/Player/PlayerCollision.cs:21
-        fileNameWithoutPath: PlayerCollision.cs
-        fileNameWithoutPathPlusLineNumber: PlayerCollision.cs:21
-        instanceID: -1
-        className: PlayerCollision
-        methodName: OnTriggerEnter2D
-        namespaceName: None
-        lineNumber: 21
-        charNumber: 0
-        stackLabel: PlayerCollision.OnTriggerEnter2D()
-        stackLabel2: '    Assets/_Scripts/Player/PlayerCollision.cs:21'
+        stackLabel: MobileBloom.OnPostRender()
+        stackLabel2: '    Assets/_Scripts/Effects/MobileBloom.cs:190'
         stackLabelContent:
           m_Text: 
           m_Image: {fileID: 0}
@@ -1890,7 +1644,7 @@ MonoBehaviour:
     y: 92
     width: 379
     height: 624
-  m_ScrollPosition: {x: 0, y: 163.95508}
+  m_ScrollPosition: {x: 0, y: 0}
   m_InspectorMode: 0
   m_PreviewResizer:
     m_CachedPref: 185

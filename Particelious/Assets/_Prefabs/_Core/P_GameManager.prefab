@@ -109,7 +109,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1374904368531394
 GameObject:
   m_ObjectHideFlags: 1
@@ -177,8 +177,9 @@ GameObject:
   - component: {fileID: 114056291804681172}
   - component: {fileID: 114150375841704308}
   - component: {fileID: 114071698882931508}
+  - component: {fileID: 114443873702176864}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: P_GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -229,6 +230,7 @@ MonoBehaviour:
   - {fileID: 114056291804681172}
   - {fileID: 114150375841704308}
   - {fileID: 114071698882931508}
+  - {fileID: 114443873702176864}
 --- !u!114 &114056291804681172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -267,10 +269,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
-  MainGameSceneName: Main
+  MainGameSceneName: Level_00
   m_CoreObjectsPrefab: {fileID: 114732767363298434, guid: 7b5e38e416a9d6141be8f28999581eb0,
-    type: 2}
-  m_WallSpawnerPrefab: {fileID: 1176293351040832, guid: 162da72a9f1905d4589d6efe678b7be9,
     type: 2}
 --- !u!114 &114383503746310566
 MonoBehaviour:
@@ -293,6 +293,19 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114443873702176864
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1529946167859488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b720d9145890ddf46a71d16b62c45269, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 0}
+  m_FinishedLevelSceneName: FinishedLevel
 --- !u!114 &114445340255692024
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -720,7 +733,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.02, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

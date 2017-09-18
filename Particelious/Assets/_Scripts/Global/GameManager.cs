@@ -87,12 +87,12 @@ public class GameManager : MonoBehaviour {
 
     public void OnPlayerDeath()
     {
-        GameManager.instance.SwitchState(RestartState.GetRestartStateName());
+        this.SwitchState(RestartState.GetRestartStateName());
     }
 
     public void OnFinishedLevel()
     {
-        GameManager.instance.SwitchState(FinishedLevelState.GetFinishedLevelStateName());
+        this.SwitchState(FinishedLevelState.GetFinishedLevelStateName());
     }
 
     public void OnRestart()
@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviour {
 
     public void OnMainMenu()
     {
-        SwitchState(MainMenuState.GetMainMenuStateName());
+        this.SwitchState(MainMenuState.GetMainMenuStateName());
     }
 
     public void OnExitApplication(string from)
