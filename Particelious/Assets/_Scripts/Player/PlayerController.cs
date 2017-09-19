@@ -38,12 +38,8 @@ public class PlayerController : MonoBehaviour {
     {
         bool shouldMove = false;
 
-#if UNITY_ANDROID || UNITY_IOS
-        shouldMove = Input.touchCount > 0;
-#endif
-#if UNITY_STANDALONE || UNITY_EDITOR
-        shouldMove = Input.anyKey;
-#endif
+        shouldMove = Input.touchCount > 0 || Input.anyKey;
+
         if (shouldMove)
         {
             OnTouchDown();

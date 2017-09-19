@@ -380,18 +380,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 20684359914425482, guid: f52fb46ade6a63548a23a70db64f2aa8,
-        type: 2}
-      propertyPath: m_BackGroundColor.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 20684359914425482, guid: f52fb46ade6a63548a23a70db64f2aa8,
-        type: 2}
-      propertyPath: m_BackGroundColor.r
-      value: 0.16470589
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 81449554686903472, guid: f52fb46ade6a63548a23a70db64f2aa8, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f52fb46ade6a63548a23a70db64f2aa8, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1057728391

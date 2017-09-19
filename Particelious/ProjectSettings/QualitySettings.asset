@@ -150,8 +150,8 @@ QualitySettings:
     blendWeights: 1
     textureQuality: 0
     anisotropicTextures: 1
-    antiAliasing: 0
-    softParticles: 0
+    antiAliasing: 8
+    softParticles: 1
     softVegetation: 1
     realtimeReflectionProbes: 0
     billboardsFaceCameraPosition: 0

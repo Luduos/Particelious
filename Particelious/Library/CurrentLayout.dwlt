@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 8}
-  m_MinSize: {x: 950, y: 542}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -232,10 +232,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 957
-  m_MinSize: {x: 679, y: 492}
-  m_MaxSize: {x: 14002, y: 14042}
+  m_MinSize: {x: 681, y: 492}
+  m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 21
+  controlID: 117
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_MinSize: {x: 404, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 22
+  controlID: 118
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -283,7 +283,7 @@ MonoBehaviour:
   m_MinSize: {x: 404, y: 221}
   m_MaxSize: {x: 8004, y: 4021}
   vertical: 0
-  controlID: 23
+  controlID: 119
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -381,8 +381,8 @@ MonoBehaviour:
     y: 0
     width: 535
     height: 957
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 277, y: 71}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 25}
   m_Panes:
   - {fileID: 25}
@@ -417,7 +417,7 @@ MonoBehaviour:
     height: 516
   m_MaximizeOnPlay: 0
   m_Gizmos: 0
-  m_Stats: 0
+  m_Stats: 1
   m_SelectedSizes: 00000000000000000000000010000000000000000000000000000000000000000000000000000000
   m_TargetDisplay: 0
   m_ZoomArea:
@@ -493,9 +493,9 @@ MonoBehaviour:
     height: 516
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 60cfffff
-    m_LastClickedID: -12448
-    m_ExpandedIDs: 48cfffff52cfffff5acfffff5ccfffff60cfffff80cfffff9cd4ffff36d8ffff4ee0ffff6af5ffff00000000
+    m_SelectedIDs: 0e270000
+    m_LastClickedID: 0
+    m_ExpandedIDs: 5c78f9ff2279f9ff407af9ffce81f9ff0c82f9ff4e82f9ffec82f9ffa65efaff6c5ffaff8a60faff1868faff5668faff9868faff3669faffa898faff6e99faff8c9afaff1aa2faff58a2faff9aa2faff38a3faffb6bbfaff82bcfaffb0bdfaff4ec5faff9cc5faffeec5faff9cc6faffeaf4faffc8f5faffe8f6faff78fefaffb8fefafffcfefaff9cfffaff500ffbffb84cfbff964dfbffa84efbff3656fbff7456fbff2e5efbffc85efbfff071fbfff471fbfff671fbff367afbffba89fbff988afbffc68bfbff6493fbffb293fbff909bfbffa49bfbff72c2fbffb0cafbff2ad3fbffbad4fbff88d7fbffe8f5fbfff40ffcff2610fcff3c10fcff5410fcff5610fcff6410fcff7e8affff888affff968affffc28affffd08affffea8affffee8affff0e8bffff6690ffffe893fffff495ffffbe96ffffdc97ffff709fffffae9fffff82a7ffff86a7ffffb0aaffff02adffffcaadfffff8aeffff9cb6ffffeab6ffff3cb7ffffeab7ffffe0fbffff0000000094990100a2990100fac601001ec7010056e30100f0e4010092e5010030e601006ce60100bae9010088ea0100a41602003e180200e01802007e190200ba190200d61d0200223d0200bc3e02005e3f0200fc3f020038400200544402000e6c0200a86d02004a6e0200e86e0200246f02004073020092aa0200
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -545,14 +545,14 @@ MonoBehaviour:
     width: 990
     height: 516
   m_SceneLighting: 1
-  lastFramingTime: 9798.10380267298
+  lastFramingTime: 3976.89400647884
   m_2DMode: 1
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -1000, y: 0, z: 44.95}
+    m_Target: {x: -1000, y: 0, z: 0}
     speed: 2
-    m_Value: {x: -1000, y: 0, z: 44.95}
+    m_Value: {x: -1000, y: 0, z: 0}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -579,9 +579,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 23.822903
+    m_Target: 12.977613
     speed: 2
-    m_Value: 23.822903
+    m_Value: 12.977613
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -655,19 +655,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/__Scenes
+    - Assets/_Prefabs/_Core
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/__Scenes
+  - Assets/_Prefabs/_Core
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\Zcience\Dokumente\UnityProjects\Particalious\Particelious
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: d02c0000
-    m_LastClickedID: 11472
-    m_ExpandedIDs: 00000000382c00005c2c0000642c0000662c0000742c0000902c0000a02c0000be2c0000d82c0000e02c0000022d0000162d0000b22d0000b42d0000b62d0000b82d0000ba2d0000bc2d0000be2d0000c02d0000c22d0000c42d0000c62d0000c82d0000ca2d0000cc2d0000ce2d0000d02d000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 2}
+    m_SelectedIDs: d6260000
+    m_LastClickedID: 9942
+    m_ExpandedIDs: 00000000da25000000260000082600000a260000202600003e26000054260000a0260000d6260000f02600002a27000056270000c82a0000ca2a0000cc2a0000ce2a0000d02a0000d22a0000d42a0000d62a0000d82a0000da2a0000dc2a0000de2a0000e02a0000e22a0000e42a0000e62a000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -695,7 +695,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000382c00005c2c0000642c0000662c0000742c0000902c0000a02c0000be2c0000d82c0000e02c0000022d0000162d0000b22d0000b42d0000b62d0000b82d0000ba2d0000bc2d0000be2d0000c02d0000c22d0000c42d0000c62d0000c82d0000ca2d0000cc2d0000ce2d0000d02d0000
+    m_ExpandedIDs: 00000000da25000000260000082600000a260000202600003e26000054260000a0260000d6260000f02600002a27000056270000c82a0000ca2a0000cc2a0000ce2a0000d02a0000d22a0000d42a0000d62a0000d82a0000da2a0000dc2a0000de2a0000e02a0000e22a0000e42a0000e62a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -726,15 +726,15 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: c6230000ea240000a40bfeff82860000f28a00004e68fbff9a6d0000502500008c2500004c2500008025000056250000a02500005c2500009c250000f44400008e2500005e290000f8930000322a0000e8250000e02500006226000060260000a02700009a270000162600006426000046270000722600009a2600006e2600006c270000702600006e2700005026000000000000ca2600003226000058260000c226000056260000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Level_00
-      m_OriginalName: Level_00
+      m_Name: _Core
+      m_OriginalName: _Core
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 11376
+      m_UserData: 9942
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
@@ -806,8 +806,8 @@ MonoBehaviour:
   logPanelAutoScroll: 1
   currentFrame: 198679
   logs:
-    lastGrabbedIndex: 16
-    lastGrabbedCount: 17
+    lastGrabbedIndex: 12
+    lastGrabbedCount: 13
     proEntries: []
     newEntries:
     - logType: 1
@@ -1148,8 +1148,8 @@ MonoBehaviour:
       namespaceName: 
       lineCount: 1
       hasSourceCode: 0
-      timeStamp: 4.743242263793945
-      timeFrame: 849
+      timeStamp: 3.2030627727508545
+      timeFrame: 534
       instanceID: 0
       collapsedCount: 0
       cachedHeight: -1
@@ -1333,8 +1333,8 @@ MonoBehaviour:
       namespaceName: 
       lineCount: 1
       hasSourceCode: 0
-      timeStamp: 17.841629028320312
-      timeFrame: 3393
+      timeStamp: 4.925200939178467
+      timeFrame: 855
       instanceID: 0
       collapsedCount: 0
       cachedHeight: -1
@@ -1518,8 +1518,8 @@ MonoBehaviour:
       namespaceName: 
       lineCount: 1
       hasSourceCode: 0
-      timeStamp: 20.22470474243164
-      timeFrame: 3853
+      timeStamp: 6.74442195892334
+      timeFrame: 1196
       instanceID: 0
       collapsedCount: 0
       cachedHeight: -1
@@ -1703,8 +1703,8 @@ MonoBehaviour:
       namespaceName: 
       lineCount: 1
       hasSourceCode: 0
-      timeStamp: 20.905075073242188
-      timeFrame: 3981
+      timeStamp: 9.823153495788574
+      timeFrame: 1775
       instanceID: 0
       collapsedCount: 0
       cachedHeight: -1
@@ -1888,8 +1888,8 @@ MonoBehaviour:
       namespaceName: 
       lineCount: 1
       hasSourceCode: 0
-      timeStamp: 21.480308532714844
-      timeFrame: 4091
+      timeStamp: 13.983328819274902
+      timeFrame: 2547
       instanceID: 0
       collapsedCount: 0
       cachedHeight: -1
@@ -2073,8 +2073,8 @@ MonoBehaviour:
       namespaceName: 
       lineCount: 1
       hasSourceCode: 0
-      timeStamp: 22.840524673461914
-      timeFrame: 4351
+      timeStamp: 17.78278160095215
+      timeFrame: 3243
       instanceID: 0
       collapsedCount: 0
       cachedHeight: -1
@@ -2258,8 +2258,8 @@ MonoBehaviour:
       namespaceName: 
       lineCount: 1
       hasSourceCode: 0
-      timeStamp: 23.364456176757812
-      timeFrame: 4451
+      timeStamp: 20.165088653564453
+      timeFrame: 3680
       instanceID: 0
       collapsedCount: 0
       cachedHeight: -1
@@ -2443,8 +2443,8 @@ MonoBehaviour:
       namespaceName: 
       lineCount: 1
       hasSourceCode: 0
-      timeStamp: 24.181665420532227
-      timeFrame: 4606
+      timeStamp: 20.822410583496094
+      timeFrame: 3796
       instanceID: 0
       collapsedCount: 0
       cachedHeight: -1
@@ -2628,8 +2628,8 @@ MonoBehaviour:
       namespaceName: 
       lineCount: 1
       hasSourceCode: 0
-      timeStamp: 24.780658721923828
-      timeFrame: 4725
+      timeStamp: 21.423654556274414
+      timeFrame: 3905
       instanceID: 0
       collapsedCount: 0
       cachedHeight: -1
@@ -2813,8 +2813,8 @@ MonoBehaviour:
       namespaceName: 
       lineCount: 1
       hasSourceCode: 0
-      timeStamp: 27.282421112060547
-      timeFrame: 5201
+      timeStamp: 22.64263916015625
+      timeFrame: 4128
       instanceID: 0
       collapsedCount: 0
       cachedHeight: -1
@@ -2998,8 +2998,8 @@ MonoBehaviour:
       namespaceName: 
       lineCount: 1
       hasSourceCode: 0
-      timeStamp: 28.320043563842773
-      timeFrame: 5397
+      timeStamp: 23.30223274230957
+      timeFrame: 4251
       instanceID: 0
       collapsedCount: 0
       cachedHeight: -1
@@ -3040,843 +3040,6 @@ MonoBehaviour:
         charNumber: 0
         stackLabel: PlayerCollision.OnTriggerEnter2D()
         stackLabel2: '    Assets/_Scripts/Player/PlayerCollision.cs:21'
-        stackLabelContent:
-          m_Text: 
-          m_Image: {fileID: 0}
-          m_Tooltip: 
-        stackLabelWidth: 0
-        stackLabelHeight: 0
-        stackSourceLineHeight: 0
-        sourceCode: []
-        showSource: 1
-      ignoredStackEntries: []
-      lastMatchedCount: 0
-      belongsToFilters: []
-      belongsToStandardFilters: []
-      assignedTempFilter:
-        name: 
-        isEnabled: 1
-        collapsed: 0
-        itemGUID: 
-        filterName: 
-        mainColor: {r: 1, g: 1, b: 1, a: 1}
-        isStandardFilter: 0
-        isTempFilter: 0
-        useAdvancedColors: 0
-        customTextColor: {r: 1, g: 1, b: 1, a: 1}
-        customBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
-        swallowStandard: 1
-        overrideStandardColors: 1
-        overrideStandardIcon: 1
-        collapseIconBackground: 0
-        collapseIconSymbol: 0
-        collapseIconLetter: 0
-        collapseIconTexture: 0
-        useIconBackground: 1
-        useIconSymbol: 0
-        useIconLetter: 0
-        useIconTexture: 0
-        filterFormatVersion: -1
-        iconColorize: 0
-        searchList:
-          list: []
-          selectionList: 0
-          collapsable: 1
-          collapsed: 0
-        iconLetter:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        iconSymbol:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        iconBackground:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        iconTexture:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        showInToolbar: 1
-        hideLabelInToolbar: 0
-        hideWhenNoMatches: 0
-    - logType: 2
-      logPanelVisible: 1
-      logPanelIndex: 0
-      logOutputHeight: -1
-      listIndex: 0
-      nativeIndex: 13
-      nativeIdentifier: 0
-      originalLog: Manually constructed GameInfo object, shouldn't usually happen.
-      originalStackTrace: 'Manually constructed GameInfo object, shouldn''t usually
-        happen.
-
-        UnityEngine.Debug:LogWarning(Object)
-
-        GlobalInfo:get_instance() (at Assets/_Scripts/Global/GlobalInfo.cs:22)
-
-        PlayerCollision:OnTriggerEnter2D(Collider2D) (at Assets/_Scripts/Player/PlayerCollision.cs:21)
-
-'
-      nativeFileName: Assets/_Scripts/Global/GlobalInfo.cs
-      nativeLineNumber: 22
-      watchName: 
-      logText: Manually constructed GameInfo object, shouldn't usually happen.
-      logTruncatedText: Manually constructed GameInfo object, shouldn't usually happen.
-      logColumnText: Manually constructed GameInfo object, shouldn't usually happen.
-      fileName: 
-      className: 
-      namespaceName: 
-      lineCount: 1
-      hasSourceCode: 0
-      timeStamp: 28.362287521362305
-      timeFrame: 5405
-      instanceID: 0
-      collapsedCount: 0
-      cachedHeight: -1
-      cachedHeightLogWidth: 0
-      stackEntries:
-      - fileName: Assets/_Scripts/Global/GlobalInfo.cs
-        fileNameWithoutAssets: _Scripts/Global/GlobalInfo.cs
-        fileNameWithoutAssetsPlusLineNumber: _Scripts/Global/GlobalInfo.cs:22
-        fileNameWithoutPath: GlobalInfo.cs
-        fileNameWithoutPathPlusLineNumber: GlobalInfo.cs:22
-        instanceID: -1
-        className: GlobalInfo
-        methodName: get_instance
-        namespaceName: None
-        lineNumber: 22
-        charNumber: 0
-        stackLabel: GlobalInfo.get_instance()
-        stackLabel2: '    Assets/_Scripts/Global/GlobalInfo.cs:22'
-        stackLabelContent:
-          m_Text: 
-          m_Image: {fileID: 0}
-          m_Tooltip: 
-        stackLabelWidth: 0
-        stackLabelHeight: 0
-        stackSourceLineHeight: 0
-        sourceCode: []
-        showSource: 1
-      - fileName: Assets/_Scripts/Player/PlayerCollision.cs
-        fileNameWithoutAssets: _Scripts/Player/PlayerCollision.cs
-        fileNameWithoutAssetsPlusLineNumber: _Scripts/Player/PlayerCollision.cs:21
-        fileNameWithoutPath: PlayerCollision.cs
-        fileNameWithoutPathPlusLineNumber: PlayerCollision.cs:21
-        instanceID: -1
-        className: PlayerCollision
-        methodName: OnTriggerEnter2D
-        namespaceName: None
-        lineNumber: 21
-        charNumber: 0
-        stackLabel: PlayerCollision.OnTriggerEnter2D()
-        stackLabel2: '    Assets/_Scripts/Player/PlayerCollision.cs:21'
-        stackLabelContent:
-          m_Text: 
-          m_Image: {fileID: 0}
-          m_Tooltip: 
-        stackLabelWidth: 0
-        stackLabelHeight: 0
-        stackSourceLineHeight: 0
-        sourceCode: []
-        showSource: 1
-      ignoredStackEntries: []
-      lastMatchedCount: 0
-      belongsToFilters: []
-      belongsToStandardFilters: []
-      assignedTempFilter:
-        name: 
-        isEnabled: 1
-        collapsed: 0
-        itemGUID: 
-        filterName: 
-        mainColor: {r: 1, g: 1, b: 1, a: 1}
-        isStandardFilter: 0
-        isTempFilter: 0
-        useAdvancedColors: 0
-        customTextColor: {r: 1, g: 1, b: 1, a: 1}
-        customBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
-        swallowStandard: 1
-        overrideStandardColors: 1
-        overrideStandardIcon: 1
-        collapseIconBackground: 0
-        collapseIconSymbol: 0
-        collapseIconLetter: 0
-        collapseIconTexture: 0
-        useIconBackground: 1
-        useIconSymbol: 0
-        useIconLetter: 0
-        useIconTexture: 0
-        filterFormatVersion: -1
-        iconColorize: 0
-        searchList:
-          list: []
-          selectionList: 0
-          collapsable: 1
-          collapsed: 0
-        iconLetter:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        iconSymbol:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        iconBackground:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        iconTexture:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        showInToolbar: 1
-        hideLabelInToolbar: 0
-        hideWhenNoMatches: 0
-    - logType: 2
-      logPanelVisible: 1
-      logPanelIndex: 0
-      logOutputHeight: -1
-      listIndex: 0
-      nativeIndex: 14
-      nativeIdentifier: 0
-      originalLog: Manually constructed GameInfo object, shouldn't usually happen.
-      originalStackTrace: 'Manually constructed GameInfo object, shouldn''t usually
-        happen.
-
-        UnityEngine.Debug:LogWarning(Object)
-
-        GlobalInfo:get_instance() (at Assets/_Scripts/Global/GlobalInfo.cs:22)
-
-        PlayerCollision:OnTriggerEnter2D(Collider2D) (at Assets/_Scripts/Player/PlayerCollision.cs:21)
-
-'
-      nativeFileName: Assets/_Scripts/Global/GlobalInfo.cs
-      nativeLineNumber: 22
-      watchName: 
-      logText: Manually constructed GameInfo object, shouldn't usually happen.
-      logTruncatedText: Manually constructed GameInfo object, shouldn't usually happen.
-      logColumnText: Manually constructed GameInfo object, shouldn't usually happen.
-      fileName: 
-      className: 
-      namespaceName: 
-      lineCount: 1
-      hasSourceCode: 0
-      timeStamp: 28.80236053466797
-      timeFrame: 5488
-      instanceID: 0
-      collapsedCount: 0
-      cachedHeight: -1
-      cachedHeightLogWidth: 0
-      stackEntries:
-      - fileName: Assets/_Scripts/Global/GlobalInfo.cs
-        fileNameWithoutAssets: _Scripts/Global/GlobalInfo.cs
-        fileNameWithoutAssetsPlusLineNumber: _Scripts/Global/GlobalInfo.cs:22
-        fileNameWithoutPath: GlobalInfo.cs
-        fileNameWithoutPathPlusLineNumber: GlobalInfo.cs:22
-        instanceID: -1
-        className: GlobalInfo
-        methodName: get_instance
-        namespaceName: None
-        lineNumber: 22
-        charNumber: 0
-        stackLabel: GlobalInfo.get_instance()
-        stackLabel2: '    Assets/_Scripts/Global/GlobalInfo.cs:22'
-        stackLabelContent:
-          m_Text: 
-          m_Image: {fileID: 0}
-          m_Tooltip: 
-        stackLabelWidth: 0
-        stackLabelHeight: 0
-        stackSourceLineHeight: 0
-        sourceCode: []
-        showSource: 1
-      - fileName: Assets/_Scripts/Player/PlayerCollision.cs
-        fileNameWithoutAssets: _Scripts/Player/PlayerCollision.cs
-        fileNameWithoutAssetsPlusLineNumber: _Scripts/Player/PlayerCollision.cs:21
-        fileNameWithoutPath: PlayerCollision.cs
-        fileNameWithoutPathPlusLineNumber: PlayerCollision.cs:21
-        instanceID: -1
-        className: PlayerCollision
-        methodName: OnTriggerEnter2D
-        namespaceName: None
-        lineNumber: 21
-        charNumber: 0
-        stackLabel: PlayerCollision.OnTriggerEnter2D()
-        stackLabel2: '    Assets/_Scripts/Player/PlayerCollision.cs:21'
-        stackLabelContent:
-          m_Text: 
-          m_Image: {fileID: 0}
-          m_Tooltip: 
-        stackLabelWidth: 0
-        stackLabelHeight: 0
-        stackSourceLineHeight: 0
-        sourceCode: []
-        showSource: 1
-      ignoredStackEntries: []
-      lastMatchedCount: 0
-      belongsToFilters: []
-      belongsToStandardFilters: []
-      assignedTempFilter:
-        name: 
-        isEnabled: 1
-        collapsed: 0
-        itemGUID: 
-        filterName: 
-        mainColor: {r: 1, g: 1, b: 1, a: 1}
-        isStandardFilter: 0
-        isTempFilter: 0
-        useAdvancedColors: 0
-        customTextColor: {r: 1, g: 1, b: 1, a: 1}
-        customBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
-        swallowStandard: 1
-        overrideStandardColors: 1
-        overrideStandardIcon: 1
-        collapseIconBackground: 0
-        collapseIconSymbol: 0
-        collapseIconLetter: 0
-        collapseIconTexture: 0
-        useIconBackground: 1
-        useIconSymbol: 0
-        useIconLetter: 0
-        useIconTexture: 0
-        filterFormatVersion: -1
-        iconColorize: 0
-        searchList:
-          list: []
-          selectionList: 0
-          collapsable: 1
-          collapsed: 0
-        iconLetter:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        iconSymbol:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        iconBackground:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        iconTexture:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        showInToolbar: 1
-        hideLabelInToolbar: 0
-        hideWhenNoMatches: 0
-    - logType: 2
-      logPanelVisible: 1
-      logPanelIndex: 0
-      logOutputHeight: -1
-      listIndex: 0
-      nativeIndex: 15
-      nativeIdentifier: 0
-      originalLog: Manually constructed GameInfo object, shouldn't usually happen.
-      originalStackTrace: 'Manually constructed GameInfo object, shouldn''t usually
-        happen.
-
-        UnityEngine.Debug:LogWarning(Object)
-
-        GlobalInfo:get_instance() (at Assets/_Scripts/Global/GlobalInfo.cs:22)
-
-        PlayerCollision:OnTriggerEnter2D(Collider2D) (at Assets/_Scripts/Player/PlayerCollision.cs:21)
-
-'
-      nativeFileName: Assets/_Scripts/Global/GlobalInfo.cs
-      nativeLineNumber: 22
-      watchName: 
-      logText: Manually constructed GameInfo object, shouldn't usually happen.
-      logTruncatedText: Manually constructed GameInfo object, shouldn't usually happen.
-      logColumnText: Manually constructed GameInfo object, shouldn't usually happen.
-      fileName: 
-      className: 
-      namespaceName: 
-      lineCount: 1
-      hasSourceCode: 0
-      timeStamp: 29.48090171813965
-      timeFrame: 5619
-      instanceID: 0
-      collapsedCount: 0
-      cachedHeight: -1
-      cachedHeightLogWidth: 0
-      stackEntries:
-      - fileName: Assets/_Scripts/Global/GlobalInfo.cs
-        fileNameWithoutAssets: _Scripts/Global/GlobalInfo.cs
-        fileNameWithoutAssetsPlusLineNumber: _Scripts/Global/GlobalInfo.cs:22
-        fileNameWithoutPath: GlobalInfo.cs
-        fileNameWithoutPathPlusLineNumber: GlobalInfo.cs:22
-        instanceID: -1
-        className: GlobalInfo
-        methodName: get_instance
-        namespaceName: None
-        lineNumber: 22
-        charNumber: 0
-        stackLabel: GlobalInfo.get_instance()
-        stackLabel2: '    Assets/_Scripts/Global/GlobalInfo.cs:22'
-        stackLabelContent:
-          m_Text: 
-          m_Image: {fileID: 0}
-          m_Tooltip: 
-        stackLabelWidth: 0
-        stackLabelHeight: 0
-        stackSourceLineHeight: 0
-        sourceCode: []
-        showSource: 1
-      - fileName: Assets/_Scripts/Player/PlayerCollision.cs
-        fileNameWithoutAssets: _Scripts/Player/PlayerCollision.cs
-        fileNameWithoutAssetsPlusLineNumber: _Scripts/Player/PlayerCollision.cs:21
-        fileNameWithoutPath: PlayerCollision.cs
-        fileNameWithoutPathPlusLineNumber: PlayerCollision.cs:21
-        instanceID: -1
-        className: PlayerCollision
-        methodName: OnTriggerEnter2D
-        namespaceName: None
-        lineNumber: 21
-        charNumber: 0
-        stackLabel: PlayerCollision.OnTriggerEnter2D()
-        stackLabel2: '    Assets/_Scripts/Player/PlayerCollision.cs:21'
-        stackLabelContent:
-          m_Text: 
-          m_Image: {fileID: 0}
-          m_Tooltip: 
-        stackLabelWidth: 0
-        stackLabelHeight: 0
-        stackSourceLineHeight: 0
-        sourceCode: []
-        showSource: 1
-      ignoredStackEntries: []
-      lastMatchedCount: 0
-      belongsToFilters: []
-      belongsToStandardFilters: []
-      assignedTempFilter:
-        name: 
-        isEnabled: 1
-        collapsed: 0
-        itemGUID: 
-        filterName: 
-        mainColor: {r: 1, g: 1, b: 1, a: 1}
-        isStandardFilter: 0
-        isTempFilter: 0
-        useAdvancedColors: 0
-        customTextColor: {r: 1, g: 1, b: 1, a: 1}
-        customBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
-        swallowStandard: 1
-        overrideStandardColors: 1
-        overrideStandardIcon: 1
-        collapseIconBackground: 0
-        collapseIconSymbol: 0
-        collapseIconLetter: 0
-        collapseIconTexture: 0
-        useIconBackground: 1
-        useIconSymbol: 0
-        useIconLetter: 0
-        useIconTexture: 0
-        filterFormatVersion: -1
-        iconColorize: 0
-        searchList:
-          list: []
-          selectionList: 0
-          collapsable: 1
-          collapsed: 0
-        iconLetter:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        iconSymbol:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        iconBackground:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        iconTexture:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        showInToolbar: 1
-        hideLabelInToolbar: 0
-        hideWhenNoMatches: 0
-    - logType: 2
-      logPanelVisible: 1
-      logPanelIndex: 0
-      logOutputHeight: -1
-      listIndex: 0
-      nativeIndex: 16
-      nativeIdentifier: 0
-      originalLog: Manually constructed GameManager object, shouldn't usually happen.
-      originalStackTrace: 'Manually constructed GameManager object, shouldn''t usually
-        happen.
-
-        UnityEngine.Debug:LogWarning(Object)
-
-        GameManager:get_instance() (at Assets/_Scripts/Global/GameManager.cs:19)
-
-        PlayerLife:OnDeathEnded() (at Assets/_Scripts/Player/PlayerLife.cs:99)
-
-        UnityEngine.Events.UnityEvent:Invoke()
-
-        PlayerDeathReaction:OnEndDeathAnimation() (at Assets/_Scripts/Player/PlayerDeathReaction.cs:126)
-
-        PlayerDeathReaction:UpdateExplosion() (at Assets/_Scripts/Player/PlayerDeathReaction.cs:117)
-
-        PlayerDeathReaction:Update() (at Assets/_Scripts/Player/PlayerDeathReaction.cs:63)
-
-'
-      nativeFileName: Assets/_Scripts/Global/GameManager.cs
-      nativeLineNumber: 19
-      watchName: 
-      logText: Manually constructed GameManager object, shouldn't usually happen.
-      logTruncatedText: Manually constructed GameManager object, shouldn't usually
-        happen.
-      logColumnText: Manually constructed GameManager object, shouldn't usually happen.
-      fileName: 
-      className: 
-      namespaceName: 
-      lineCount: 1
-      hasSourceCode: 0
-      timeStamp: 30.18123435974121
-      timeFrame: 5754
-      instanceID: 0
-      collapsedCount: 0
-      cachedHeight: -1
-      cachedHeightLogWidth: 0
-      stackEntries:
-      - fileName: Assets/_Scripts/Global/GameManager.cs
-        fileNameWithoutAssets: _Scripts/Global/GameManager.cs
-        fileNameWithoutAssetsPlusLineNumber: _Scripts/Global/GameManager.cs:19
-        fileNameWithoutPath: GameManager.cs
-        fileNameWithoutPathPlusLineNumber: GameManager.cs:19
-        instanceID: -1
-        className: GameManager
-        methodName: get_instance
-        namespaceName: None
-        lineNumber: 19
-        charNumber: 0
-        stackLabel: GameManager.get_instance()
-        stackLabel2: '    Assets/_Scripts/Global/GameManager.cs:19'
-        stackLabelContent:
-          m_Text: 
-          m_Image: {fileID: 0}
-          m_Tooltip: 
-        stackLabelWidth: 0
-        stackLabelHeight: 0
-        stackSourceLineHeight: 0
-        sourceCode: []
-        showSource: 1
-      - fileName: Assets/_Scripts/Player/PlayerLife.cs
-        fileNameWithoutAssets: _Scripts/Player/PlayerLife.cs
-        fileNameWithoutAssetsPlusLineNumber: _Scripts/Player/PlayerLife.cs:99
-        fileNameWithoutPath: PlayerLife.cs
-        fileNameWithoutPathPlusLineNumber: PlayerLife.cs:99
-        instanceID: -1
-        className: PlayerLife
-        methodName: OnDeathEnded
-        namespaceName: None
-        lineNumber: 99
-        charNumber: 0
-        stackLabel: PlayerLife.OnDeathEnded()
-        stackLabel2: '    Assets/_Scripts/Player/PlayerLife.cs:99'
-        stackLabelContent:
-          m_Text: 
-          m_Image: {fileID: 0}
-          m_Tooltip: 
-        stackLabelWidth: 0
-        stackLabelHeight: 0
-        stackSourceLineHeight: 0
-        sourceCode: []
-        showSource: 1
-      - fileName: None
-        fileNameWithoutAssets: None
-        fileNameWithoutAssetsPlusLineNumber: None
-        fileNameWithoutPath: None
-        fileNameWithoutPathPlusLineNumber: None
-        instanceID: -1
-        className: UnityEvent
-        methodName: Invoke
-        namespaceName: UnityEngine.Events
-        lineNumber: 0
-        charNumber: 0
-        stackLabel: UnityEvent.Invoke()
-        stackLabel2: 
-        stackLabelContent:
-          m_Text: 
-          m_Image: {fileID: 0}
-          m_Tooltip: 
-        stackLabelWidth: 0
-        stackLabelHeight: 0
-        stackSourceLineHeight: 0
-        sourceCode: []
-        showSource: 1
-      - fileName: Assets/_Scripts/Player/PlayerDeathReaction.cs
-        fileNameWithoutAssets: _Scripts/Player/PlayerDeathReaction.cs
-        fileNameWithoutAssetsPlusLineNumber: _Scripts/Player/PlayerDeathReaction.cs:126
-        fileNameWithoutPath: PlayerDeathReaction.cs
-        fileNameWithoutPathPlusLineNumber: PlayerDeathReaction.cs:126
-        instanceID: -1
-        className: PlayerDeathReaction
-        methodName: OnEndDeathAnimation
-        namespaceName: None
-        lineNumber: 126
-        charNumber: 0
-        stackLabel: PlayerDeathReaction.OnEndDeathAnimation()
-        stackLabel2: '    Assets/_Scripts/Player/PlayerDeathReaction.cs:126'
-        stackLabelContent:
-          m_Text: 
-          m_Image: {fileID: 0}
-          m_Tooltip: 
-        stackLabelWidth: 0
-        stackLabelHeight: 0
-        stackSourceLineHeight: 0
-        sourceCode: []
-        showSource: 1
-      - fileName: Assets/_Scripts/Player/PlayerDeathReaction.cs
-        fileNameWithoutAssets: _Scripts/Player/PlayerDeathReaction.cs
-        fileNameWithoutAssetsPlusLineNumber: _Scripts/Player/PlayerDeathReaction.cs:117
-        fileNameWithoutPath: PlayerDeathReaction.cs
-        fileNameWithoutPathPlusLineNumber: PlayerDeathReaction.cs:117
-        instanceID: -1
-        className: PlayerDeathReaction
-        methodName: UpdateExplosion
-        namespaceName: None
-        lineNumber: 117
-        charNumber: 0
-        stackLabel: PlayerDeathReaction.UpdateExplosion()
-        stackLabel2: '    Assets/_Scripts/Player/PlayerDeathReaction.cs:117'
-        stackLabelContent:
-          m_Text: 
-          m_Image: {fileID: 0}
-          m_Tooltip: 
-        stackLabelWidth: 0
-        stackLabelHeight: 0
-        stackSourceLineHeight: 0
-        sourceCode: []
-        showSource: 1
-      - fileName: Assets/_Scripts/Player/PlayerDeathReaction.cs
-        fileNameWithoutAssets: _Scripts/Player/PlayerDeathReaction.cs
-        fileNameWithoutAssetsPlusLineNumber: _Scripts/Player/PlayerDeathReaction.cs:63
-        fileNameWithoutPath: PlayerDeathReaction.cs
-        fileNameWithoutPathPlusLineNumber: PlayerDeathReaction.cs:63
-        instanceID: -1
-        className: PlayerDeathReaction
-        methodName: Update
-        namespaceName: None
-        lineNumber: 63
-        charNumber: 0
-        stackLabel: PlayerDeathReaction.Update()
-        stackLabel2: '    Assets/_Scripts/Player/PlayerDeathReaction.cs:63'
         stackLabelContent:
           m_Text: 
           m_Image: {fileID: 0}
