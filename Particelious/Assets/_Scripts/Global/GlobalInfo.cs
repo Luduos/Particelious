@@ -52,14 +52,14 @@ public class GlobalInfo : MonoBehaviour{
         {
             m_GameManager = GetComponent<GameManager>();
         }
-        GameState.OnGameSessionExit += OnRestartLevel;
+        RestartState.OnExitRestartState += OnExitRestart;
     }
 
     void OnDestroy()
     {
         if (this == s_Instance)
             s_Instance = null;
-        GameState.OnGameSessionExit -= OnRestartLevel;
+        RestartState.OnExitRestartState -= OnExitRestart;
     }
 
     public void CollectedCoin()
@@ -75,7 +75,7 @@ public class GlobalInfo : MonoBehaviour{
         UpdateCoinInfo();
     }
 
-    private void OnRestartLevel()
+    private void OnExitRestart()
     {
         CoinsFromCurrentSession = 0;
         UpdateCoinInfo();

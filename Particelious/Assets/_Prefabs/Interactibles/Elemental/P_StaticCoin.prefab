@@ -38,8 +38,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1442078969640882}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -991.1645, y: -0.47110635, z: 36.061867}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.35, y: 1.2122111, z: 25.061867}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -148,15 +148,15 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -994772315
+  randomSeed: -676523651
   InitialModule:
     serializedVersion: 3
     enabled: 1
     startLifetime:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0.5
-      minScalar: 0
+      minMaxState: 3
+      scalar: 1
+      minScalar: 0.2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -196,7 +196,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 5
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -300,7 +300,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.8
+      scalar: 0.6
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -598,7 +598,7 @@ ParticleSystem:
     boxY: 1
     boxZ: 1
     radius:
-      value: 0.1
+      value: 0.58357096
       mode: 0
       spread: 0
       speed:
@@ -644,7 +644,7 @@ ParticleSystem:
           m_RotationOrder: 4
     arc:
       value: 360
-      mode: 3
+      mode: 0
       spread: 0
       speed:
         serializedVersion: 2
@@ -787,8 +787,8 @@ ParticleSystem:
     m_BurstCount: 1
     m_Bursts:
     - time: 0
-      minCount: 20
-      maxCount: 20
+      minCount: 50
+      maxCount: 50
       cycleCount: 1
       repeatInterval: 0.01
   SizeModule:
@@ -1016,7 +1016,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 1, b: 0.6627451, a: 1}
+        key0: {r: 0.5019608, g: 1, b: 1, a: 1}
         key1: {r: 1, g: 1, b: 1, a: 0}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -3174,8 +3174,8 @@ ParticleSystemRenderer:
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
-  m_MinParticleSize: 0.05
-  m_MaxParticleSize: 0.05
+  m_MinParticleSize: 0
+  m_MaxParticleSize: 0.5
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2

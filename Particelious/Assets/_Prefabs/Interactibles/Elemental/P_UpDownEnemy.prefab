@@ -178,15 +178,15 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -452702905
+  randomSeed: 92047731
   InitialModule:
     serializedVersion: 3
     enabled: 1
     startLifetime:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0.5
-      minScalar: 0
+      minMaxState: 3
+      scalar: 2
+      minScalar: 0.4
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -226,7 +226,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -728,7 +728,7 @@ ParticleSystem:
     m_UseMeshColors: 1
     alignToDirection: 0
     randomDirectionAmount: 1
-    sphericalDirectionAmount: 0
+    sphericalDirectionAmount: 1
   EmissionModule:
     enabled: 1
     serializedVersion: 4

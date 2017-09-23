@@ -12,6 +12,8 @@ public class RestartState : AState
     private static string s_RestartStateName = "RestartState";
     public static string GetRestartStateName() { return s_RestartStateName; }
 
+    public static System.Action OnExitRestartState;
+
     public override void Enter(AState from)
     {
         SceneManager.LoadScene(m_RestartMenuSceneName);
@@ -19,7 +21,10 @@ public class RestartState : AState
 
     public override void Exit(AState to)
     {
-
+        if(null != OnExitRestartState)
+        {
+            OnExitRestartState.Invoke();
+        }
     }
 
     public override string GetName()
