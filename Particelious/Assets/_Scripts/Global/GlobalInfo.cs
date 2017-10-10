@@ -1,13 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-[RequireComponent(typeof(GameManager))]
 public class GlobalInfo : MonoBehaviour{
-
-    [SerializeField]
-    private GameManager m_GameManager = null;
- 
     static protected GlobalInfo s_Instance = null;
     static public GlobalInfo instance
     {
@@ -47,19 +41,12 @@ public class GlobalInfo : MonoBehaviour{
         }
         s_Instance = this;
         DontDestroyOnLoad(this.gameObject);
-
-        if(null == m_GameManager)
-        {
-            m_GameManager = GetComponent<GameManager>();
-        }
-        RestartState.OnExitRestartState += OnExitRestart;
     }
 
     void OnDestroy()
     {
         if (this == s_Instance)
             s_Instance = null;
-        RestartState.OnExitRestartState -= OnExitRestart;
     }
 
     public void CollectedCoin()

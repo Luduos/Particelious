@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 [RequireComponent(typeof(Canvas))]
 public class GlobalCanvasCameraFetcher : MonoBehaviour {
-
-
     private Canvas CurrentCanvas = null;
     // Use this for initialization
 
@@ -14,7 +13,6 @@ public class GlobalCanvasCameraFetcher : MonoBehaviour {
         if (null == CurrentCanvas)
             CurrentCanvas = GetComponent<Canvas>();
 
-        GameState.OnFinishedGameSessionLoading += LevelLoaded;
         SceneManager.sceneLoaded += LevelLoaded;
     }
 
@@ -38,7 +36,6 @@ public class GlobalCanvasCameraFetcher : MonoBehaviour {
 
     private void OnDestroy()
     {
-        GameState.OnFinishedGameSessionLoading -= LevelLoaded;
         SceneManager.sceneLoaded -= LevelLoaded;
     }
 }

@@ -44,6 +44,7 @@ public class UIController : MonoBehaviour{
         {
             PlayerWaveMovement = HelperFunctions.TryGetPlayerMovement();
         }
+
         if (PlayerMesh && PlayerWaveMovement && MainCamera)
         {
             float CurrentScale = PlayerMesh.transform.localScale.y * 0.5f;
@@ -65,10 +66,12 @@ public class UIController : MonoBehaviour{
         {
             PlayerWaveMovement.OnReachedTopMostPoint += OnShowGoingDownSignal;
         }
+
         if (null != m_ImplicatorInfo.GoingDownSignal)
         {
             PlayerWaveMovement.OnReachedBottomMostPoint += OnShowGoingUpSignal;
         }
+
         m_ImplicatorInfo.GoingUpSignal.CrossFadeAlpha(m_ImplicatorInfo.SignalAlphaMax, 0.0f, false);
         m_ImplicatorInfo.GoingDownSignal.CrossFadeAlpha(m_ImplicatorInfo.SignalAlphaMin, 0.0f, false);
     }

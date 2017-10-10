@@ -24,16 +24,12 @@ public class CoinInfoController : MonoBehaviour {
             m_GlobalInfo.OnCurrentSessionCoinCountChanged += OnUpdateCoinProgressSlider;
             m_GlobalInfo.UpdateCoinInfo();
         }
-
-       // GameState.OnGameSessionEnter += ShowProgressSlider;
-        GameState.OnGameSessionExit += HideProgessSlider;
         HideProgessSlider();
     }
 
     private void OnDestroy()
     {
-       // GameState.OnGameSessionEnter -= ShowProgressSlider;
-        GameState.OnGameSessionExit -= HideProgessSlider;
+
     }
 
     private void ShowProgressSlider()
