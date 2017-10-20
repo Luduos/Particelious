@@ -40,7 +40,7 @@ public class Wall : Cullable {
         m_Renderer.size = NewSize;
         m_Collider.size = NewSize;
         var shape = m_ParticleSystem.shape;
-        shape.box = NewSize;
+        shape.scale = NewSize;
         var emission = m_ParticleSystem.emission;
         emission.rateOverTime = NewSize.x * NewSize.y * m_ParticleCountMultiplier;
     }
