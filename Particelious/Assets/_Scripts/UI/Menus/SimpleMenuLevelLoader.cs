@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelLoader : MonoBehaviour {
+public class SimpleMenuLevelLoader : MonoBehaviour {
 
     public void LevelToLoad(string LevelName)
     {

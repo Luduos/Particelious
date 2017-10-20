@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+
 public class GlobalInfo : MonoBehaviour{
     static protected GlobalInfo s_Instance = null;
     static public GlobalInfo instance
@@ -13,7 +12,7 @@ public class GlobalInfo : MonoBehaviour{
                 DontDestroyOnLoad(o);
                 s_Instance = o.AddComponent<GlobalInfo>();
 
-                Debug.LogWarning("Manually constructed GameInfo object, shouldn't usually happen.");
+                Debug.LogWarning("Manually constructed GameInfo object, usually shouldn't happen.");
             }
             return s_Instance;
         }
@@ -28,9 +27,8 @@ public class GlobalInfo : MonoBehaviour{
     private int m_CoinsFromCurrentSession = 0;
     public int CoinsFromCurrentSession { get { return m_CoinsFromCurrentSession; } set { m_CoinsFromCurrentSession = value; } }
 
-    private int m_CurrentLevel = 1;
+    private int m_CurrentLevel = -1;
     public int CurrentLevel { get { return m_CurrentLevel; } set { m_CurrentLevel = value; } }
-
 
     void Start()
     {

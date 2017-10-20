@@ -32,6 +32,7 @@ public class LevelSelection : MonoBehaviour {
     private void StartLevel(int levelID)
     {
         SceneManager.LoadScene("Level_" + levelID);
+        GlobalInfo.instance.CurrentLevel = levelID;
     }
 
     private void PreviousPage()
