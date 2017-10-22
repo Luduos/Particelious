@@ -7,4 +7,22 @@ public class SimpleMenuLevelLoader : MonoBehaviour {
     {
         SceneManager.LoadScene(LevelName);
     }
+
+    public void RestartCurrentGameLevel()
+    {
+        int levelID = GlobalInfo.instance.CurrentLevel;
+        if(levelID >= 0)
+        {
+            SceneManager.LoadScene("Level_" + levelID);
+        }
+    }
+
+    public void LeaveCurrentAdditiveLevel()
+    {
+        if(SceneManager.sceneCount > 1)
+        {
+            int latestSceneID = SceneManager.sceneCount - 1;
+            SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(latestSceneID));
+        }
+    }
 }

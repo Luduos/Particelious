@@ -19,7 +19,7 @@ public struct ImplicatorInformation
     public float FadeDuration;
 }
 
-public class UIController : MonoBehaviour{
+public class GameUIController : MonoBehaviour{
     [SerializeField]
     private WaveMovement PlayerWaveMovement = null;
     [SerializeField]
