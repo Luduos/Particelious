@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Canvas))]
 public class GlobalCanvasCameraFetcher : MonoBehaviour {
+    [SerializeField]
     private Canvas CurrentCanvas = null;
-    // Use this for initialization
 
     void Start()
     {
@@ -14,23 +12,29 @@ public class GlobalCanvasCameraFetcher : MonoBehaviour {
             CurrentCanvas = GetComponent<Canvas>();
 
         SceneManager.sceneLoaded += LevelLoaded;
-    }
-
-    void LevelLoaded()
-    {
-        if (CurrentCanvas)
-        {
-            CurrentCanvas.renderMode = RenderMode.ScreenSpaceCamera;
-            CurrentCanvas.worldCamera = FindObjectOfType<CameraController>().GetComponent<Camera>();
-        }
+        SceneManager.sceneUnloaded += LevelUnloaded;
     }
 
     void LevelLoaded(Scene loadedScene, LoadSceneMode loadSceneMode)
     {
+        ActivateBloomCamOnCanvas();
+    }
+
+    void LevelUnloaded(Scene unloadedScene)
+    {
+        ActivateBloomCamOnCanvas();
+    }
+
+    private void ActivateBloomCamOnCanvas()
+    {
         if (CurrentCanvas)
         {
             CurrentCanvas.renderMode = RenderMode.ScreenSpaceCamera;
-            CurrentCanvas.worldCamera = Camera.main;
+            MobileBloom mobileBloomCamera = FindObjectOfType<MobileBloom>();
+            if (mobileBloomCamera)
+            {
+                CurrentCanvas.worldCamera = mobileBloomCamera.GetComponent<Camera>();
+            }
         }
     }
 
