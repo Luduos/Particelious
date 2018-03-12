@@ -191,12 +191,12 @@ public class MobileBloom : MonoBehaviour {
         
         // First Horizontal Blur
         Graphics.Blit(temp_LowQuality, temp_Bloom, m_BloomMaterial, 0);
-
+        temp_LowQuality.DiscardContents();
         // Vertical Blur and addition to original Scene
         m_BloomMaterial.SetFloatArray("_SingleStepOffset", m_VerticelTexelSizes);
         m_BloomMaterial.SetTexture("_OriginalScene", temp_LowQuality);
         Graphics.Blit(temp_Bloom, temp_LowQuality, m_BloomMaterial, 1);
-        
+        temp_Bloom.DiscardContents();
         // Second Horizontal Blur
         m_BloomMaterial.SetFloat("_Threshold", m_Threshold);
         m_BloomMaterial.SetFloatArray("_SingleStepOffset", m_HorizontalTexelSizes);
